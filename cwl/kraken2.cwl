@@ -50,7 +50,7 @@ outputs:
   kraken2:
     type: File
     outputBinding:
-      glob: "*.output" 
+      glob: "*.kraken2" 
   report:
     type: File
     outputBinding:
