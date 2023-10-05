@@ -79,5 +79,5 @@ steps:
   decontaminationStringent:
     run: workflow.cwl
     in:
-      data: decontaminationStringent.cwl
+      data: microbiomeCwlWorkflow/outputs_cwl
     out: [decontaminationStringent_results]
