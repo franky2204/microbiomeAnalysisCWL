@@ -49,12 +49,12 @@ outputs:
 
 steps:
   datasetAnalysis:
-    run: cwl/datasetAnalysis.cwl
+    run: workflow.cwl
     in:
       fastq_directory: fastq_directory
     out: [raw_results]
   microbiomeCwlWorkflow:
-    run: cwl/microbiomeCwlWorkflow.cwl
+    run: workflow.cwl
     in:
       fastq_directory: fastq_directory
       index: index
@@ -62,22 +62,22 @@ steps:
       db_path: db_path
     out: [outputs_cwl]
   prevalenceAnalysis:
-    run: cwl/prevalenceAnalysis.cwl
+    run: workflow.cwl
     in:
       data: microbiomeCwlWorkflow/outputs_cwl
     out: [prevalence_results]
   decontaminationBrute-force:
-    run: cwl/decontaminationBrute-force.cwl
+    run: workflow.cwl
     in:
        data: microbiomeCwlWorkflow/outputs_cwl
     out: [decontaminationBrute-force_results]
   decontaminationDNA:
-    run: cwl/decontaminationDNA.cwl
+    run: workflow.cwl
     in: 
       data: microbiomeCwlWorkflow/outputs_cwl
     out: [decontaminationDNA_results]
   decontaminationStringent:
-    run: cwl/decontaminationStringent.cwl
+    run: workflow.cwl
     in:
       data: decontaminationStringent.cwl
     out: [decontaminationStringent_results]
