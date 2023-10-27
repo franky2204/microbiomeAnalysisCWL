@@ -9,6 +9,9 @@ requirements:
   SubworkflowFeatureRequirement: {}
 
 inputs:
+  raw_chm13:
+    type: File
+  method: int?
   fastq_directory: Directory
   db_path: 
     type:
@@ -29,6 +32,9 @@ inputs:
       - .sa
 
 outputs:
+  indexed_chm13:
+    type: File[]
+    outputSource: indexing/indexed_chm13
   unmapped_R1:
     type: File[]
     outputSource: humanmapper/unmapped_R1
@@ -60,6 +66,12 @@ steps:
     in:
       fastq_directory: fastq_directory
     out: [read_1, read_2]
+  indexing:
+    run: cwl/indexing.cwl
+    in:
+      raw_chm13: raw_chm13
+      method: method
+    out: [indexed_chm13] 
   humanmapper:
     run: cwl/humanMapper.cwl
     scatter: [read_1, read_2]
@@ -70,6 +82,7 @@ steps:
       index: index
       threads: threads
     out: [unmapped_R1, unmapped_R2]
+    #here add step
   kraken2:
     run: cwl/kraken2.cwl
     scatter: [read_1, read_2]
