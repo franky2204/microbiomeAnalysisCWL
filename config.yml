@@ -1,13 +1,13 @@
 index:
   class: File
-  path: /home/scontaldo/variantCalling/hg38-20221027/indexGenome/hg38.fa
-threads: 21 
+  path: /storage/fpantini/reference/indexGenome/hg38.fa 
+threads: 7 
 db_path:
   class: File
-  path: /fungi/krakenDB/Virus/hash.k2d
+  path: /storage/fpantini/reference/krakenDB/Fungi/hash.k2d
 fastq_directory:
   class: Directory
-  location: data 
+  location: /storage/fpantini/dataInput 
 raw_chm13:
   class: File
   path: /storage/fpantini/reference/indexGenome/chm13v2.0.fa
