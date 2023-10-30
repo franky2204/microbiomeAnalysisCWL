@@ -83,13 +83,23 @@ steps:
       threads: threads
     out: [unmapped_R1, unmapped_R2]
     #here add step
-  kraken2:
-    run: cwl/kraken2.cwl
+  humanMapper_chm13:
+    run: cwl/humanMapperChm13.cwl
     scatter: [read_1, read_2]
     scatterMethod: dotproduct
     in:
       read_1: humanmapper/unmapped_R1
       read_2: humanmapper/unmapped_R2
+      indexed_chm13: indexing/indexed_chm13
+      threads: threads
+    out: [unmapped_R1_chm13, unmapped_R2_chm13]
+  kraken2:
+    run: cwl/kraken2.cwl
+    scatter: [read_1, read_2]
+    scatterMethod: dotproduct
+    in:
+      read_1: humanMapper_chm13/unmapped_R1_chm13
+      read_2: humanMapper_chm13/unmapped_R2_chm13
       db_path: db_path
       threads: threads
     out: [kraken2, report] 
