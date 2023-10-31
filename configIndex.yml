@@ -1,0 +1,5 @@
+raw_chm13:
+  class: File
+  path: /storage/fpantini/reference/indexGenome/chm13v2.0.fa
+path_db: ""
+method: ""
