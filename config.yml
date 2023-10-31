@@ -8,9 +8,6 @@ db_path:
 fastq_directory:
   class: Directory
   location: /storage/fpantini/dataInput 
-raw_chm13:
-  class: File
-  path: /storage/fpantini/reference/indexGenome/chm13v2.0.fa
-method: 2 #0 is the default algorithm
-          #1 IS linear-time algorithm for constructing suffix array
-          #2 Algorithm implemented in BWT-SW(works with whole human genome)
+
+
+  
