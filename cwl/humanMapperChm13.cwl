@@ -1,3 +1,4 @@
+#!/usr/bin/env cwl-runner
 cwlVersion: v1.2
 class: CommandLineTool
 
@@ -12,22 +13,20 @@ hints:
   ResourceRequirement:
     coresMax: $(inputs.threads)
   DockerRequirement:
-    dockerPull: filtering/chm13
+    dockerPull: scontaldo/humanmapper
 
-baseCommand: ["bash", "/script/hMSecondStep.sh"]
+baseCommand: ["bash", "/scripts/humanMapper13.sh"]
 
 inputs:
   read_1:
-    doc: ""
     type: File
     inputBinding:
       position: 1 
   read_2:
-    doc: ""
     type: File
     inputBinding:
       position: 2
-  indexed_chm13:
+  index_chm13:
     doc: "indexed chm13 used as reference"
     type: File
     inputBinding:
@@ -36,16 +35,14 @@ inputs:
       - .amb
       - .ann
       - .bwt
-      - .fai
       - .pac
       - .sa
-    threads:
-      doc: "Max number of threads in use"
-      type: int?
-      default: 1
-      inputBinding:
-        position: 4
-
+  threads:
+    doc: "Max number of threads in use"
+    type: int?
+    default: 1
+    inputBinding:
+      position: 4
 outputs:
   unmapped_R1_chm13:
     type: File

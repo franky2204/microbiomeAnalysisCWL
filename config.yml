@@ -1,6 +1,9 @@
 index:
   class: File
   path: /storage/fpantini/reference/indexGenome/hg38.fa 
+index_chm13:
+  class: File
+  path: /storage/fpantini/reference/indexGenome/chm13v2.0.fa 
 threads: 7 
 db_path:
   class: File

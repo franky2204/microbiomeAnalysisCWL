@@ -9,9 +9,6 @@ requirements:
   SubworkflowFeatureRequirement: {}
 
 inputs:
-  raw_chm13:
-    type: File
-  method: int?
   fastq_directory: Directory
   db_path: 
     type:
@@ -30,17 +27,28 @@ inputs:
       - .fai
       - .pac
       - .sa
+  index_chm13:
+    type: File
+    secondaryFiles:
+      - .amb
+      - .ann
+      - .bwt
+      - .pac
+      - .sa
 
 outputs:
-  indexed_chm13:
-    type: File[]
-    outputSource: indexing/indexed_chm13
   unmapped_R1:
     type: File[]
     outputSource: humanmapper/unmapped_R1
   unmapped_R2:
     type: File[]
     outputSource: humanmapper/unmapped_R2
+  unmapped_R1_chm13:
+    type: File[]
+    outputSource: humanMapper_chm13/unmapped_R1_chm13
+  unmapped_R2_chm13:
+    type: File[]
+    outputSource: humanMapper_chm13/unmapped_R2_chm13
   kraken2_output:
     type: File[]
     outputSource: kraken2/kraken2
@@ -66,12 +74,6 @@ steps:
     in:
       fastq_directory: fastq_directory
     out: [read_1, read_2]
-  indexing:
-    run: cwl/indexing.cwl
-    in:
-      raw_chm13: raw_chm13
-      method: method
-    out: [indexed_chm13] 
   humanmapper:
     run: cwl/humanMapper.cwl
     scatter: [read_1, read_2]
@@ -82,7 +84,6 @@ steps:
       index: index
       threads: threads
     out: [unmapped_R1, unmapped_R2]
-    #here add step
   humanMapper_chm13:
     run: cwl/humanMapperChm13.cwl
     scatter: [read_1, read_2]
@@ -90,7 +91,7 @@ steps:
     in:
       read_1: humanmapper/unmapped_R1
       read_2: humanmapper/unmapped_R2
-      indexed_chm13: indexing/indexed_chm13
+      index_chm13: index_chm13
       threads: threads
     out: [unmapped_R1_chm13, unmapped_R2_chm13]
   kraken2:
