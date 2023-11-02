@@ -44,9 +44,6 @@ inputs:
     default: 1
     inputBinding:
       position: 4
-  step: 
-    type: int
-    default: 1
 
 outputs:
   unmapped_R1:
