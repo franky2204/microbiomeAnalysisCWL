@@ -8,7 +8,7 @@ doc: |
 requirements:
   InlineJavascriptRequirement: {}
   InitialWorkDirRequirement:
-    listing: [ $(inputs.indexed_chm13)]
+    listing: [ $(inputs.index_chm13)]
 hints:
   ResourceRequirement:
     coresMax: $(inputs.threads)
