@@ -27,7 +27,7 @@ inputs:
     inputBinding:
       position: 2
   index_chm13:
-    doc: "indexed chm13 used as reference"
+    doc: "index chm13 used as reference"
     type: File
     inputBinding:
       position: 3
@@ -35,7 +35,6 @@ inputs:
       - .amb
       - .ann
       - .bwt
-      - .fai
       - .pac
       - .sa
   threads:
@@ -49,11 +48,11 @@ outputs:
   unmapped_R1_chm13:
     type: File
     outputBinding:
-      glob: "*_unmapped_R1.fastq.gz"
+      glob: "*_13_unmapped_R1.fastq.gz"
   unmapped_R2_chm13:
     type: File
     outputBinding:
-      glob: "*_unmapped_R2.fastq.gz"
+      glob: "*_13_unmapped_R2.fastq.gz"
 
 
 
