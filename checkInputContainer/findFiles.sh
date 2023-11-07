@@ -5,18 +5,18 @@ folder_path=$1
 string=""
 
 # Itera attraverso i file nella cartella
-for file in "$folder_path"/*; do
-	if [[ $file =~ R1 ]]; then
-		r2_file="${file/R1/R2}"
-		if [ -f "$r2_file" ]; then
-			file=$(basename "$file")
+for file in "$folder_path"/*; do #cicla ogni file della cartella
+	if [[ $file =~ R1 ]]; then #controlla il file contenga nel nome R1 
+		r2_file="${file/R1/R2}" #crea una stringa rimpiazzando R1 con R2
+		if [ -f "$r2_file" ]; then #controlla chge esista un file con lo stesso nome
+			file=$(basename "$file") 
 			r2_file=$(basename "$r2_file")
-			if [ -n "$string" ]; then
-				string="$string,\"$file,$r2_file\""
+			if [ -n "$string" ]; then #se string non è vuota
+				string="$string,\"$file,$r2_file\"" #aggiunge i nomi dei due file separati da una virgola e li attacca dietro gli altri
 			else
-				string="\"$file,$r2_file\""
+				string="\"$file,$r2_file\"" #aggiunge i nomi dei due file senza estensione separati da una virgola
 			fi
 		fi
 	fi
 done
-echo "{\"value\": [$string]}"
+echo "{\"value\": [$string]}" #ritorna una stringa del tipo "value": ["a1R1.xyz,a1R2.xyz","a2R1.xyz,a2R2.xyz"...]
