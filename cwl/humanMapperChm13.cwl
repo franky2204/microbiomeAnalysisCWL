@@ -35,6 +35,7 @@ inputs:
       - .amb
       - .ann
       - .bwt
+      - .fai
       - .pac
       - .sa
   threads:
@@ -43,6 +44,7 @@ inputs:
     default: 1
     inputBinding:
       position: 4
+      
 outputs:
   unmapped_R1_chm13:
     type: File
