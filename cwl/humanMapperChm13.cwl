@@ -15,7 +15,7 @@ hints:
   DockerRequirement:
     dockerPull: scontaldo/humanmapper
 
-baseCommand: ["bash", "/scripts/humanMapper.sh"]
+baseCommand: ["bash", "/scripts/humanMapper13.sh"]
 
 inputs:
   read_1:
