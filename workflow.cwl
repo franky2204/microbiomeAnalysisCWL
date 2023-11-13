@@ -43,12 +43,12 @@ outputs:
   unmapped_R2:
     type: File[]
     outputSource: humanmapper/unmapped_R2
-  unmapped_R1_chm:
+  unmapped_chm_R1:
     type: File[]
-    outputSource: humanMapper_chm13/unmapped_R1_chm
-  unmapped_R2_chm:
+    outputSource: humanMapper_chm13/unmapped_chm_R1
+  unmapped_chm_R2:
     type: File[]
-    outputSource: humanMapper_chm13/unmapped_R2_chm
+    outputSource: humanMapper_chm13/unmapped_chm_R2
   kraken2_output:
     type: File[]
     outputSource: kraken2/kraken2
@@ -93,14 +93,14 @@ steps:
       read_2: humanmapper/unmapped_R2
       index_chm13: index_chm13
       threads: threads
-    out: [unmapped_R1_chm, unmapped_R2_chm]
+    out: [unmapped_chm_R1, unmapped_chm_R2]
   kraken2:
     run: cwl/kraken2.cwl
     scatter: [read_1, read_2]
     scatterMethod: dotproduct
     in:
-      read_1: humanMapper_chm13/unmapped_R1_chm
-      read_2: humanMapper_chm13/unmapped_R2_chm
+      read_1: humanMapper_chm13/unmapped_chm_R1
+      read_2: humanMapper_chm13/unmapped_chm_R2
       db_path: db_path
       threads: threads
     out: [kraken2, report] 

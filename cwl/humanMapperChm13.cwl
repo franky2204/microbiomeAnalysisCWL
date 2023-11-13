@@ -45,14 +45,14 @@ inputs:
       position: 4
       
 outputs:
-  unmapped_R1_chm:
+  unmapped_chm_R1:
     type: File
     outputBinding:
-      glob: "*_unmapped_R1_chm.fastq.gz"
-  unmapped_R2_chm:
+      glob: "*_unmapped_chm_R1.fastq.gz"
+  unmapped_chm_R2:
     type: File
     outputBinding:
-      glob: "*_unmapped_R2_chm.fastq.gz"
+      glob: "*_unmapped_chm_R2.fastq.gz"
 
 
 
