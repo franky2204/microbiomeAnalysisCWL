@@ -60,7 +60,7 @@ steps:
       fastq_directory: fastq_directory
     out: [read_1, read_2]
   humanMapper_chm13:
-    run: cwl/humanMapperChm13.cwl
+    run: cwl/humanMapperOnlyChm13.cwl
     scatter: [read_1, read_2]
     scatterMethod: dotproduct
     in:
