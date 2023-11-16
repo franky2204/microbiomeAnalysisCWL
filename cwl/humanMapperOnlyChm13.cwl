@@ -48,11 +48,11 @@ outputs:
   unmapped13_R1:
     type: File
     outputBinding:
-      glob: "*_chm_unmapped_R1.fastq.gz"
+      glob: "*_unmapped_R1.fastq.gz"
   unmapped13_R2:
     type: File
     outputBinding:
-      glob: "*_chm_unmapped_R1.fastq.gz"
+      glob: "*_unmapped_R1.fastq.gz"
 
 
 
