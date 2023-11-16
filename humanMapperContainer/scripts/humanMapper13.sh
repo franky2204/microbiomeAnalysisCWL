@@ -5,6 +5,7 @@ file_name=$(echo ${file_fullname} | cut -d'.' -f1) #file name without extension
 patient=$(echo ${file_name} | cut -d'_' -f1)
 chm="_chm13"
 file_name="$file_name$chm"
+patient="$patient$chm"
 index=$3
 threads=$4
 
