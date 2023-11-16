@@ -15,7 +15,7 @@ hints:
   DockerRequirement:
     dockerPull: scontaldo/humanmapper
 
-baseCommand: ["bash", "/scripts/humanMapper.sh"]
+baseCommand: ["bash", "/scripts/humanMapper13.sh"]
 
 inputs:
   read_1:
@@ -48,11 +48,11 @@ outputs:
   unmapped13_R1:
     type: File
     outputBinding:
-      glob: "*_unmapped_R1.fastq.gz"
+      glob: "*_chm_unmapped_R1.fastq.gz"
   unmapped13_R2:
     type: File
     outputBinding:
-      glob: "*_unmapped_R1.fastq.gz"
+      glob: "*_chm_unmapped_R1.fastq.gz"
 
 
 
