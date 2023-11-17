@@ -49,7 +49,7 @@ outputs:
   unmapped_file:
     type: File
     outputBinding:
-      glob: "*_unmapped_file.fastq.gz"
+      glob: "*_unmapped.fastq.gz"
 
 
 
