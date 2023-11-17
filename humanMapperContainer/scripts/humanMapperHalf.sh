@@ -9,7 +9,7 @@ threads=$4
 
 
 time {
-	bwa mem -t $threads $index $1 $2 > ${file_name}_pe.sam
-	samtools fastq -f 4 -@ $threads ${file_name}_pe.sam > ${file_name}_unmapped.fastq
-    gzip ${file_name}_unmapped.fastq
+	bwa mem -t $threads $index $1 $2 > ${patient}_pe.sam
+	samtools fastq -f 4 -@ $threads ${patient}_pe.sam > ${patient}_unmapped.fastq
+    gzip ${patient}_unmapped.fastq
 }
