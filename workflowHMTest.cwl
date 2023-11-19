@@ -24,6 +24,9 @@ outputs:
   unmapped_file:
     type: File[]
     outputSource: humanMapper/unmapped_file
+  single_pair:
+    type: File[]
+    outputSource: humanMapper/single_pair
 
 steps:
   check-input:
@@ -40,4 +43,4 @@ steps:
       read_2: check-input/read_2
       index: index
       threads: threads
-    out: [unmapped_file]
+    out: [unmapped_file,single_pair]

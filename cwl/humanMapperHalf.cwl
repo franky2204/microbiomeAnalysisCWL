@@ -50,6 +50,10 @@ outputs:
     type: File
     outputBinding:
       glob: "*_unmapped.fastq.gz"
+  single_pair:
+    type: File
+    outputBinding:
+      glob: "*_single.fastq.gz"
 
 
 
