@@ -54,3 +54,7 @@ outputs:
     type: File
     outputBinding:
       glob: "*_unmapped_R2.fastq.gz"
+  single_pair:
+    type: File
+    outputBinding:
+      glob: "*_single.fastq.gz"

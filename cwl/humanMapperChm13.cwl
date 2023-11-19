@@ -53,6 +53,10 @@ outputs:
     type: File
     outputBinding:
       glob: "*_chm_unmapped_R2.fastq.gz"
+  chm_single_pair:
+    type: File
+    outputBinding:
+      glob: "*_chm_single.fastq.gz"
 
 
 
