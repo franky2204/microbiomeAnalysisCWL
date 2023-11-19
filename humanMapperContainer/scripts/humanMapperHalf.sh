@@ -14,3 +14,4 @@ time {
     gzip ${patient}_unmapped.fastq
 	gzip ${patient}_single.fastq
 }
+#
