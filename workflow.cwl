@@ -43,18 +43,18 @@ outputs:
   unmapped_R2:
     type: File[]
     outputSource: humanmapper/unmapped_R2
-  single_pair:
-    type: File[]
-    outputSource: humanmapper/single_pair
+#  single_pair:
+#    type: File[]
+#    outputSource: humanmapper/single_pair
   unmapped_chm_R1:
     type: File[]
     outputSource: humanMapper_chm13/unmapped_chm_R1
   unmapped_chm_R2:
     type: File[]
     outputSource: humanMapper_chm13/unmapped_chm_R2
-  chm_single_pair:
-    type: File[]
-    outputSource: humanMapper_chm13/chm_single_pair
+#  chm_single_pair:
+#    type: File[]
+#    outputSource: humanMapper_chm13/chm_single_pair
   kraken2_output:
     type: File[]
     outputSource: kraken2/kraken2
@@ -89,7 +89,7 @@ steps:
       read_2: check-input/read_2
       index: index
       threads: threads
-    out: [unmapped_R1, unmapped_R2, single_pair]
+    out: [unmapped_R1, unmapped_R2]
   humanMapper_chm13:
     run: cwl/humanMapperChm13.cwl
     scatter: [read_1, read_2]
@@ -99,7 +99,7 @@ steps:
       read_2: humanmapper/unmapped_R2
       index_chm13: index_chm13
       threads: threads
-    out: [unmapped_chm_R1, unmapped_chm_R2, chm_single_pair]
+    out: [unmapped_chm_R1, unmapped_chm_R2]
   kraken2:
     run: cwl/kraken2.cwl
     scatter: [read_1, read_2]
