@@ -14,6 +14,6 @@ time {
 	python3 /scripts/divide_fastq.py ${patient}_unmapped.fastq ${patient}_unmapped_R1.fastq ${patient}_unmapped_R2.fastq
 	gzip ${patient}_unmapped_R1.fastq
 	gzip ${patient}_unmapped_R2.fastq
-	gzip ${patient}_single.fastq
+	#gzip ${patient}_single.fastq
 
 }
