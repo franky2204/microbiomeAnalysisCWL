@@ -8,7 +8,7 @@ patient=$(echo ${file_name} | cut -d'_' -f1)
 index_fullname=$(basename $index)
 name_index="${index_fullname%.*}"
 underscore="_"
-name_index= "$underscore$name_index"
+name_index="$underscore$name_index"
 output_file="$patient$name_index"
 
 
