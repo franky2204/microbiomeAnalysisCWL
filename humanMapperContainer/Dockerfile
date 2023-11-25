@@ -31,12 +31,12 @@ RUN cp bwa /usr/local/bin
 WORKDIR /
 
 #samtools installation
-COPY samtools-1.18.tar.bz2 /tmp
+COPY samtools-1.17.tar.bz2 /tmp
 WORKDIR /tmp
 
-RUN tar -vxjf samtools-1.18.tar.bz2
+RUN tar -vxjf samtools-1.17.tar.bz2
 
-WORKDIR /tmp/samtools-1.18
+WORKDIR /tmp/samtools-1.17
 RUN ./configure
 RUN make
 RUN make install
