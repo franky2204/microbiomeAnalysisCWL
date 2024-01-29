@@ -13,17 +13,18 @@ RUN tar -xf /tmp/Python-3.11.2.tar.xz
 
 WORKDIR /
 #bowtie2 install 
-RUN sudo apt update
-RUN sudo apt install bowtie2
+RUN sudo apt-get update
+RUN sudo apt-get install bowtie2
+
+WORKDIR /
+RUN pip3 install numpy
+RUN pip3 install biopython
 
 WORKDIR /Python-3.11.2
 RUN ./configure --enable-optimizations
 RUN make install
 
 WORKDIR /
-RUN pip3 install numpy
-RUN pip3 install biopython
-
 #metaphlan installation
 RUN apt-get update
 RUN pip3 install metaphlan
