@@ -1,5 +1,9 @@
 FROM ubuntu:20.04
 
+#machine initialization
+RUN apt-get update
+RUN apt-get install gcc make libbz2-dev zlib1g-dev libncurses5-dev libncursesw5-dev liblzma-dev bzip2 g++ rsync libsqlite3-dev -y
+
 WORKDIR /
 #python3 installation
 RUN apt-get update
