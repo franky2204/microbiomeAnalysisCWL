@@ -1,0 +1,29 @@
+FROM ubuntu:20.04
+
+#machine initialization
+RUN apt-get update
+RUN apt-get upgrade
+
+WORKDIR /
+#python3 installation
+RUN apt-get update
+RUN apt-get install build-essential libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev -y
+COPY ./Python-3.11.2.tar.xz /tmp/Python-3.11.2.tar.xz
+RUN tar -xf /tmp/Python-3.11.2.tar.xz
+
+WORKDIR /
+#bowtie2 install 
+RUN sudo apt update
+RUN sudo apt install bowtie2
+
+WORKDIR /Python-3.11.2
+RUN ./configure --enable-optimizations
+RUN make install
+
+WORKDIR /
+RUN pip3 install numpy
+RUN pip3 install biopython
+
+#metaphlan installation
+RUN apt-get update
+RUN pip3 install metaphlan
