@@ -1,9 +1,5 @@
 FROM ubuntu:20.04
 
-#machine initialization
-RUN apt-get update
-RUN apt-get upgrade
-
 WORKDIR /
 #python3 installation
 RUN apt-get update
