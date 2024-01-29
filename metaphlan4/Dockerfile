@@ -13,8 +13,8 @@ RUN tar -xf /tmp/Python-3.11.2.tar.xz
 
 WORKDIR /
 #bowtie2 install 
-RUN sudo apt-get update
-RUN sudo apt-get install bowtie2
+RUN  apt-get update
+RUN  apt-get install bowtie2
 
 WORKDIR /
 RUN pip3 install numpy
