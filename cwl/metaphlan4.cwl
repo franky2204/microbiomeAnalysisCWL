@@ -30,7 +30,7 @@ inputs:
     type: 
       - Directory
       - File
-    label: "Kraken 2 DB"
+    label: "Metaphlan 4 DB"
     doc: "(either a File refer to the hash.k2d file in the DB or a Directory to reference the entire directory)"
     inputBinding:
       position: 2
@@ -47,11 +47,11 @@ inputs:
       position: 1
 
 outputs:
-  kraken2:
+  bowtie2:
     type: File
     outputBinding:
-      glob: "*.kraken2" 
+      glob: "*.fasta.gz.bowtie2out.txt" 
   report:
     type: File
     outputBinding:
-      glob: "*.report"
+      glob: "*.txt.gz"

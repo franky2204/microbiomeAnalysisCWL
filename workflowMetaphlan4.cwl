@@ -76,3 +76,13 @@ steps:
       index_chm13: index_chm13
       threads: threads
     out: [unmapped_chm_R1, unmapped_chm_R2]
+  metaphlan4:
+    run: cwl/metaphlan4.cwl
+     scatter: [read_1, read_2]
+    scatterMethod: dotproduct
+    in:
+      read_1: humanMapper_chm13/unmapped_chm_R1
+      read_2: humanMapper_chm13/unmapped_chm_R2
+      db_path: db_path
+      threads: threads
+    out: [kraken2, report] 
