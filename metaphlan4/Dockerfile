@@ -23,12 +23,12 @@ RUN  apt-get install -y bowtie2
 WORKDIR /
 RUN pip3 install numpy
 RUN pip3 install biopython
+#metaphlan installation
+RUN pip3 install metaphlan
 
 WORKDIR /Python-3.11.2
 RUN ./configure --enable-optimizations
 RUN make install
 
-WORKDIR /
-#metaphlan installation
-RUN apt-get update
-RUN pip3 install -y metaphlan
+
+
