@@ -31,5 +31,5 @@ WORKDIR /
 RUN mkdir bowtie2DB
 RUN metaphlan --install --bowtie2db /bowtie2DB
 RUN mv bowtie2DB /storage/fpantini/reference 
-COPY ./scripts /scripts
+
 
