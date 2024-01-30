@@ -18,7 +18,7 @@ RUN make install
 WORKDIR /
 #bowtie2 install 
 RUN  apt-get update
-RUN  apt-get install bowtie2
+RUN  apt-get install -y bowtie2
 
 WORKDIR /
 RUN pip3 install numpy
@@ -31,4 +31,4 @@ RUN make install
 WORKDIR /
 #metaphlan installation
 RUN apt-get update
-RUN pip3 install metaphlan
+RUN pip3 install -y metaphlan
