@@ -27,8 +27,7 @@ RUN pip3 install biopython
 RUN pip3 install metaphlan
 
 WORKDIR /
-RUN mkdir bowtie2DB
-RUN metaphlan --install --bowtie2db /bowtie2DB
-RUN mv bowtie2DB /storage/fpantini/reference 
+RUN RUN mkdir -p /storage/fpantini/reference bowtie2DB
+RUN metaphlan --install --bowtie2db /storage/fpantini/reference/bowtie2DB
 
 
