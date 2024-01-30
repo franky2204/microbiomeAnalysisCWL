@@ -11,10 +11,6 @@ RUN apt-get install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libns
 COPY ./Python-3.11.2.tar.xz /tmp/Python-3.11.2.tar.xz
 RUN tar -xf /tmp/Python-3.11.2.tar.xz
 
-WORKDIR /Python-3.11.2
-RUN ./configure --enable-optimizations
-RUN make install
-
 WORKDIR /
 #bowtie2 install 
 RUN  apt-get update
@@ -31,4 +27,9 @@ RUN ./configure --enable-optimizations
 RUN make install
 
 
+WORKDIR /
+RUN mkdir bowtie2DB
+RUN metaphlan --install --bowtie2db /bowtie2DB
+RUN mv bowtie2DB /storage/fpantini/reference 
+COPY ./scripts /scripts
 
