@@ -26,8 +26,7 @@ RUN pip3 install biopython
 #metaphlan installation
 RUN pip3 install metaphlan
 
-WORKDIR /
-RUN mkdir -p /storage/fpantini/reference metaphlan4DB
+WORKDIR /metaphlanDB
 RUN metaphlan --install --bowtie2db /storage/fpantini/reference/metaphlan4DB
 
 
