@@ -27,6 +27,6 @@ RUN pip3 install biopython
 RUN pip3 install metaphlan
 
 WORKDIR /metaphlanDB
-RUN metaphlan --install --bowtie2db /
+RUN metaphlan --install --bowtie2db /metaphlanDB
 
 
