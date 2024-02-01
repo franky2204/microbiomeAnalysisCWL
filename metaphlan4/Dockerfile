@@ -26,7 +26,7 @@ RUN pip3 install biopython
 #metaphlan installation
 RUN pip3 install metaphlan
 
-WORKDIR /metaphlanDB
+WORKDIR /DB/metaphlanDB
 RUN metaphlan --install --bowtie2db /metaphlanDB
-
+ENV PATH="${PATH}:/metaphlanDB"
 
