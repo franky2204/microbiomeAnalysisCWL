@@ -28,5 +28,5 @@ RUN pip3 install metaphlan
 
 WORKDIR /metaphlanDB
 RUN metaphlan --install --bowtie2db /metaphlanDB
-CMD cp /metaphlanDB /storage/fpantini/reference
-
+ENV PATH="${PATH}:/metaphlanDB"
+RUN mv -rf /metaphlanDB/* /storage/fpantini/reference/metaphlanDB/
