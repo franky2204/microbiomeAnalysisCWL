@@ -2,8 +2,6 @@ FROM ubuntu:20.04
 
 #machine initialization
 RUN apt-get update
-RUN apt-get update
-RUN apt-get update
 RUN apt-get install gcc make libbz2-dev zlib1g-dev libncurses5-dev libncursesw5-dev liblzma-dev bzip2 g++ rsync libsqlite3-dev bzip2 -y
 
 #python3 installation
@@ -29,4 +27,5 @@ RUN pip3 install metaphlan
 WORKDIR /metaphlanDB
 RUN metaphlan --install --bowtie2db /metaphlanDB
 ENV PATH="${PATH}:/metaphlanDB"
-RUN mv -rf /metaphlanDB/* /storage/fpantini/reference/metaphlanDB/
+COPY /metaphlanDB /DB/
+
