@@ -10,7 +10,7 @@ db_path:
   path: /storage/fpantini/reference/krakenDB/Fungi/hash.k2d
 fastq_directory:
   class: Directory
-  location: /storage/fpantini/dataInput 
+  location: /storage/fpantini/dataInput/fast 
 
 
   
