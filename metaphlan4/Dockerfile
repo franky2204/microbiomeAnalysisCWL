@@ -29,4 +29,6 @@ RUN pip3 install metaphlan
 WORKDIR /metaphlanDB
 RUN metaphlan --install --bowtie2db /metaphlanDB/
 
+WORKDIR /
 
+COPY metaphlan4.sh .
