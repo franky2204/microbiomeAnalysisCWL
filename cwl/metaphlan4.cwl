@@ -31,7 +31,11 @@ inputs:
     type: int?
     default: 1
     inputBinding:
-      position: 1
+      position: 3
+  meta_path:
+    type: Directory
+    inputBinding:
+      position: 4
 
 outputs:
   bowtie2:

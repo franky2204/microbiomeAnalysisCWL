@@ -11,7 +11,8 @@ requirements:
 inputs:
   fastq_directory: Directory
   threads: int?
-  
+  meta_path:
+    type: Directory
   index_chm13:
     type: File
     secondaryFiles:
@@ -60,4 +61,5 @@ steps:
       read_1: humanMapper_chm13/unmapped_chm_R1
       read_2: humanMapper_chm13/unmapped_chm_R2
       threads: threads
+      meta_path: meta_path
     out: [bowtie2, report] 

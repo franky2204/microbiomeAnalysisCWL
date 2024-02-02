@@ -8,6 +8,9 @@ threads: 7
 db_path:
   class: File
   path: /storage/fpantini/reference/krakenDB/Fungi/hash.k2d
+meta_path:
+  class: Directory
+  path: 7c3cf4f35c85:/metaphlanDB
 fastq_directory:
   class: Directory
   location: /storage/fpantini/dataInput/fast 
