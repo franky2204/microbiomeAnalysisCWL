@@ -10,7 +10,7 @@ db_path:
   path: /storage/fpantini/reference/krakenDB/Fungi/hash.k2d
 meta_path:
   class: Directory
-  path: 7c3cf4f35c85:/metaphlanDB
+  path: /storage/fpantini/reference/metaphlanDB
 fastq_directory:
   class: Directory
   location: /storage/fpantini/dataInput/fast 
