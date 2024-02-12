@@ -21,6 +21,9 @@ outputs:
   report:
     type: File[]
     outputSource: metaphlan4/report
+  biom_output:
+    type: File[]
+    outputSource: metaphlan4/biom_output
 
 steps:
   check-input:
@@ -37,4 +40,4 @@ steps:
       read_2: check-input/read_2
       threads: threads
       meta_path: meta_path
-    out: [bowtie2, report] 
+    out: [bowtie2, report, biom_output] 

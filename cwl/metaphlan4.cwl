@@ -46,3 +46,7 @@ outputs:
     type: File
     outputBinding:
       glob: "*.txt"
+  biom_output:
+    type: File
+    outputBinding:
+      glob: "*_output.biom"
