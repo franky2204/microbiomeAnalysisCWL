@@ -1,6 +1,8 @@
+#!/usr/bin/python
+from biom import load_table
 import os
 import sys
-from biom import load_table
+
 
 directory = sys.argv[1]
 biom_ext = ".biom"
