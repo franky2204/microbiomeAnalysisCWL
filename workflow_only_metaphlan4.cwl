@@ -13,7 +13,8 @@ inputs:
   threads: int?
   meta_path:
     type: Directory
-
+  out_directory: Directory
+  
 outputs:
   bowtie2:
     type: File[]
@@ -24,6 +25,9 @@ outputs:
   biom_output:
     type: File[]
     outputSource: metaphlan4/biom_output
+  biom_output:
+    type: File[]
+    outputSource: metaphlan4/report
 
 steps:
   check-input:
@@ -41,3 +45,9 @@ steps:
       threads: threads
       meta_path: meta_path
     out: [bowtie2, report, biom_output] 
+  merge_bioms:
+    run: cwl/merge_bioms.cwl
+    in: 
+      out_directory: out_directory
+    out: [final_table]
+

@@ -14,6 +14,8 @@ meta_path:
 fastq_directory:
   class: Directory
   location: /storage/fpantini/dataInput/fast 
-
+out_directory:
+  class: Directory
+  location: /storage/fpantini/output/fusion
 
   

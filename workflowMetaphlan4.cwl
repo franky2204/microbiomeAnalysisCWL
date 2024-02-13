@@ -30,6 +30,7 @@ inputs:
       - .bwt
       - .pac
       - .sa
+  out_directory: Directory
 
 outputs:
 
@@ -49,6 +50,9 @@ outputs:
     type: File[]
     outputSource: metaphlan4/bowtie2
   report:
+    type: File[]
+    outputSource: metaphlan4/report
+  biom_output:
     type: File[]
     outputSource: metaphlan4/report
 
@@ -87,4 +91,9 @@ steps:
       read_2: humanMapper_chm13/unmapped_chm_R2
       threads: threads
       meta_path: meta_path
-    out: [bowtie2, report] 
+    out: [bowtie2, report, biom_output] 
+  merge_bioms:
+    run: cwl/merge_bioms.cwl
+    in: 
+      out_directory: out_directory
+    out: [final_table]
