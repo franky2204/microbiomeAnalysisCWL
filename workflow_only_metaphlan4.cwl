@@ -14,7 +14,7 @@ inputs:
   meta_path:
     type: Directory
   out_directory: Directory
-  
+
 outputs:
   bowtie2:
     type: File[]
@@ -25,9 +25,9 @@ outputs:
   biom_output:
     type: File[]
     outputSource: metaphlan4/biom_output
-  biom_output:
+  final_table:
     type: File[]
-    outputSource: metaphlan4/report
+    outputSource: merge_bioms/final_table
 
 steps:
   check-input:
