@@ -6,9 +6,9 @@ requirements:
   InlineJavascriptRequirement: {}
 hints:
   DockerRequirement:
-    dockerPull: fpantini/biom
+    dockerPull: fpant/metaphlan 
 
-baseCommand: ["bash", "/biomFusion.sh"]
+baseCommand: ["bash", "/biomFusion.py"]
 
 inputs: 
   out_directory:
