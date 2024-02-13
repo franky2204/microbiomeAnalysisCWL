@@ -53,8 +53,11 @@ outputs:
     type: File[]
     outputSource: metaphlan4/report
   biom_output:
-    type: File[]
+    type: File
     outputSource: metaphlan4/report
+  final_table:
+    type: File
+    outputSource: merge_bioms/final_table
 
 steps:
   check-input:

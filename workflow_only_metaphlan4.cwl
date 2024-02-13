@@ -26,7 +26,7 @@ outputs:
     type: File[]
     outputSource: metaphlan4/biom_output
   final_table:
-    type: File[]
+    type: File
     outputSource: merge_bioms/final_table
 
 steps:
