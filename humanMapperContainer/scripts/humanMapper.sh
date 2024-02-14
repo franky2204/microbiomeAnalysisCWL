@@ -18,5 +18,4 @@ time {
 	gzip ${output_file}_unmapped_R1.fastq
 	gzip ${output_file}_unmapped_R2.fastq
 	#gzip ${patient}_single.fastq
-
 }

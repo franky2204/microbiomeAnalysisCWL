@@ -30,7 +30,7 @@ inputs:
       - .bwt
       - .pac
       - .sa
-  out_directory: Directory
+
 
 outputs:
 
@@ -98,5 +98,5 @@ steps:
   merge_bioms:
     run: cwl/merge_bioms.cwl
     in: 
-      out_directory: out_directory
+      biom_output: metaphlan4/biom_output
     out: [final_table]

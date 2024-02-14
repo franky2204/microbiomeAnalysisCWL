@@ -11,8 +11,8 @@ hints:
 baseCommand: ["bash", "/biomFusion.py"]
 
 inputs: 
-  out_directory:
-    type: Directory
+  biom_output:
+    type: File[]
     inputBinding:
       position: 1
 outputs:

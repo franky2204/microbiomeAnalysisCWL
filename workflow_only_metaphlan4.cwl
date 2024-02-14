@@ -13,7 +13,7 @@ inputs:
   threads: int?
   meta_path:
     type: Directory
-  out_directory: Directory
+
 
 outputs:
   bowtie2:
@@ -48,6 +48,6 @@ steps:
   merge_bioms:
     run: cwl/merge_bioms.cwl
     in: 
-      out_directory: out_directory
+      biom_output: metaphlan4/biom_output
     out: [final_table]
 
