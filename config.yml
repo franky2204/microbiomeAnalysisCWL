@@ -1,21 +1,19 @@
 index:
   class: File
-  path: /storage/fpantini/reference/indexGenome/hg38.fa 
+  path: /backup/Ref/hg38/hg38.fa 
 index_chm13:
   class: File
-  path: /storage/fpantini/reference/indexGenome/chm13v2.0.fa 
+  path: /backup/fpantini/chm13_indexed/chm13v2.0.fa 
 threads: 7 
 db_path:
   class: File
   path: /storage/fpantini/reference/krakenDB/Fungi/hash.k2d
 meta_path:
   class: Directory
-  path: /storage/fpantini/reference/metaphlanDB
+  path: /backup/fpantini/metaphlan_db
 fastq_directory:
   class: Directory
-  location: /storage/fpantini/dataInput/fast 
-out_directory:
-  class: Directory
-  location: /storage/fpantini/output/fusion
+  location: /backup/data/MS-HV-Sample-Fastq
+
 
   
