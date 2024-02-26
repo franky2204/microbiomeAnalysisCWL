@@ -14,6 +14,8 @@ meta_path:
 fastq_directory:
   class: Directory
   location: /backup/data/MS-HV-Sample-Fastq
-
+bowtie_path:
+  class: Directory
+  location: /backup/fpantini/chm13_indexed/
 
   

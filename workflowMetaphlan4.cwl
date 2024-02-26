@@ -55,6 +55,9 @@ outputs:
   biom_output:
     type: File[]
     outputSource: metaphlan4/report
+  biom_output_comp:
+    type: File[]
+    outputSource: metaphlan4/report
   final_table:
     type: File
     outputSource: merge_bioms/final_table
@@ -94,7 +97,7 @@ steps:
       read_2: humanMapper_chm13/unmapped_chm_R2
       threads: threads
       meta_path: meta_path
-    out: [bowtie2, report, biom_output] 
+    out: [bowtie2, report, biom_output, biom_output_comp] 
   merge_bioms:
     run: cwl/merge_bioms.cwl
     in: 

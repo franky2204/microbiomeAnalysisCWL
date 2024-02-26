@@ -7,3 +7,4 @@ RUN apt-get install gcc make libbz2-dev zlib1g-dev libncurses5-dev libncursesw5-
 
 COPY findFiles.sh .
 COPY sendFiles.sh .
+COPY findBowtie.sh .

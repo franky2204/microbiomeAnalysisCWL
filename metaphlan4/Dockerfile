@@ -33,3 +33,4 @@ WORKDIR /
 
 COPY biomFusion.py .
 COPY metaphlan4.sh .
+COPY bowtie2Biom.sh .

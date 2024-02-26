@@ -3,7 +3,7 @@ cwlVersion: v1.2
 class: CommandLineTool
 
 doc: |
-  Metaphlan4 mapping 
+  Create biom from bowtie2 output
 
 requirements:
   InlineJavascriptRequirement: {}
@@ -13,44 +13,28 @@ hints:
   DockerRequirement:
     dockerPull: fpant/metaphlan 
 
-baseCommand: ["bash", "/metaphlan4.sh"]
+baseCommand: ["bash", "/bowtie2Biom.sh"]
 
 inputs: 
-  read_1:
+  bowtie_files:
     doc: ""
     type: File
     inputBinding:
       position: 1  
-  read_2:
-    doc: ""
-    type: File
+  meta_path:
+    type: Directory
     inputBinding:
-      position: 2 
+      position: 2
   threads:
     doc: "Maximum number of compute threads"
     type: int?
     default: 1
     inputBinding:
       position: 3
-  meta_path:
-    type: Directory
-    inputBinding:
-      position: 4
+  
 
 outputs:
-  bowtie2:
-    type: File
-    outputBinding:
-      glob: "*.bowtie2.bz2" 
-  report:
-    type: File
-    outputBinding:
-      glob: "*.txt"
-  biom_output:
+  biom_file:
     type: File
     outputBinding:
       glob: "*_output.biom"
-  biom_output_comp:
-    type: File
-    outputBinding:
-      glob: "*_output.biom.gz"
