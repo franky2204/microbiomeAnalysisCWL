@@ -11,7 +11,7 @@ hints:
     dockerPull: scontaldo/checkinput
 
 inputs: 
-  bowtie_files:
+  bowtie_names:
     type: string
     inputBinding:
       position: 1

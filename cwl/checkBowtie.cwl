@@ -16,14 +16,14 @@ outputs:
 
 steps:
   check-files: 
-    run: checkInput/fidFiles.cwl
+    run: checkInput/selectBowtieFiles.cwl
     in:
       bowtie_path: bowtie_path
     out: [bowtie_files]
   send-files:
     run: checkInput/sendBowtieFiles.cwl
-    scatter: bowtie_files
+    scatter: bowtie_names
     in:
-      bowtie_files: check-files/bowtie_files
+      bowtie_names: check-files/bowtie_files
       bowtie_path: bowtie_path
     out: [bowtie_file]
