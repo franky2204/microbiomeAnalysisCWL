@@ -22,7 +22,6 @@ steps:
     out: [bowtie_files]
   send-files:
     run: checkInput/sendBowtieFiles.cwl
-    scatter: bowtie_names
     in:
       bowtie_names: check-files/bowtie_files
       bowtie_path: bowtie_path

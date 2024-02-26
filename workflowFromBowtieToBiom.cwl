@@ -31,7 +31,6 @@ steps:
     out: [bowtie_file]  
   biom_create:
     run: cwl/createBiom.cwl
-    scatterMethod: dotproduct
     in:
       bowtie_files: select_files/bowtie_file
       meta_path: meta_path

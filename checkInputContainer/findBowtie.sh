@@ -8,7 +8,7 @@ string=""
 for file in "$folder_path"/*; do #cicla ogni file della cartella
 	if [[ $file =~ .bowtie2.bz2 ]]; then 
 			if [ -n "$string" ]; then #se string non è vuota
-				string="$string,\"$file\"" #aggiunge i nomi dei due file separati da una virgola e li attacca dietro gli altri
+				string="$string,\"$file\"" 
 			else
 				string="\"$file\"" 
 			fi
