@@ -18,22 +18,22 @@ inputs:
 outputs:
   reads:
     type: File[]
-    outputSource: select_files/bowtie_files
+    outputSource: select_files/bowtie_file
   biom_file:
     type: File[]
     outputSource: biom_create/biom_file 
 
 steps:
   select_files:
-    run: cwl/selectBowtieFiles.cwl
+    run: cwl/checkBowtie.cwl
     in: 
       bowtie_path: bowtie_path
-    out: [bowtie_files]  
+    out: [bowtie_file]  
   biom_create:
     run: cwl/createBiom.cwl
     scatterMethod: dotproduct
     in:
-      bowtie_files: select_files/bowtie_files
+      bowtie_files: select_files/bowtie_file
       meta_path: meta_path
       threads: threads
     out: [biom_file]

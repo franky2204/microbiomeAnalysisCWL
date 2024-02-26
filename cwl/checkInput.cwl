@@ -19,7 +19,7 @@ outputs:
 
 steps:
   check-files: 
-    run: checkInput/findFiles.cwl
+    run: checkInput/selectBowtieFiles.cwl
     in:
       fastq_directory: fastq_directory
     out: [value]
