@@ -18,7 +18,7 @@ baseCommand: ["bash", "/bowtie2Biom.sh"]
 inputs: 
   bowtie_files:
     doc: ""
-    type: File
+    type: File[]
     inputBinding:
       position: 1  
   meta_path:

@@ -16,7 +16,7 @@ inputs:
   threads: int?
 
 outputs:
-  reads:
+  bowtie_file:
     type: File[]
     outputSource: select_files/bowtie_file
   biom_file:
