@@ -7,12 +7,12 @@ string=""
 # Itera attraverso i file nella cartella
 for file in "$folder_path"/*; do #cicla ogni file della cartella
 	if [[ $file =~ .bowtie2.bz2 ]]; then 
-			if [ -n "$string" ]; then #se string non è vuota
-				string="$string,\"$file\"" 
-			else
-				string="\"$file\"" 
-			fi
+		if [ -n "$string" ]; then #se string non è vuota
+			string="$string,\"$file\"" 
+		else
+			string="\"$file\"" 
 		fi
+		
 	fi
 done
 echo "{\"value\": [$string]}" 
