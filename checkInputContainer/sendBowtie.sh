@@ -1,3 +1,4 @@
+#!/bin/bash
 string=$1
 directory=$2
 
