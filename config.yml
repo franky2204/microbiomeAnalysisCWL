@@ -10,7 +10,7 @@ db_path:
   path: /storage/fpantini/reference/krakenDB/Fungi/hash.k2d
 meta_path:
   class: Directory
-  path: /backup/fpantini/metaphlan_db
+  path: /backup/fpantini/metaphlan_db_4.1
 fastq_directory:
   class: Directory
   location: /backup/data/subset_original
