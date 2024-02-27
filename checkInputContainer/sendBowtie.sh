@@ -1,5 +1,5 @@
 #!/bin/bash
-string=$1
-directory=$2
+slash="/"
+file="$1$slash$2"
 
-cp $directory/${string} .
+cp file .
