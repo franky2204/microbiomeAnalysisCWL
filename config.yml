@@ -16,6 +16,6 @@ fastq_directory:
   location: /backup/data/subset_original
 bowtie_directory:
   class: Directory
-  location: /backup/fpantini/chm13_indexed/
+  location: /backup/fpantini/chm13_indexed
 
   
