@@ -9,7 +9,6 @@ requirements:
   SubworkflowFeatureRequirement: {}
 
 inputs:
-  bowtie_directory: Directory
   threads: int?
   meta_path:
     type: Directory
