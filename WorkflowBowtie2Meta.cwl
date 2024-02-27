@@ -9,7 +9,7 @@ requirements:
   SubworkflowFeatureRequirement: {}
 
 inputs:
-  fastq_directory: Directory
+  bowtie_directory: Directory
   threads: int?
   meta_path:
     type: Directory
@@ -20,13 +20,13 @@ outputs:
 
   report:
     type: File[]
-    outputSource: metaphlan4/report
+    outputSource: metaphlan4Bowtie/report
   biom_output:
     type: File[]
-    outputSource: metaphlan4/report
+    outputSource: metaphlan4Bowtie/biom_output
   biom_output_comp:
     type: File[]
-    outputSource: metaphlan4/report
+    outputSource: metaphlan4Bowtie/report
   final_table:
     type: File
     outputSource: merge_bioms/final_table
@@ -35,9 +35,9 @@ steps:
   check-input:
     run: cwl/checkBowtieInput.cwl
     in:
-       bowtie_directoryy: bowtie_directory
+       bowtie_directory: bowtie_directory
     out: [read]
-  metaphlan4:
+  metaphlan4Bowtie:
     run: cwl/metaphlan4Bowtie.cwl
     scatter: [read]
     in:
@@ -48,5 +48,5 @@ steps:
   merge_bioms:
     run: cwl/merge_bioms.cwl
     in: 
-      biom_output: metaphlan4/biom_output
+      biom_output: metaphlan4Bowtie/biom_output
     out: [final_table]
