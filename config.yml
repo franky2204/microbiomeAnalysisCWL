@@ -4,7 +4,7 @@ index:
 index_chm13:
   class: File
   path: /backup/fpantini/chm13_indexed/chm13v2.0.fa 
-threads: 7 
+threads: 30 
 db_path:
   class: File
   path: /storage/fpantini/reference/krakenDB/Fungi/hash.k2d
@@ -13,8 +13,8 @@ meta_path:
   path: /backup/fpantini/metaphlan_db
 fastq_directory:
   class: Directory
-  location: /backup/data/MS-HV-Sample-Fastq
-bowtie_path:
+  location: /backup/data/subset_original
+bowtie_directory:
   class: Directory
   location: /backup/fpantini/chm13_indexed/
 
