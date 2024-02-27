@@ -50,7 +50,4 @@ outputs:
     type: File
     outputBinding:
       glob: "*_output.biom"
-  biom_output_comp:
-    type: File
-    outputBinding:
-      glob: "*_output.biom.gz"
+
