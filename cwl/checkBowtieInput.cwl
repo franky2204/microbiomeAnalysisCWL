@@ -21,7 +21,7 @@ steps:
     out: [value]
   send-files:
     run: checkInput/sendBowtie.cwl
-    scatter: fastq_name
+    scatter: bowtie_name
     in:
       bowtie_name: check-files/value
       bowtie_directory: bowtie_directory
