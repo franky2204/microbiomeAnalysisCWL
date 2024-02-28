@@ -1,5 +1,4 @@
 #!/bin/bash
-filename= $(basename "$1") 
-slash="/"
-complete= "$2$slash$filename"
-cp $complete . 
+filename=$(basename "$1")
+complete="$2/$filename"
+cp "$complete" .
