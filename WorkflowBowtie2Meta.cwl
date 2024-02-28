@@ -23,9 +23,6 @@ outputs:
   biom_output:
     type: File[]
     outputSource: metaphlan4Bowtie/biom_output
-  biom_output_comp:
-    type: File[]
-    outputSource: metaphlan4Bowtie/report
   final_table:
     type: File
     outputSource: merge_bioms/final_table
@@ -43,7 +40,7 @@ steps:
       read: check-input/read
       threads: threads
       meta_path: meta_path
-    out: [report, biom_output, biom_output_comp] 
+    out: [report, biom_output] 
   merge_bioms:
     run: cwl/merge_bioms.cwl
     in: 
