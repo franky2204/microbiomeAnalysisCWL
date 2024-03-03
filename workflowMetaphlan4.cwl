@@ -106,6 +106,7 @@ steps:
   count_otu: 
     run: cwl/count_otu.cwl
     scatter: [read_1, read_2, unmapped_R1, unmapped_R2,unmapped_chm_R1,unmapped_chm_R2]
+    scatterMethod: dotproduct
     in: 
       read_1: check-input/read_1
       read_2: check-input/read_2
