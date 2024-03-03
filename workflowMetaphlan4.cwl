@@ -58,6 +58,9 @@ outputs:
   final_table:
     type: File
     outputSource: merge_bioms/final_table
+  results:
+    type: File
+    outputSource: count_otu/results
 
 steps:
   check-input:
@@ -100,3 +103,14 @@ steps:
     in: 
       biom_output: metaphlan4/biom_output
     out: [final_table]
+  count_otu: 
+    run: cwl/count_otu.cwl
+    scatter: [read_1]
+    in: 
+      read_1: check-input/read_1
+      read_2: check-input/read_2
+      unmapped_R1: humanmapper/unmapped_R1
+      unmapped_R2: humanmapper/unmapped_R2
+      unmapped_chm_R1: humanMapper_chm13/unmapped_chm_R1
+      unmapped_chm_R2: humanMapper_chm13/unmapped_chm_R2
+    out: [results]
