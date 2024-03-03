@@ -11,7 +11,7 @@ hints:
   DockerRequirement:
     dockerPull: fpant/metaphlan
 
-baseCommand: ["python3", "/script/count_fastq.py"]
+baseCommand: ["python3", "/count_fastq.py"]
 
 inputs: 
   read_1: 
