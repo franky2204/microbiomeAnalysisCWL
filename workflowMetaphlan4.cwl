@@ -59,7 +59,7 @@ outputs:
     type: File
     outputSource: merge_bioms/final_table
   results:
-    type: File
+    type: File[]
     outputSource: count_otu/results
 
 steps:
