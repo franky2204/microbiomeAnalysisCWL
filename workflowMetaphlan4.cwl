@@ -91,7 +91,7 @@ steps:
     out: [unmapped_chm_R1, unmapped_chm_R2, report_count]
   metaphlan4:
     run: cwl/metaphlan4.cwl
-    scatter: [read_1, read_2]
+    scatter: [read_1, read_2, report_count]
     scatterMethod: dotproduct
     in:
       read_1: humanMapper_chm13/unmapped_chm_R1
