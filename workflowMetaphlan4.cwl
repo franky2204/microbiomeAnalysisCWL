@@ -59,7 +59,7 @@ outputs:
     type: File
     outputSource: merge_bioms/final_table
   report_count:
-    type: File
+    type: File[]
     outputSource: humanMapper_chm13/report_count
 
 steps:
