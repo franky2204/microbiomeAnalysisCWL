@@ -88,7 +88,7 @@ steps:
       index_chm13: index_chm13
       threads: threads
       report: humanmapper/report
-    out: [unmapped_chm_R1, unmapped_chm_R2]
+    out: [unmapped_chm_R1, unmapped_chm_R2, report]
   metaphlan4:
     run: cwl/metaphlan4.cwl
     scatter: [read_1, read_2]
