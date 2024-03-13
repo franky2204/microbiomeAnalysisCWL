@@ -43,6 +43,11 @@ inputs:
     default: 1
     inputBinding:
       position: 4
+  report:
+    type: File
+    inputBinding:
+      position: 5
+
       
 outputs:
   unmapped_chm_R1:
@@ -53,10 +58,10 @@ outputs:
     type: File
     outputBinding:
       glob: "*chm13v2.0_unmapped_R2.fastq.gz"
-  #chm_single_pair:
-  #  type: File
-  #  outputBinding:
-  #    glob: "*_chm_single.fastq.gz"
+  report:
+    type: File
+    outputBinding:
+      glob: "*_report.txt"
 
 
 

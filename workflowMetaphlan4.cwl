@@ -58,7 +58,9 @@ outputs:
   final_table:
     type: File
     outputSource: merge_bioms/final_table
-
+  report:
+    type: File
+    outputSource: humanMapper_chm13/report
 
 steps:
   check-input:
@@ -75,7 +77,7 @@ steps:
       read_2: check-input/read_2
       index: index
       threads: threads
-    out: [unmapped_R1, unmapped_R2]
+    out: [unmapped_R1, unmapped_R2, report]
   humanMapper_chm13:
     run: cwl/humanMapperChm13.cwl
     scatter: [read_1, read_2]
@@ -85,6 +87,7 @@ steps:
       read_2: humanmapper/unmapped_R2
       index_chm13: index_chm13
       threads: threads
+      report: humanmapper/report
     out: [unmapped_chm_R1, unmapped_chm_R2]
   metaphlan4:
     run: cwl/metaphlan4.cwl

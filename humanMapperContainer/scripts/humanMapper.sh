@@ -11,7 +11,7 @@ name_index="$underscore$name_index"
 output_file="$patient$name_index"
 report="_report.txt"
 repot="$output_file$report"
-if[$name_index == "_hg38"]; then
+if[$# -eq 4]; then
 	touch $report
 	first1=$(zcat "$1" | wc -l)
 	first2=$(zcat "$2" | wc -l)

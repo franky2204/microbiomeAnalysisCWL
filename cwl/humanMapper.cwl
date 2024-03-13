@@ -54,6 +54,10 @@ outputs:
     type: File
     outputBinding:
       glob: "*_hg38_unmapped_R2.fastq.gz"
+  report:
+    type: File
+    outputBinding:
+    glob: "*_report.txt"
   #single_pair:
   #  type: File
   #  outputBinding:
