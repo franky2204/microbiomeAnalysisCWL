@@ -58,10 +58,7 @@ outputs:
     type: File
     outputBinding:
       glob: "*chm13v2.0_unmapped_R2.fastq.gz"
-  report_count:
-    type: File
-    outputBinding:
-      glob: "*_report.txt"
+
 
 
 
