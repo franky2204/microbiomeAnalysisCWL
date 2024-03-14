@@ -44,6 +44,10 @@ inputs:
     default: 1
     inputBinding:
       position: 4
+  report_count:
+    type: File
+    inputBinding:
+      position: 5
 
 outputs:
   unmapped_R1:
@@ -54,10 +58,6 @@ outputs:
     type: File
     outputBinding:
       glob: "*_hg38_unmapped_R2.fastq.gz"
-  report_count:
-    type: File
-    outputBinding:
-      glob: "*_report.txt"
   #single_pair:
   #  type: File
   #  outputBinding:

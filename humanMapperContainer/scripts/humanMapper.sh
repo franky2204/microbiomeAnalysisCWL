@@ -1,4 +1,4 @@
-#read_1 read_2 index threads
+#read_1 read_2 index threads count
 file=$1
 index=$3
 threads=$4
@@ -9,15 +9,6 @@ index_fullname=$(basename $index)
 name_index="_${index_fullname%.*}"
 name_index="$underscore$name_index"
 output_file="$patient$name_index"
-report="_report.txt"
-repot="$output_file$report"
-if[$# -eq 4]; then
-	touch $report
-	first1=$(zcat "$1" | wc -l)
-	first2=$(zcat "$2" | wc -l)
-	first1=$(echo "scale=0; $first1 / 4" | bc)
-	first2=$(echo "scale=0; $first2 / 4" | bc)
-	echo "Count number sample $patient before $name_index is $first1, $first2 "	
 
 time {
 	bwa mem -t $threads $index $1 $2 > ${output_file}_pe.sam
@@ -27,7 +18,7 @@ time {
 	length2=$(wc -l < "${output_file}_unmapped_R2.fastq")
 	length1=$(echo "scale=0; $length1 / 4" | bc)
 	length2=$(echo "scale=0; $length2 / 4" | bc)
-	echo "Count number sample $patient after $name_index is  $length1, $length2 "
+	echo "Count number sample $patient after $name_index is  $length1, $length2 " > $5
 	gzip ${output_file}_unmapped_R1.fastq
 	gzip ${output_file}_unmapped_R2.fastq
 	#gzip ${patient}_single.fastq
