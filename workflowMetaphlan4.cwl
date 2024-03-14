@@ -63,7 +63,7 @@ outputs:
     outputSource: create-report/report_count
 
 steps:
-  create-report
+  create-report:
     run: cwl/checkInput/createReport.cwl
     out: [report_count]
   check-input:
