@@ -1,10 +1,10 @@
 index:
   class: File
-  path: /backup/Ref/hg38/hg38.fa 
+  path: /backup/Ref/hg38/hg38.fa
 index_chm13:
   class: File
-  path: /backup/fpantini/chm13_indexed/chm13v2.0.fa 
-threads: 30 
+  path: /backup/fpantini/chm13_indexed/chm13v2.0.fa
+threads: 30
 db_path:
   class: File
   path: /backup/krakenDB/Total/hash.k2d
@@ -13,9 +13,10 @@ meta_path:
   path: /backup/fpantini/metaphlan_db_4.1
 fastq_directory:
   class: Directory
-  location: /backup/data/subset_original
+  location: /backup/fpantini/file_piccoli
 bowtie_directory:
   class: Directory
   location: /backup/fpantini/chm13_indexed
+
 
   
