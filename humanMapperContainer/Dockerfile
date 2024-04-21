@@ -5,6 +5,8 @@ MAINTAINER sandrogepiro.contaldo@unito.it
 RUN apt-get update
 RUN apt-get install gcc make libbz2-dev zlib1g-dev libncurses5-dev libncursesw5-dev liblzma-dev bzip2 g++ rsync libsqlite3-dev bzip2 -y
 
+RUN apt-get install bc
+
 #python3 installation
 RUN apt-get install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev -y
 COPY ./Python-3.11.2.tar.xz /tmp/Python-3.11.2.tar.xz
