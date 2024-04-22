@@ -44,4 +44,4 @@ outputs:
       - .pac
       - .sa
     outputBinding:
-      glob: "chm13v2.0.*"
+      glob: "*_GRCm39_*"
