@@ -18,9 +18,9 @@ time {
 	length2=$(wc -l < "${output_file}_unmapped_R2.fastq")
 	length1=$(echo "scale=0; $length1 / 4" | bc)
 	length2=$(echo "scale=0; $length2 / 4" | bc)
-	echo "Count number sample $patient after $name_index is  $length1, $length2 " > $5
+	total=$length1+$length2
+	#echo "$total" > ${output_file}_count.txt
 	gzip ${output_file}_unmapped_R1.fastq
 	gzip ${output_file}_unmapped_R2.fastq
-	#gzip ${patient}_single.fastq
 }
 

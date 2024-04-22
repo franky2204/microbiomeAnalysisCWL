@@ -43,18 +43,12 @@ outputs:
   unmapped_R2:
     type: File[]
     outputSource: humanmapper/unmapped_R2
-#  single_pair:
-#    type: File[]
-#    outputSource: humanmapper/single_pair
   unmapped_chm_R1:
     type: File[]
     outputSource: humanMapper_chm13/unmapped_chm_R1
   unmapped_chm_R2:
     type: File[]
     outputSource: humanMapper_chm13/unmapped_chm_R2
-#  chm_single_pair:
-#    type: File[]
-#    outputSource: humanMapper_chm13/chm_single_pair
   kraken2_output:
     type: File[]
     outputSource: kraken2/kraken2

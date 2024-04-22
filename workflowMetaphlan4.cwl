@@ -58,15 +58,9 @@ outputs:
   final_table:
     type: File
     outputSource: merge_bioms/final_table
-  report_count:
-    type: File
-    outputSource: create-report/report_count
+
 
 steps:
-  create-report:
-    run: cwl/checkInput/createReport.cwl
-    in: []
-    out: [report_count]
   check-input:
     run: cwl/checkInput.cwl
     in:
@@ -81,7 +75,6 @@ steps:
       read_2: check-input/read_2
       index: index
       threads: threads
-      report_count: create-report/report_count
     out: [unmapped_R1, unmapped_R2]
   humanMapper_chm13:
     run: cwl/humanMapperChm13.cwl
@@ -92,7 +85,6 @@ steps:
       read_2: humanmapper/unmapped_R2
       index_chm13: index_chm13
       threads: threads
-      report_count: create-report/report_count
     out: [unmapped_chm_R1, unmapped_chm_R2]
   metaphlan4:
     run: cwl/metaphlan4.cwl
