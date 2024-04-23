@@ -77,7 +77,7 @@ steps:
       threads: threads
     out: [unmapped_R1, unmapped_R2]
   humanMapper_chm13:
-    run: cwl/humanMapperChm13.cwl
+    run: cwl/humanMapper.cwl
     scatter: [read_1, read_2]
     scatterMethod: dotproduct
     in:

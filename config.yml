@@ -13,7 +13,7 @@ meta_path:
   path: /backup/fpantini/metaphlan_db_4.1
 fastq_directory:
   class: Directory
-  location: /backup/data/MS-HV-Sample-Fastq
+  location: /backup/fpantini/file_piccoli/comp
 
 
 
