@@ -3,7 +3,7 @@ index:
   path: /backup/Ref/hg38/hg38.fa
 index_chm13:
   class: File
-  path: /backup/fpantini/chm13_indexed/chm13v2.0.fa
+  path: /backup/fpantini/genomes/chm13_indexed/chm13v2.0.fa
 threads: 30
 db_path:
   class: File
@@ -13,10 +13,8 @@ meta_path:
   path: /backup/fpantini/metaphlan_db_4.1
 fastq_directory:
   class: Directory
-  location: /backup/fpantini/file_piccoli/comp
-bowtie_directory:
-  class: Directory
-  location: /backup/fpantini/chm13_indexed
+  location: /backup/data/MS-HV-Sample-Fastq
+
 
 
   
