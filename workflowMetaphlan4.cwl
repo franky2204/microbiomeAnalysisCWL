@@ -42,10 +42,10 @@ outputs:
     outputSource: humanmapper/unmapped_R2
   unmapped_chm_R1:
     type: File[]
-    outputSource: humanMapper_chm13/unmapped_chm_R1
+    outputSource: humanMapper_chm13/unmapped_R1
   unmapped_chm_R2:
     type: File[]
-    outputSource: humanMapper_chm13/unmapped_chm_R2
+    outputSource: humanMapper_chm13/unmapped_R2
   bowtie2:
     type: File[]
     outputSource: metaphlan4/bowtie2
