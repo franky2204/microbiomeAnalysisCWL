@@ -44,10 +44,7 @@ inputs:
     default: 1
     inputBinding:
       position: 4
-  report_count:
-    type: File
-    inputBinding:
-      position: 5
+
 
 outputs:
   unmapped_R1:

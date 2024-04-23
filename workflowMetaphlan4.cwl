@@ -91,8 +91,8 @@ steps:
     scatter: [read_1, read_2]
     scatterMethod: dotproduct
     in:
-      read_1: humanMapper_chm13/unmapped_chm_R1
-      read_2: humanMapper_chm13/unmapped_chm_R2
+      read_1: humanMapper_chm13/unmapped_R1
+      read_2: humanMapper_chm13/unmapped_R2
       threads: threads
       meta_path: meta_path
     out: [bowtie2, report, biom_output] 
