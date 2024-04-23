@@ -50,11 +50,11 @@ outputs:
   unmapped_R1:
     type: File
     outputBinding:
-      glob: "*unmapped_R1.fastq.gz"
+      glob: "*_hg38_unmapped_R1.fastq.gz"
   unmapped_R2:
     type: File
     outputBinding:
-      glob: "*unmapped_R2.fastq.gz"
+      glob: "*_hg38_unmapped_R2.fastq.gz"
   #single_pair:
   #  type: File
   #  outputBinding:
