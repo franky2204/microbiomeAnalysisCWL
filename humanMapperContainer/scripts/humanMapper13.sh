@@ -15,6 +15,8 @@ time {
 	samtools fastq -f 4 -f 8  -@ $threads ${patient}_pe.sam > ${patient}_unmapped.fastq
 
 	python3 /scripts/divide_fastq.py ${patient}_unmapped.fastq ${patient}_unmapped_R1.fastq ${patient}_unmapped_R2.fastq
-	gzip ${patient}_unmapped_R1.fastq
-	gzip ${patient}_unmapped_R2.fastq
+	#gzip ${output_file}_unmapped_R1.fastq
+	tar cf - ${output_file}_unmapped_R1.fastq | pigz -p $threads > ${output_file}_unmapped_R1.fastq.gz && rm ${output_file}_unmapped_R1.fastq
+	#gzip ${output_file}_unmapped_R2.fastq
+	tar cf - ${output_file}_unmapped_R2.fastq | pigz -p $threads > ${output_file}_unmapped_R2.fastq.gz && rm ${output_file}_unmapped_R2.fastq
 }
