@@ -20,8 +20,8 @@ time {
 	#total=$length1+$length2
 	#echo "$total" > ${output_file}_count.txt
 	#gzip ${output_file}_unmapped_R1.fastq
-	tar cf - ${output_file}_unmapped_R1.fastq | pigz > ${output_file}_unmapped_R1.fastq.gz
+	tar cf - ${output_file}_unmapped_R1.fastq | pigz -p $threads > ${output_file}_unmapped_R1.fastq.gz
 	#gzip ${output_file}_unmapped_R2.fastq
-	tar cf - ${output_file}_unmapped_R2.fastq | pigz > ${output_file}_unmapped_R2.fastq.gz
+	tar cf - ${output_file}_unmapped_R2.fastq | pigz -p $threads > ${output_file}_unmapped_R2.fastq.gz
 }
 
