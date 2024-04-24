@@ -19,9 +19,9 @@ time {
 	#length2=$(echo "scale=0; $length2 / 4" | bc)
 	#total=$length1+$length2
 	#echo "$total" > ${output_file}_count.txt
-	#gzip ${output_file}_unmapped_R1.fastq
-	tar cf - ${output_file}_unmapped_R1.fastq | pigz -p $threads > ${output_file}_unmapped_R1.fastq.gz && rm ${output_file}_unmapped_R1.fastq
-	#gzip ${output_file}_unmapped_R2.fastq
-	tar cf - ${output_file}_unmapped_R2.fastq | pigz -p $threads > ${output_file}_unmapped_R2.fastq.gz && rm ${output_file}_unmapped_R2.fastq
+	gzip ${output_file}_unmapped_R1.fastq
+	#tar cf - ${output_file}_unmapped_R1.fastq | pigz -p $threads > ${output_file}_unmapped_R1.fastq.gz && rm ${output_file}_unmapped_R1.fastq
+	gzip ${output_file}_unmapped_R2.fastq
+	#tar cf - ${output_file}_unmapped_R2.fastq | pigz -p $threads > ${output_file}_unmapped_R2.fastq.gz && rm ${output_file}_unmapped_R2.fastq
 }
 
