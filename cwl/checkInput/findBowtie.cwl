@@ -6,7 +6,7 @@ requirements:
   InlineJavascriptRequirement: {}
 hints:
   DockerRequirement:
-    dockerPull: scontaldo/checkinput
+    dockerPull: scontaldo/newinput
 
 baseCommand: ["bash", "/findBowtie.sh"]
 stdout: cwl.output.json

@@ -8,7 +8,7 @@ requirements:
   InlineJavascriptRequirement: {}
 hints:
   DockerRequirement:
-    dockerPull: scontaldo/checkinput
+    dockerPull: scontaldo/newinput
 
 inputs: 
   fastq_name:
