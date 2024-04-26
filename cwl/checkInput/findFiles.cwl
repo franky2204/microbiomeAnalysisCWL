@@ -8,7 +8,7 @@ hints:
   DockerRequirement:
     dockerPull: scontaldo/checkinput
 
-baseCommand: ["bash", "/findFiles.sh"]
+baseCommand: ["bash", "/kaioken.sh"]
 stdout: cwl.output.json
 
 inputs: 
