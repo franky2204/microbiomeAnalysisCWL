@@ -6,9 +6,9 @@ requirements:
   InlineJavascriptRequirement: {}
 hints:
   DockerRequirement:
-    dockerPull: scontaldo/checkinput
+    dockerPull: scontaldo/newinput
 
-baseCommand: ["bash", "/kaioken.sh"]
+baseCommand: ["bash", "/findFiles.sh"]
 stdout: cwl.output.json
 
 inputs: 
