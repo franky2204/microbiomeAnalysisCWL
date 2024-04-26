@@ -6,9 +6,9 @@ requirements:
   InlineJavascriptRequirement: {}
 hints:
   DockerRequirement:
-    dockerPull: scontaldo/newinput
+    dockerPull: fpantini/checkrust
 
-baseCommand: ["bash", "/findFiles.sh"]
+baseCommand: [".", "/findFiles"]
 stdout: cwl.output.json
 
 inputs: 
