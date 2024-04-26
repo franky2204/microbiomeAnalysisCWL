@@ -24,8 +24,8 @@ outputs:
   read_1:
     type: File
     outputBinding:
-      glob: "*1.f*.gz"#da controllare   
+      glob: "*_R1.f*.gz"#da controllare   
   read_2:
     type: File
     outputBinding:
-      glob: "*2.f*.gz"#da controllare      
+      glob: "*_R2.f*.gz"#da controllare      
