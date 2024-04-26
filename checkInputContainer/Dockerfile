@@ -1,5 +1,5 @@
 FROM ubuntu:20.04
-MAINTAINER sandrogepiro.contaldo@unito.it
+LABEL maintainer="sandrogepiro.contaldo@unito.it"
 
 #machine initialization
 RUN apt-get update -y
