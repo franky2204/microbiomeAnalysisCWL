@@ -8,7 +8,7 @@ requirements:
   InlineJavascriptRequirement: {}
 hints:
   DockerRequirement:
-    dockerPull: scontaldo/newinput
+    dockerPull: scontaldo/checkinput
 
 inputs: 
   bowtie_name:

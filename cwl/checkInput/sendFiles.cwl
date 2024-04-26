@@ -8,7 +8,7 @@ requirements:
   InlineJavascriptRequirement: {}
 hints:
   DockerRequirement:
-    dockerPull: scontaldo/newinput
+    dockerPull: scontaldo/checkinput
 
 inputs: 
   fastq_name:
@@ -24,8 +24,8 @@ outputs:
   read_1:
     type: File
     outputBinding:
-      glob: "*_R1.f*.gz"#da controllare   
+      glob: "*1.f*.gz"#da controllare   
   read_2:
     type: File
     outputBinding:
-      glob: "*_R2.f*.gz"#da controllare      
+      glob: "*2.f*.gz"#da controllare      

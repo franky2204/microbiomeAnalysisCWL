@@ -6,9 +6,9 @@ requirements:
   InlineJavascriptRequirement: {}
 hints:
   DockerRequirement:
-    dockerPull: scontaldo/newinput
+    dockerPull: scontaldo/checkinput
 
-baseCommand: ["bash", "/findFilesNew.sh"]
+baseCommand: ["bash", "/findFiles.sh"]
 stdout: cwl.output.json
 
 inputs: 
