@@ -8,7 +8,7 @@ hints:
   DockerRequirement:
     dockerPull: scontaldo/newinput
 
-baseCommand: [".", "/findFilesNew.sh"]
+baseCommand: ["bash", "/findFilesNew.sh"]
 stdout: cwl.output.json
 
 inputs: 
