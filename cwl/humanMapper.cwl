@@ -32,7 +32,6 @@ inputs:
     inputBinding: 
       position: 3 
     secondaryFiles:
-      opional: true
       - .amb
       - .ann
       - .bwt
