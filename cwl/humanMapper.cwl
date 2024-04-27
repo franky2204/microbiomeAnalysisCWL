@@ -36,6 +36,7 @@ inputs:
       - .ann
       - .bwt
       - .fai
+        opional: true
       - .pac
       - .sa
   threads:
