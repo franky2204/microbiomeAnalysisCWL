@@ -32,11 +32,11 @@ inputs:
     inputBinding: 
       position: 3 
     secondaryFiles:
+      opional: true
       - .amb
       - .ann
       - .bwt
-      - .fai
-        opional: true
+      - .fai  
       - .pac
       - .sa
   threads:
