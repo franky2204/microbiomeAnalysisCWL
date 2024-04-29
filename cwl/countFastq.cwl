@@ -14,8 +14,8 @@ inputs:
     type: string
     default: "|"
     shellQuote: False 
-    inputbinding:
-      positioning: 2
+    inputBinding:
+      position: 2
   wc:
     type: string
     shellQuote: False
