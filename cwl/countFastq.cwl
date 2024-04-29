@@ -20,4 +20,4 @@ outputs:
     single_pair:
     type: File
     outputBinding:
-    glob: "*_count_fastq.txt"
+      glob: "*_count_fastq.txt"
