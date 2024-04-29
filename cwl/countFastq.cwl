@@ -17,7 +17,7 @@ inputs:
       position: 1 
 
 outputs:
-  single_pair:
+  count:
     type: File
     outputBinding:
       glob: "*_count_fastq.txt"

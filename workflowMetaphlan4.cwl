@@ -60,13 +60,13 @@ outputs:
     outputSource: merge_bioms/final_table
   count_fatq:
     type: File[]
-    outputSource: count-start/count_fastq
+    outputSource: count-start/count
   count_fatq_g1:
     type: File[]
-    outputSource: count-genome1/count_fastq_g1
+    outputSource: count-genome1/count
   count_fatq_g2:
     type: File[]
-    outputSource: count-genome2/count_fastq_g2
+    outputSource: count-genome2/count
 
 steps:
   check-input:
@@ -80,7 +80,7 @@ steps:
     scatterMethod: dotproduct
     in:
       read_1: check-input/read_1
-    out: [count_fastq]
+    out: [count]
   humanmapper:
     run: cwl/humanMapper.cwl
     scatter: [read_1, read_2]
@@ -97,7 +97,7 @@ steps:
     scatterMethod: dotproduct
     in:
       read_1: humanmapper/unmapped_R1
-    out: [count_fastq_g1]
+    out: [count]
   humanMapper_chm13:
     run: cwl/humanMapper.cwl
     scatter: [read_1, read_2]
@@ -114,7 +114,7 @@ steps:
     scatterMethod: dotproduct
     in:
       read_1: humanMapper_chm13/unmapped_R1
-    out: [count_fastq_g2]
+    out: [count]
   metaphlan4:
     run: cwl/metaphlan4.cwl
     scatter: [read_1, read_2]
