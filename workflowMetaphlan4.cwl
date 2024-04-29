@@ -78,9 +78,9 @@ steps:
     run: cwl/countFastq.cwl
     scatter: [read_1, read_2]
     scatterMethod: dotproduct 
-      in:
-        read_1: check-input/read_1
-        read_2: check-input/read_2
+    in:
+      read_1: check-input/read_1
+      read_2: check-input/read_2
     out: [count_fastq]
   humanmapper:
     run: cwl/humanMapper.cwl
@@ -96,10 +96,9 @@ steps:
     run: cwl/countFastq.cwl
     scatter: [read_1, read_2]
     scatterMethod: dotproduct
-    run: 
-      in:
-        read_1: humanMapper/unmapped_R1
-        read_2: humanMapper/unmapped_R2
+    in:
+      read_1: humanMapper/unmapped_R1
+      read_2: humanMapper/unmapped_R2
     out: [count_fastq_g1]
   humanMapper_chm13:
     run: cwl/humanMapper.cwl
@@ -115,10 +114,9 @@ steps:
     run: cwl/countFastq.cwl
     scatter: [read_1, read_2]
     scatterMethod: dotproduct
-    run: 
-      in:
-        read_1: humanMapper_chm13/unmapped_R1
-        read_2: humanMapper_chm13/unmapped_R2
+    in:
+      read_1: humanMapper_chm13/unmapped_R1
+      read_2: humanMapper_chm13/unmapped_R2
     out: [count_fastq_g2]
   metaphlan4:
     run: cwl/metaphlan4.cwl
