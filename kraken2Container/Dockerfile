@@ -12,6 +12,10 @@ WORKDIR /tmp/kraken2
 RUN bash /tmp/kraken2/install_kraken2.sh /kraken2
 ENV PATH="${PATH}:/kraken2"
 
+#braken installation
+#COPY ./braken in some folder
+#RUN BASH 
+
 WORKDIR /
 
 #python3 installation

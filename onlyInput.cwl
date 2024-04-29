@@ -20,7 +20,7 @@ outputs:
     outputSource: check-input/read_2
   count:
     type: File[]
-    outputSource: countFastq/count
+    outputSource: count-start/count
 
 steps:
   check-input:
