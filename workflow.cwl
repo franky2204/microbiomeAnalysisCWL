@@ -61,6 +61,8 @@ outputs:
   get-otu_output:
     type: File[]
     outputSource: get-otu/otu_table
+  #braken_output:
+  #  type: File[]
   count-total-otu_output:
     type: File
     outputSource: count-total-otu/total_otu
@@ -115,6 +117,12 @@ steps:
     in:
       kraken_report: kraken2/report
     out: [otu_table]
+  #braken:
+  #  run: cwl/braken.cwl
+  #  scatter: kraken_report
+  #  in:
+  #    kraken_report: kraken2/report
+      #aggingere inputs
   count-total-otu:
     run: cwl/countTotalOTU.cwl
     in:
@@ -125,3 +133,4 @@ steps:
     in:
       total_otu: count-total-otu/total_otu
     out: [alpha_div]
+ 

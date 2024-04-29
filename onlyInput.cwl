@@ -18,6 +18,9 @@ outputs:
   read_2:
     type: File[]
     outputSource: check-input/read_2
+  count:
+    type: File[]
+    outputSource: countFastq/count
 
 steps:
   check-input:
@@ -25,6 +28,11 @@ steps:
     in:
       fastq_directory: fastq_directory
     out: [read_1, read_2]
-
+  count-start:
+    run: cwl/countFastq.cwl
+    scatter: read_1
+    in:
+      read_1: check-input/read_1
+    out: [count]
 
  
