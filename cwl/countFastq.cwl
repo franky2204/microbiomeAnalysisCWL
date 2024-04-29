@@ -11,7 +11,7 @@ inputs:
     inputBinding:
       position: 1
   pipe:
-    type:string
+    type: string
     default: "|"
     shellQuote: False 
     inputbinding:
