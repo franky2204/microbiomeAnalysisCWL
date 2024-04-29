@@ -14,6 +14,3 @@ gzip -d $2
 wc -l $unzip1 > ${file_name}_1.txt
 wc -l $unzip2 > ${file_name}_2.txt
 cat ${file_name}_2.txt ${file_name}_2.txt >$file_name
-
-gunzip $unzip1
-gunzip $unzip2

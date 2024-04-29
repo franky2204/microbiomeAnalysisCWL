@@ -1,27 +1,37 @@
+cwlVersion: v1.2
 class: CommandLineTool
-cwlVersion: "v1.2"
-
 requirements:
-  InlineJavascriptRequirement: {}
-hints:
-  DockerRequirement:
-    dockerPull: scontaldo/checkinput
-
-baseCommand: ["bash", "/countFastq.sh"]
-stdout: cwl.output.json
-
+  - class: ShellCommandRequirement
+baseCommand: zcat 
 inputs:
-  read_1:
+  files_input:
     type: File
+    streamable: true
+    shellQuote: False 
     inputBinding:
-      position: 1 
-  read_2:
-    type: File
+      position: 1
+  pipe:
+    type:string
+    default: "|"
+    shellQuote: False 
+    inputbinding:
+      positioning: 2
+  wc:
+    type: string
+    shellQuote: False
+    prefix: "wc"
     inputBinding:
-      position: 2
-
+      position: 3
+  line: 
+    type: string
+    shellQuote: False
+    prefix: "-l"
+    inputBinding:
+      position: 4
+stdout: count_output.txt
 outputs:
-    single_pair:
+  grep_file:
     type: File
+    streamable: true
     outputBinding:
-    glob: "*_count_fastq.txt"
+      glob: count_output.txt
