@@ -75,8 +75,8 @@ steps:
       fastq_directory: fastq_directory
     out: [read_1, read_2]
   count-start:
-    run: cwl/countFastq.cwl
-    scatter: [read_1, read_2]
+    #run: cwl/countFastq.cwl
+    #scatter: [read_1, read_2]
     scatterMethod: dotproduct 
     in:
       read_1: check-input/read_1
