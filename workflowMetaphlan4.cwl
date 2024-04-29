@@ -77,8 +77,7 @@ steps:
   count-start:
     run: cwl/countFastq.cwl
     scatter: [read_1, read_2]
-    scatterMethod: dotproduct
-    run: 
+    scatterMethod: dotproduct 
       in:
         read_1: check-input/read_1
         read_2: check-input/read_2
