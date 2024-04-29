@@ -3,9 +3,15 @@ cwlVersion: "v1.2"
 
 requirements:
   InlineJavascriptRequirement: {}
+  InitialWorkDirRequirement: 
+    listing:
+      - entry: $(inputs.read_1)
+        writable: True
 hints:
   DockerRequirement:
     dockerPull: scontaldo/checkinput
+
+
 
 baseCommand: ["bash", "/countFastq.sh"]
 stdout: cwl.output.json
