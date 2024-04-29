@@ -4,9 +4,7 @@ cwlVersion: "v1.2"
 requirements:
   InlineJavascriptRequirement: {}
   InitialWorkDirRequirement: 
-    listing:
-      - entry: $(inputs.read_1)
-        writable: True
+    listing: $(inputs.read_1)
 hints:
   DockerRequirement:
     dockerPull: scontaldo/checkinput
