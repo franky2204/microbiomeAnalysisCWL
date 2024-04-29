@@ -4,7 +4,7 @@ requirements:
   - class: ShellCommandRequirement
 baseCommand: zcat 
 inputs:
-  files_input:
+  read_1:
     type: File
     streamable: true
     shellQuote: False 
