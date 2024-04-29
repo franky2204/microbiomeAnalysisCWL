@@ -108,7 +108,7 @@ steps:
     out: [unmapped_R1, unmapped_R2]
   count-genome2:
     run: cwl/countFastq.cwl
-     scatter: read_1
+    scatter: read_1
     in:
       read_1: humanMapper_chm13/unmapped_R1
     out: [count]
