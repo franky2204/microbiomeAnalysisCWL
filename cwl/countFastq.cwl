@@ -1,11 +1,12 @@
 class: CommandLineTool
 cwlVersion: "v1.2"
 
+doc:  |
+  Count reads of fastq 
+
 requirements:
-  InlineJavascriptRequirement: {}
-listing:
-  - entry: $(read_1.outputDir)
-    writable: true
+  InlineJavascriptRequirement: {} 
+
 
 hints:
   DockerRequirement:
