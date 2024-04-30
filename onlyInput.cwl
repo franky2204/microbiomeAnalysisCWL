@@ -61,7 +61,6 @@ steps:
       read_1: check-input/read_1
       read_2: check-input/read_2
       index: index_chm13
-      threads: threads
     out: [unmapped_R1, unmapped_R2]
   count-genome1:
     run: cwl/countFastq.cwl
