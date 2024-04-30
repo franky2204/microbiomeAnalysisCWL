@@ -32,10 +32,12 @@ outputs:
   unmapped_R2:
     type: File[]
     outputSource: humanmapper/unmapped_R2
-    
   count:
     type: File[]
     outputSource: count-start/count
+   count2:
+    type: File[]
+    outputSource: count-genome1/count2
 
 steps:
   check-input:
@@ -68,5 +70,5 @@ steps:
     in:
       read_1: humanmapper/unmapped_R1
       read_2: humanMapper/_unmapped_R2
-
+    out: [count2]
  
