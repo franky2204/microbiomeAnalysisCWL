@@ -69,6 +69,6 @@ steps:
     scatterMethod: dotproduct
     in:
       read_1: humanmapper/unmapped_R1
-      read_2: humanMapper/_unmapped_R2
+      read_2: humanmapper/unmapped_R2
     out: [count2]
  
