@@ -6,8 +6,6 @@ doc:  |
 
 requirements:
   InlineJavascriptRequirement: {} 
-- class: InitialWorkDirRequirement
-      listing: [ $(inputs.file) ]
 
 hints:
   DockerRequirement:
