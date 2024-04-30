@@ -35,7 +35,7 @@ outputs:
   count:
     type: File[]
     outputSource: count-start/count
-   count2:
+  count2:
     type: File[]
     outputSource: count-genome1/count2
 
