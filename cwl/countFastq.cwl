@@ -6,7 +6,8 @@ doc:  |
 
 requirements:
   InlineJavascriptRequirement: {} 
-
+- class: InitialWorkDirRequirement
+      listing: [ $(inputs.file) ]
 
 hints:
   DockerRequirement:
@@ -22,6 +23,11 @@ inputs:
     type: File
     inputBinding:
       position: 1 
+  read_2:
+    type: File
+    inputBinding:
+      position: 2 
+
 
 outputs:
   count:

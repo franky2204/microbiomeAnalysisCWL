@@ -76,9 +76,11 @@ steps:
     out: [read_1, read_2]
   count-start:
     run: cwl/countFastq.cwl
-    scatter: read_1
+    scatter: [read_1, read_2]
+    scatterMethod: dotproduct
     in:
       read_1: check-input/read_1
+      read_2: check-input/read_2
     out: [count]
   humanmapper:
     run: cwl/humanMapper.cwl
@@ -92,7 +94,8 @@ steps:
     out: [unmapped_R1, unmapped_R2]
   count-genome1:
     run: cwl/countFastq.cwl
-    scatter: read_1
+    scatter: [read_1, read_2]
+    scatterMethod: dotproduct
     in:
       read_1: humanmapper/unmapped_R1
     out: [count]
@@ -108,7 +111,8 @@ steps:
     out: [unmapped_R1, unmapped_R2]
   count-genome2:
     run: cwl/countFastq.cwl
-    scatter: read_1
+    scatter: [read_1, read_2]
+    scatterMethod: dotproduct
     in:
       read_1: humanMapper_chm13/unmapped_R1
     out: [count]
