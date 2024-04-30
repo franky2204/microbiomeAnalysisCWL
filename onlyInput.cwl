@@ -34,6 +34,8 @@ steps:
     scatterMethod: dotproduct
     in:
       read_1: check-input/read_1
+      read_2: check-input/read_2
+
     out: [count]
 
  
