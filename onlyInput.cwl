@@ -10,7 +10,7 @@ requirements:
 
 inputs:
   fastq_directory: Directory
-  index_chm13:
+  genome:
     type: File
     secondaryFiles:
       - .amb
@@ -18,6 +18,7 @@ inputs:
       - .bwt
       - .pac
       - .sa
+  threads: int?
 
 outputs:
   read_1:
@@ -37,7 +38,7 @@ outputs:
     outputSource: count-start/count
   count2:
     type: File[]
-    outputSource: count-genome1/count2
+    outputSource: count-genome1/count
 
 steps:
   check-input:
@@ -54,13 +55,14 @@ steps:
       read_2: check-input/read_2
     out: [count]
   humanmapper:
-    run: cwl/humanMapper.cwl
+    run: cwl/genomeMapper.cwl
     scatter: [read_1, read_2]
     scatterMethod: dotproduct
     in:
       read_1: check-input/read_1
       read_2: check-input/read_2
-      index: index_chm13
+      genome: genome
+      threads: threads
     out: [unmapped_R1, unmapped_R2]
   count-genome1:
     run: cwl/countFastq.cwl
@@ -69,5 +71,5 @@ steps:
     in:
       read_1: humanmapper/unmapped_R1
       read_2: humanmapper/unmapped_R2
-    out: [count2]
+    out: [count]
  

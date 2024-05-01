@@ -5,16 +5,22 @@ doc:  |
   Count reads of fastq 
 
 requirements:
-  InlineJavascriptRequirement: {} 
+  InlineJavascriptRequirement: {}
+  InitialWorkDirRequirement:
+    listing:
+      - entry: $(inputs.read_1)
+        writable: True
+      - entry: $(inputs.read_2)
+        writable: True
 
 hints:
   DockerRequirement:
-    dockerPull: scontaldo/checkinput
+    dockerPull: scontaldo/humanmapper
 
 
 
-baseCommand: ["bash", "/countFastq.sh"]
-stdout: cwl.output.json
+baseCommand: ["bash", "/scripts/countFastq.sh"]
+
 
 inputs:
   read_1:
@@ -31,4 +37,4 @@ outputs:
   count:
     type: File
     outputBinding:
-      glob: "*_count_fastq.txt"
+      glob: "*_count.txt"
