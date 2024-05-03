@@ -21,7 +21,7 @@ inputs:
       position: 2
 
 outputs:
-  read:
+  report:
     type: File
     outputBinding:
       glob: "*.report"#da controllare   

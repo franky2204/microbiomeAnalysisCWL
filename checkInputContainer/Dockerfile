@@ -9,6 +9,5 @@ COPY findFiles.sh .
 COPY sendFiles.sh .
 COPY findBowtie.sh .
 COPY sendBowtie.sh .
-COPY countFastq.sh .
 COPY findReport.sh .
 COPY sendReport.sh .

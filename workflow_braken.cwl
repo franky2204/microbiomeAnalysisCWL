@@ -6,10 +6,12 @@ requirements:
   InlineJavascriptRequirement: {}
   MultipleInputFeatureRequirement: {}
   SubworkflowFeatureRequirement: {}
+  ScatterFeatureRequirement: {}
 
 inputs:
   est_abundance: File
-  report_folder: File[]
+  report_folder: 
+    type: Directory
   threshold: int?
   kmer_distrib: File
   classification_level: string

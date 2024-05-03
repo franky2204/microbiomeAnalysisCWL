@@ -12,7 +12,7 @@ inputs:
 outputs:
   read:
     type: File[] 
-    outputSource: send-files/output
+    outputSource: send-files/read
 
 steps:
   check-files: 
@@ -26,4 +26,4 @@ steps:
     in:
       report_name: check-files/value
       report_directory: report_directory
-    out: [read]
+    out: [report]
