@@ -20,7 +20,7 @@ inputs:
 
 outputs:
   alpha_div:
-    type: File
+    type: File[]
     outputSource: Braken/alpha_div
 
 
