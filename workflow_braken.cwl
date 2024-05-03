@@ -22,20 +22,20 @@ outputs:
   alpha_div:
     type: File
     outputSource: Braken/alpha_div
- 
+
 
 steps:
-  find_report:
+  find-report:
     run: cwl/checkReport.cwl
     in: 
-      report_folder: report_folder
+      report_directory: report_folder
     out: [report]
   Braken:
     run: cwl/bracken.cwl
     scatter: [report]
     in:
       est_abundance: est_abundance
-      report: find_report/report
+      report: find-report/report
       kmer_distrib: kmer_distrib
       classification_level: classification_level
       threshold: threshold

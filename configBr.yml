@@ -1,7 +1,7 @@
 est_abundance: 
   class: File
   path: /home/fpantini/microbiomeAnalysisCWL/kraken2Container/Bracken/src/est_abundance.py
-report:
+report_folder:
   class: Folder
   path: /home/fpantini/reports
 kmer_distrib:

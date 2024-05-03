@@ -10,9 +10,9 @@ inputs:
   report_directory: Directory
 
 outputs:
-  read:
+  report:
     type: File[] 
-    outputSource: send-files/read
+    outputSource: send-files/report
 
 steps:
   check-files: 

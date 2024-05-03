@@ -3,10 +3,7 @@ class: CommandLineTool
 
 requirements:
   InlineJavascriptRequirement: {}
-  InitialWorkDirRequirement: 
-    listing:
-      - entry: $(inputs.report)
-        writable: True
+
 hints:
   DockerRequirement:
     dockerPull: scontaldo/kraken2:v2.1.2 
@@ -20,7 +17,7 @@ inputs:
     inputBinding:
       position: 1
   report: 
-    type: File[]
+    type: File
     inputBinding:
       position: 2
       prefix: -i
