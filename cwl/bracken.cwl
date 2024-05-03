@@ -3,6 +3,10 @@ class: CommandLineTool
 
 requirements:
   InlineJavascriptRequirement: {}
+  InitialWorkDirRequirement: 
+    listing:
+      - entry: $(inputs.report)
+        writable: True
 
 hints:
   DockerRequirement:
