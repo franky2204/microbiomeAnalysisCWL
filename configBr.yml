@@ -1,0 +1,12 @@
+est_abundance: 
+  class: File
+  path: 
+report:
+  class: File
+  path:
+kmer_distrib:
+  class: File
+classification_level: "S"
+threshod: 30
+alpha: hello
+

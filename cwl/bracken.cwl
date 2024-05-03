@@ -15,7 +15,7 @@ inputs:
     type: File
     inputBinding:
       position: 1
-  input_file: 
+  report: 
     type: File
     inputBinding:
       position: 2
@@ -51,7 +51,7 @@ outputs:
     type: File
     outputBinding:
       glob: "*results.braken" 
-      outputEval: ${self[0].basename=inputs.input_file.nameroot;
+      outputEval: ${self[0].basename=inputs.report.nameroot;
                     ending=".braken";
                     self[0]=self[0] + ending; return self;}
 
