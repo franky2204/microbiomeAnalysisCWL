@@ -1,12 +1,12 @@
 est_abundance: 
   class: File
-  path: 
+  path: /home/fpantini/microbiomeAnalysisCWL/kraken2Container/Bracken/src/est_abundance.py
 report:
-  class: File
-  path:
+  class: Folder
+  path: /home/fpantini   
 kmer_distrib:
   class: File
+  path: /home/fpantini/database150mers.kmer_distrib
 classification_level: "S"
 threshod: 30
-alpha: hello
-
+alpha: aboundance_results.braken

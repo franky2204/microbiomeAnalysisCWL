@@ -3,6 +3,10 @@ class: CommandLineTool
 
 requirements:
   InlineJavascriptRequirement: {}
+  InitialWorkDirRequirement: 
+    listing:
+      - entry: $(inputs.report)
+        writable: True
 hints:
   DockerRequirement:
     dockerPull: scontaldo/kraken2:v2.1.2 
@@ -10,13 +14,13 @@ hints:
 baseCommand: python3
 
 
-inputs: 
+inputs:
   est_abundance:
     type: File
     inputBinding:
       position: 1
   report: 
-    type: File
+    type: File[]
     inputBinding:
       position: 2
       prefix: -i
@@ -37,22 +41,15 @@ inputs:
     inputBinding:
       position: 5
       prefix: -t 
-   alpha:
+  alpha:
     type: string
     inputBinding:
-    position: 6
-    prefix: -o
-      
-
-
-
+      position: 6
+      prefix: -o
+     
 outputs:
   alpha_div:
     type: File
     outputBinding:
       glob: "*results.braken" 
-      outputEval: ${self[0].basename=inputs.report.nameroot;
-                    ending=".braken";
-                    self[0]=self[0] + ending; return self;}
-
 

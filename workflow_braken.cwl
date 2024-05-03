@@ -4,13 +4,12 @@ class: Workflow
 
 requirements:
   InlineJavascriptRequirement: {}
-  ScatterFeatureRequirement: {}
   MultipleInputFeatureRequirement: {}
   SubworkflowFeatureRequirement: {}
 
 inputs:
   est_abundance: File
-  report: File
+  report_folder: File[]
   threshold: int?
   kmer_distrib: File
   classification_level: string
@@ -19,17 +18,22 @@ inputs:
 
 outputs:
   alpha_div:
-    type: File[]
-    outputSource: braken/alpha_div
+    type: File
+    outputSource: Braken/alpha_div
  
 
 steps:
+  find_report:
+    run: cwl/checkReport.cwl
+    in: 
+      report_folder: report_folder
+    out: [report]
   Braken:
-    run: cwl/braken.cwl
+    run: cwl/bracken.cwl
     scatter: [report]
     in:
       est_abundance: est_abundance
-      report: report
+      report: find_report/report
       kmer_distrib: kmer_distrib
       classification_level: classification_level
       threshold: threshold
