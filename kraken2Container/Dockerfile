@@ -12,8 +12,14 @@ WORKDIR /tmp/kraken2
 RUN bash /tmp/kraken2/install_kraken2.sh /kraken2
 ENV PATH="${PATH}:/kraken2"
 
-#braken installation
-#COPY ./braken in some folder
+WORKDIR /
+
+#bracken installation
+COPY ./Bracken /tmp/Bracken
+
+WORKDIR /tmp/Bracken
+RUN bash /tmp/Bracken/install_bracken.sh /Bracken
+ENV PATH="${PATH}:/Bracken}"
 #RUN BASH 
 
 WORKDIR /
