@@ -19,15 +19,6 @@ inputs:
       - .amb
       - .ann
       - .bwt
-      - .fai
-      - .pac
-      - .sa
-  index_chm13:
-    type: File
-    secondaryFiles:
-      - .amb
-      - .ann
-      - .bwt
       - .pac
       - .sa
 
@@ -40,12 +31,6 @@ outputs:
   unmapped_R2:
     type: File[]
     outputSource: humanmapper/unmapped_R2
-  unmapped_chm_R1:
-    type: File[]
-    outputSource: humanMapper_chm13/unmapped_R1
-  unmapped_chm_R2:
-    type: File[]
-    outputSource: humanMapper_chm13/unmapped_R2
   bowtie2:
     type: File[]
     outputSource: metaphlan4/bowtie2
@@ -99,24 +84,6 @@ steps:
     in:
       read_1: humanmapper/unmapped_R1
       read_2: humanMapper/unmapped_R2
-    out: [count]
-  humanMapper_chm13:
-    run: cwl/humanMapper.cwl
-    scatter: [read_1, read_2]
-    scatterMethod: dotproduct
-    in:
-      read_1: humanmapper/unmapped_R1
-      read_2: humanmapper/unmapped_R2
-      index: index_chm13
-      threads: threads
-    out: [unmapped_R1, unmapped_R2]
-  count-genome2:
-    run: cwl/countFastq.cwl
-    scatter: [read_1, read_2]
-    scatterMethod: dotproduct
-    in:
-      read_1: humanMapper_chm13/unmapped_R1
-      read_2: humanMapper_chm13/unmapped_R2
     out: [count]
   metaphlan4:
     run: cwl/metaphlan4.cwl

@@ -55,7 +55,7 @@ steps:
       read_2: check-input/read_2
     out: [count]
   humanmapper:
-    run: cwl/genomeMapper.cwl
+    run: cwl/humanMapper.cwl
     scatter: [read_1, read_2]
     scatterMethod: dotproduct
     in:
