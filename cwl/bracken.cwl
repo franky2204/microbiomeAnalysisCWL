@@ -48,6 +48,6 @@ outputs:
   alpha_div:
     type: File
     outputBinding:
-      glob: "*results.braken"
+      glob: "*.braken"
       outputEval: ${self[0].basename=inputs.report+alpha; return self;}
 
