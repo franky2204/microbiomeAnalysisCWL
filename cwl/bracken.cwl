@@ -53,5 +53,7 @@ outputs:
     type: File
     outputBinding:
       glob: "*.braken"
-      outputEval: ${self[0].basename=inputs.report+inputs.alpha; return self;}
-
+      outputEval: ${
+          var index = self.idx;
+          self[0].basename = inputs.report.nameroot + inputs.alpha;
+          return self; }
