@@ -9,4 +9,4 @@ kmer_distrib:
   path: /home/fpantini/database150mers.kmer_distrib
 classification_level: "S"
 threshod: 30
-alpha: aboundance_results.braken
+alpha: _aboundance.braken
