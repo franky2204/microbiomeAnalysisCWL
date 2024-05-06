@@ -14,11 +14,13 @@ inputs:
 outputs:
   gene_families:
     type: File
-    outputSource:
+    outputSource: humann3/gene_families
   path_coverage:
     type: File
+    outputSource: humann3/path_coverage
   path_abundance:
     type: File
+    outputSource: humann3/path_abundance
 
 steps:
   humann3:
