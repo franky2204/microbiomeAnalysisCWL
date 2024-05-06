@@ -2,8 +2,9 @@ file1="$1"
 file2="$2"
 
 file1_name=$(basename "$file1" .gz)
+cut_down=$(echo "$file1" |  cut -d'_' -f1,2)
 file2_name=$(basename "$file2" .gz)
-output_file="${file1_name}_count.txt"
+output_file="${cut_down}_count.txt"
 
 time {
     
