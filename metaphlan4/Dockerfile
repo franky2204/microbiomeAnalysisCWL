@@ -24,6 +24,7 @@ WORKDIR /
 RUN pip3 install numpy
 RUN pip3 install biopython
 RUN pip3 install biom-format
+RUN pip3 install h5py
 #metaphlan installation
 RUN pip3 install metaphlan
 #humann installation
