@@ -19,6 +19,6 @@ biom_input:
   path: 
 output_dir: 
   class: Directory
-  path: ./
+  path: /home/fpantini/output
 
   
