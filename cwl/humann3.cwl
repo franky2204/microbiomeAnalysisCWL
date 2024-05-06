@@ -11,6 +11,8 @@ requirements:
         writable: True
 
 hints:
+  ResourceRequirement:
+    coresMax: $(inputs.threads)
   DockerRequirement:
     dockerPull: fpant/metaphlan 
 baseCommand: humann
@@ -28,6 +30,13 @@ inputs:
     inputBinding:
       position: 2
       prefix: --output
+  threads:
+    doc: "Maximum number of compute threads"
+    type: int?
+    default: 1
+    inputBinding:
+      position: 3
+      prefix: --threads
      
 outputs:
   gene_families:

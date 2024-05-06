@@ -11,6 +11,7 @@ requirements:
 inputs:
   biom_input: File
   output_dir: Directory
+  threads: int?
 outputs:
   gene_families:
     type: File
@@ -28,5 +29,6 @@ steps:
     in:
       biom_input: biom_input
       output_dir: output_dir
+      threads: threads
     out: [gene_families,path_coverage ,path_abundance]
 
