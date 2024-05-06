@@ -98,7 +98,7 @@ steps:
     scatterMethod: dotproduct
     in:
       read_1: humanmapper/unmapped_R1
-      read_2: humanMapper/unmapped_R2
+      read_2: humanmapper/unmapped_R2
     out: [count]
   humanMapper_chm13:
     run: cwl/humanMapper.cwl
