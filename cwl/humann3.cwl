@@ -21,7 +21,7 @@ inputs:
       position: 1
       prefix: --input
   output_dir:
-    type: string?
+    type: Directory?
     default: "./"
     inputBinding:
       position: 2
