@@ -14,7 +14,11 @@ meta_path:
 fastq_directory:
   class: Directory
   location: /backup/fpantini/file_piccoli/comp
-
-
+biom_input: 
+  class: File
+  path: 
+output_dir: 
+  class: Directory
+  path: ./
 
   
