@@ -42,14 +42,14 @@ outputs:
   gene_families:
     type: File
     outputBinding:
-      glob: "*genefamilies.tsv"
+      glob: "*/microbiomeAnalysisCWL/*genefamilies.tsv"
   path_coverage:
     type: File
     outputBinding:
-      glob: "*pathcoverage.tsv"
+      glob: "*/microbiomeAnalysisCWL/*pathcoverage.tsv"
   path_abundance:
     type: File
     outputBinding:
-      glob: "*pathabundance.tsv"
+      glob: "*/microbiomeAnalysisCWL/*pathabundance.tsv"
 
 
