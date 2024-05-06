@@ -7,10 +7,10 @@ output_file="${file1_name}_count.txt"
 
 time {
     
-    gzip -d "$file1" && l_one=$(( $(wc -l < "${file1_name}") / 4 ))
+    l_one=$(( $(zcat "${file1}"| wc -l) / 4 ))
     echo "$file1_name : $l_one" > "${file1_name}_partial1.txt"
     
-    gzip -d "$file2" && l_two=$(( $(wc -l < "${file2_name}") / 4 ))
+    l_two=$(( $(zcat "${file2}"| wc -l) / 4 ))
     echo "$file2_name : $l_two" > "${file2_name}_partial2.txt"
     
     cat "${file1_name}_partial1.txt" "${file2_name}_partial2.txt" > "$output_file"
