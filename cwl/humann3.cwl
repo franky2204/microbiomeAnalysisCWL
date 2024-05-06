@@ -8,6 +8,7 @@ requirements:
       - entry: $(inputs.biom_input)
         writable: True
       - entry: $(inputs.output_dir)
+        writable: True
 
 hints:
   DockerRequirement:
