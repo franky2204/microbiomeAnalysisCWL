@@ -25,6 +25,8 @@ RUN pip3 install numpy
 RUN pip3 install biopython
 #metaphlan installation
 RUN pip3 install metaphlan
+#humann installation
+RUN pip3 install humann
 
 #WORKDIR /metaphlanDB
 #RUN  metaphlan --install  --bowtie2db /metaphlanDB/
