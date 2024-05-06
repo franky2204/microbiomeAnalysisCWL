@@ -23,7 +23,7 @@ RUN make install
 WORKDIR /
 RUN pip3 install numpy
 RUN pip3 install biopython
-RUN pip install biom-format
+RUN pip3 install biom-format
 #metaphlan installation
 RUN pip3 install metaphlan
 #humann installation
