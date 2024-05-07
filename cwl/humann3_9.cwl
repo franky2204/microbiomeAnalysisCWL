@@ -10,8 +10,7 @@ requirements:
     listing:
       - entry: $(inputs.biom_input)
         writable: True
-      - entry: $(inputs.output_dir)
-        writable: True
+
 
 hints:
   ResourceRequirement:
@@ -26,11 +25,6 @@ inputs:
     type: File
     inputBinding:
       position: 1
-  output_dir:
-    type: Directory?
-    default: "./"
-    inputBinding:
-      position: 2
   threads:
     doc: "Maximum number of compute threads"
     type: int?

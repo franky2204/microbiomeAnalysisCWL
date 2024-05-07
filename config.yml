@@ -17,8 +17,6 @@ fastq_directory:
 biom_input: 
   class: File
   path: /media/francesco/Volume/Work/examples/demo.sam
-output_dir: 
-  class: Directory
-  path: ./
+
 
   

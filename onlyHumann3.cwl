@@ -10,8 +10,8 @@ requirements:
 
 inputs:
   biom_input: File
-  output_dir: Directory
   threads: int?
+
 outputs:
   dir_humann:
     type: Directory
@@ -23,7 +23,6 @@ steps:
     run: cwl/humann3_9.cwl
     in:
       biom_input: biom_input
-      output_dir: output_dir
       threads: threads
     out: [dir_humann]
 
