@@ -23,6 +23,12 @@ outputs:
   path_abundance:
     type: File
     outputSource: humann3/path_abundance
+  temp_dir:
+    type: Directory
+    outputSource: humann3/temp_dir
+  normalized_families:
+    type: File
+    outputSource: normailization/normalized_families
 
 
 steps:
@@ -31,5 +37,10 @@ steps:
     in:
       biom_input: biom_input
       threads: threads
-    out: [gene_families, path_coverage, path_abundance]
+    out: [gene_families, path_coverage, path_abundance, temp_dir]
+  normailization:
+    run: cwl/humann3_normalization.cwl
+    in:
+      gene_families: humann3/gene_families
+    out: [normalized_families]
 

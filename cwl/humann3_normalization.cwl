@@ -53,5 +53,3 @@ outputs:
     type: Directory
     outputBinding:
       glob: "*humann_temp"
-
-
