@@ -36,5 +36,5 @@ outputs:
   dir_humann:
     type: Directory
     outputBinding:
-      glob: "*folder_aboundance*"
+      glob: "aboundance_*"
 
