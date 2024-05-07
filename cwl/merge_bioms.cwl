@@ -8,7 +8,7 @@ hints:
   DockerRequirement:
     dockerPull: fpant/metaphlan 
 
-baseCommand: ["python3", "/biomFusion.py"]
+baseCommand: ["python3", "/scripts/biomFusion.py"]
 
 inputs: 
   biom_output:
