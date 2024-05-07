@@ -3,53 +3,38 @@ class: CommandLineTool
 
 requirements:
   InlineJavascriptRequirement: {}
-  InitialWorkDirRequirement: 
-    listing:
-      - entry: $(inputs.biom_input)
-        writable: True
 
 hints:
-  ResourceRequirement:
-    coresMax: $(inputs.threads)
   DockerRequirement:
     dockerPull: fpant/metaphlan 
-baseCommand: humann
+baseCommand: humann_renorm_table
 
 
 inputs:
-  biom_input:
+  gene_families:
     type: File
     inputBinding:
       position: 1
       prefix: --input  
-  output_dir:
+  output_file_name:
     type: string?
-    default: "./"
+    default: "output_normalized.tsv"
     inputBinding:
       position: 2
       prefix: --output
-  threads:
-    doc: "Maximum number of compute threads"
-    type: int?
-    default: 1
+  normalize_units:
+    doc: "units to normalize the table to"
+    type: string?
+    default: "relab"
     inputBinding:
       position: 3
-      prefix: --threads
+      prefix: --units
      
 outputs:
-  gene_families:
+  normalized_families:
     type: File
     outputBinding:
-      glob: "./*genefamilies.tsv"
-  path_coverage:
-    type: File
-    outputBinding:
-      glob: "./*pathcoverage.tsv"
-  path_abundance:
-    type: File
-    outputBinding:
-      glob: "./*pathabundance.tsv"
-  temp_dir:
-    type: Directory
-    outputBinding:
-      glob: "*humann_temp"
+      glob: "output_normalized.tsv"
+      outputEval: ${
+        self[0].basename = inputs.gene_families.nameroot + "_normalized.tsv";
+        return self; }
