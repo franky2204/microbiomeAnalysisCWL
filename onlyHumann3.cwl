@@ -13,22 +13,17 @@ inputs:
   output_dir: Directory
   threads: int?
 outputs:
-  gene_families:
-    type: File
-    outputSource: humann3/gene_families
-  path_coverage:
-    type: File
-    outputSource: humann3/path_coverage
-  path_abundance:
-    type: File
-    outputSource: humann3/path_abundance
+  dir_humann:
+    type: Directory
+    outputSource: humann3/dir_humann
+
 
 steps:
   humann3:
-    run: cwl/humann3.cwl
+    run: cwl/humann3_9.cwl
     in:
       biom_input: biom_input
       output_dir: output_dir
       threads: threads
-    out: [gene_families,path_coverage ,path_abundance]
+    out: [dir_humann]
 

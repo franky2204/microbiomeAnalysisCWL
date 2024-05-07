@@ -13,7 +13,7 @@ hints:
   DockerRequirement:
     dockerPull: fpant/metaphlan 
 
-baseCommand: ["bash", "/bowtie2Biom.sh"]
+baseCommand: ["bash", "/scripts/bowtie2Biom.sh"]
 
 inputs: 
   read:

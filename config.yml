@@ -1,22 +1,22 @@
 index:
   class: File
-  path: /backup/Ref/hg38/hg38.fa
+  path: /media/francesco/Volume/Work/genomes/miceIndexed/GRCm39.fna
 index_chm13:
   class: File
   path: /backup/fpantini/genomes/chm13_indexed/chm13v2.0.fa
-threads: 30
+threads: 11
 db_path:
   class: File
   path: /backup/krakenDB/Total/hash.k2d
 meta_path:
   class: Directory
-  path: /backup/fpantini/metaphlan_db_4.1
+  path: /media/francesco/Volume/Work/metaphlan
 fastq_directory:
   class: Directory
-  location: /backup/fpantini/file_piccoli/comp
+  location: /media/francesco/Volume/Work/unitor_001_0324/raw_sequences/UNITOR-001-CA_03
 biom_input: 
   class: File
-  path: 
+  path: /media/francesco/Volume/Work/examples/demo.sam
 output_dir: 
   class: Directory
   path: ./

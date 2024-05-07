@@ -1,6 +1,9 @@
 cwlVersion: v1.2
 class: CommandLineTool
 
+doc: |
+  Use Humann3 to profile the functional potential of a microbial community from a biom file
+
 requirements:
   InlineJavascriptRequirement: {}
   InitialWorkDirRequirement: 
@@ -15,7 +18,7 @@ hints:
     coresMax: $(inputs.threads)
   DockerRequirement:
     dockerPull: fpant/metaphlan 
-baseCommand: humann
+baseCommand: ["bash", "/scripts/humann3.sh"]
 
 
 inputs:
@@ -23,33 +26,21 @@ inputs:
     type: File
     inputBinding:
       position: 1
-      prefix: --input
   output_dir:
     type: Directory?
     default: "./"
     inputBinding:
       position: 2
-      prefix: --output
   threads:
     doc: "Maximum number of compute threads"
     type: int?
     default: 1
     inputBinding:
       position: 3
-      prefix: --threads
      
 outputs:
-  gene_families:
-    type: File
+  dir_humann:
+    type: Directory
     outputBinding:
-      glob: "./*genefamilies.tsv"
-  path_coverage:
-    type: File
-    outputBinding:
-      glob: "./*pathcoverage.tsv"
-  path_abundance:
-    type: File
-    outputBinding:
-      glob: "./*pathabundance.tsv"
-
+      glob: "*folder_aboundance*"
 

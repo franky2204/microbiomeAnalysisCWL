@@ -35,7 +35,6 @@ inputs:
       - .amb
       - .ann
       - .bwt
-      - .fai  
       - .pac
       - .sa
   threads:

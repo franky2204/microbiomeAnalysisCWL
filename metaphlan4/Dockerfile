@@ -35,7 +35,4 @@ RUN pip3 install humann
 
 WORKDIR /
 
-COPY biomFusion.py .
-COPY metaphlan4.sh .
-COPY bowtie2Biom.sh .
-COPY count_fastq.py .
+COPY ./scripts /scripts
