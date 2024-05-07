@@ -7,8 +7,6 @@ requirements:
     listing:
       - entry: $(inputs.biom_input)
         writable: True
-      - entry: $(inputs.output_dir)
-        writable: True
 
 hints:
   ResourceRequirement:
@@ -23,9 +21,9 @@ inputs:
     type: File
     inputBinding:
       position: 1
-      prefix: --input
+      prefix: --input  
   output_dir:
-    type: Directory?
+    type: string?
     default: "./"
     inputBinding:
       position: 2

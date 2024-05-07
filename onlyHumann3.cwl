@@ -10,19 +10,26 @@ requirements:
 
 inputs:
   biom_input: File
+  output_dir: string?
   threads: int?
 
 outputs:
-  dir_humann:
-    type: Directory
-    outputSource: humann3/dir_humann
+  gene_families:
+    type: File
+    outputSource: humann3/gene_families
+  path_coverage:
+    type: File
+    outputSource: humann3/path_coverage
+  path_abundance:
+    type: File
+    outputSource: humann3/path_abundance
 
 
 steps:
   humann3:
-    run: cwl/humann3_9.cwl
+    run: cwl/humann3.cwl
     in:
       biom_input: biom_input
       threads: threads
-    out: [dir_humann]
+    out: [gene_families, path_coverage, path_abundance]
 
