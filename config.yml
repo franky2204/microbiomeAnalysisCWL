@@ -17,6 +17,6 @@ fastq_directory:
 biom_input: 
   class: File
   path: /media/francesco/Volume/Work/bioms/AMCTRL15_output.biom
-output_dir:
+
 
   

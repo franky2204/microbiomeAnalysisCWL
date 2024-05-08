@@ -2,7 +2,6 @@ file1_name=$(basename "$1" .sam)
 
 
 time {
-    humann --input $1 --output ./ --threads $2
-    mkdir aboundance_${file1_name}
-    rm $1 && mv ${file1_name}* aboundance_${file1_name}/
+    humann_databases --database-location $1
+    humann --input $2 --output $3 --threads $4 --input-format $5
 }

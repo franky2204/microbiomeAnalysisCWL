@@ -12,11 +12,12 @@ inputs:
   biom_input: File
   output_dir: string?
   threads: int?
+  meta_path: Directory
 
 outputs:
-  gene_families:
-    type: File
-    outputSource: humann3/gene_families
+#  gene_families:
+#    type: File
+#    outputSource: humann3/gene_families
   path_coverage:
     type: File
     outputSource: humann3/path_coverage
@@ -26,21 +27,22 @@ outputs:
   temp_dir:
     type: Directory
     outputSource: humann3/temp_dir
-  normalized_families:
-    type: File
-    outputSource: normailization/normalized_families
+#  normalized_families:
+#    type: File
+#    outputSource: normailization/normalized_families
 
 
 steps:
   humann3:
-    run: cwl/humann3.cwl
+    run: cwl/humann3_9.cwl
     in:
+      meta_path: meta_path
       biom_input: biom_input
       threads: threads
-    out: [gene_families, path_coverage, path_abundance, temp_dir]
-  normailization:
-    run: cwl/humann3_normalization.cwl
-    in:
-      gene_families: humann3/gene_families
-    out: [normalized_families]
+    out: [path_coverage, path_abundance, temp_dir]
+#  normailization:
+#    run: cwl/humann3_normalization.cwl
+#    in:
+#      gene_families: humann3/gene_families
+#    out: [normalized_families]
 

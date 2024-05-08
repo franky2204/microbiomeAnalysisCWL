@@ -35,6 +35,12 @@ inputs:
     inputBinding:
       position: 3
       prefix: --threads
+  format:
+    type: string?
+    default: "genetable"
+    inputBinding:
+      position: 4
+      prefix: --input-format
      
 outputs:
   gene_families:
