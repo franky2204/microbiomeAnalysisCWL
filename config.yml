@@ -16,7 +16,7 @@ fastq_directory:
   location: /media/francesco/Volume/Work/unitor_001_0324/raw_sequences/UNITOR-001-CA_03
 biom_input: 
   class: File
-  path: /media/francesco/Volume/Work/examples/demo.sam
+  path: /media/francesco/Volume/Work/bioms/AMCTRL15_output.biom
 output_dir:
 
   
