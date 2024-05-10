@@ -127,7 +127,7 @@ steps:
       read_2: humanMapper_chm13/unmapped_R2
       threads: threads
       meta_path: meta_path
-    out: [bowtie2, report, biom_output] 
+    out: [bowtie2, report, biom_output, sam_output] 
   merge_bioms:
     run: cwl/merge_bioms.cwl
     in: 

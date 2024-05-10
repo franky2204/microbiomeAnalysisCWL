@@ -44,7 +44,7 @@ steps:
       read_2: check-input/read_2
       threads: threads
       meta_path: meta_path
-    out: [bowtie2, report, biom_output] 
+    out: [bowtie2, report, biom_output, sam_output] 
   merge_bioms:
     run: cwl/merge_bioms.cwl
     in: 
