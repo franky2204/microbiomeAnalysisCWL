@@ -28,6 +28,10 @@ outputs:
   final_table:
     type: File
     outputSource: merge_bioms/final_table
+  sam_output:
+    type: File[]
+    outputSource: metaphlan4/sam_output
+
 
 steps:
   check-input:
