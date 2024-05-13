@@ -55,11 +55,11 @@ outputs:
   contaminant_1:
     type: File
     outputBinding:
-      glob: "*_kneaddata_demo_db_bowtie2_paired_contam_1.fastq"
+      glob: "*paired_contam_1.fastq"
   contaminant_2:
     type: File
     outputBinding:
-      glob: "*_kneaddata_demo_db_bowtie2_paired_contam_2.fastq"
+      glob: "*paired_contam_2.fastq"
   normalized_read_1:
     type: File
     outputBinding:
@@ -68,6 +68,16 @@ outputs:
     type: File
     outputBinding:
       glob: "*_kneaddata_paired_2.fastq"
+  unmached_read_1:
+    type: File
+    outputBinding:
+      glob: "*_kneaddata_unmatched_1.fastq"
+  unmached_read_2:
+    type: File
+    outputBinding:
+      glob: "*_kneaddata_unmatched_2.fastq"
+  
+  
        
 
 

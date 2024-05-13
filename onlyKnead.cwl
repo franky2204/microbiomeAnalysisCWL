@@ -31,6 +31,12 @@ outputs:
   knead_log:
     type: File[]
     outputSource: knead-data/knead_log
+  unmached_read_1:
+    type: File[]
+    outputSource: knead-data/unmached_read_1
+  unmached_read_2:
+    type: File[]
+    outputSource: knead-data/unmached_read_2
 
 steps:
   check-input:
@@ -48,4 +54,4 @@ steps:
       db_knead1: db_knead1
       trf: trf
       threads: threads
-    out: [knead_log, contaminant_1, contaminant_2, normalized_read_1, normalized_read_2]
+    out: [knead_log, contaminant_1, contaminant_2, normalized_read_1, normalized_read_2, unmached_read_1, unmached_read_2]
