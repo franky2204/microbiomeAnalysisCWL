@@ -39,11 +39,11 @@ steps:
     out: [read_1, read_2]
   knead-data:
     run: cwl/kneadData.cwl
-    scatter: [normalized_read_1, normalized_read_2]
+    scatter: [read_1, read_2]
     scatterMethod: dotproduct
     in: 
       read_1: check-input/read_1
       read_2: check-input/read_2
       db_knead1: db_knead1
       trf: trf
-    out: [knead_log, contaminant_1, contaminant_2, read_1, read_2]
+    out: [knead_log, contaminant_1, contaminant_2, normalized_read_1, normalized_read_2]
