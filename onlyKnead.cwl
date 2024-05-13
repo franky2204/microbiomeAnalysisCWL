@@ -11,7 +11,7 @@ requirements:
 inputs:
   fastq_directory: Directory
   db_knead1: Directory
-  trf: File
+  trf: Directory
 
 
 outputs:

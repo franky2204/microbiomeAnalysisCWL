@@ -33,8 +33,7 @@ inputs:
       position: 4
       prefix: -o
   trf:
-    type: File
-    default: ""
+    type: Directory
     inputBinding:
       position: 5
       prefix: --trf
