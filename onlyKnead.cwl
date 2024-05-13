@@ -15,12 +15,12 @@ inputs:
 
 
 outputs:
-  read_1:
+  normalized_read_1:
     type: File[]
-    outputSource: knead-data/read_1
-  read_2:
+    outputSource: knead-data/normalized_read_1
+  normalized_read_2:
     type: File[]
-    outputSource: knead-data/read_2
+    outputSource: knead-data/normalized_read_2
   contaminant_1:
     type: File[]
     outputSource: knead-data/contaminant_1
@@ -39,7 +39,7 @@ steps:
     out: [read_1, read_2]
   knead-data:
     run: cwl/kneadData.cwl
-    scatter: [read_1, read_2]
+    scatter: [normalized_read_1, normalized_read_2]
     scatterMethod: dotproduct
     in: 
       read_1: check-input/read_1

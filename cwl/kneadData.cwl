@@ -53,11 +53,11 @@ outputs:
     type: File
     outputBinding:
       glob: "*_kneaddata_demo_db_bowtie2_paired_contam_2.fastq"
-  read_1:
+  normalized_read_1:
     type: File
     outputBinding:
       glob: "*_kneaddata_paired_1.fastq"
-  read_2:
+  normalized_read_2:
     type: File
     outputBinding:
       glob: "*_kneaddata_paired_2.fastq"
