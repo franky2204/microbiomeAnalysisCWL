@@ -20,6 +20,9 @@ biom_input:
 knead_directory:
   class: Directory
   path: /home/fpantini/metaphlan/kneaddata
+trf: 
+  class: File
+  path: /home/fpantini/microbiomeAnalysisCWL/metaphlan4/trf409.linux64
 
 
   

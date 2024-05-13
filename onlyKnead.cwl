@@ -11,6 +11,7 @@ requirements:
 inputs:
   fastq_directory: Directory
   db_knead1: Directory
+  trf: File
 
 
 outputs:
@@ -44,4 +45,5 @@ steps:
       read_1: check-input/read_1
       read_2: check-input/read_2
       db_knead1: db_knead1
+      trf: trf
     out: [knead_log, contaminant_1, contaminant_2, read_1, read_2]

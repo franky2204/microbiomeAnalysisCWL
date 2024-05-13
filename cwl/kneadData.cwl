@@ -32,12 +32,12 @@ inputs:
     inputBinding:
       position: 4
       prefix: -o
-  bypass_trf:
-    type: string
+  trf:
+    type: File
     default: ""
     inputBinding:
       position: 5
-      prefix: --bypass-trf
+      prefix: --trf
 
      
 outputs:
