@@ -17,6 +17,9 @@ fastq_directory:
 biom_input: 
   class: File
   path: /media/francesco/Volume/Work/bioms/AMCTRL15_output.biom
+knead_directory:
+  class: Directory
+  path: /home/fpantini/metaphlan/kneaddata
 
 
   
