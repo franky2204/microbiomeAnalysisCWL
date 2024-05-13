@@ -26,6 +26,12 @@ inputs:
     inputBinding:
       position: 3
       prefix: -db
+  bypass_trf:
+    type: string
+    default: ""
+    inputBinding:
+      position: 4
+      prefix: --bypass-trf
   output_dir:
     type: string?
     default: "./"
