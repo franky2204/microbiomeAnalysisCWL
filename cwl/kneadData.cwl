@@ -3,6 +3,8 @@ class: CommandLineTool
 
 requirements:
   InlineJavascriptRequirement: {}
+  ResourceRequirement:
+    coresMax: $(inputs.threads)
 
 hints:
   DockerRequirement:
@@ -37,6 +39,11 @@ inputs:
     inputBinding:
       position: 5
       prefix: --trf
+  threads:
+    type: Directory
+    inputBinding:
+      position: 6
+      prefix: --threads
 
      
 outputs:

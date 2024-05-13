@@ -11,6 +11,7 @@ requirements:
 inputs:
   fastq_directory: Directory
   db_knead1: Directory
+  threads: int?
   trf: Directory
 
 
@@ -46,4 +47,5 @@ steps:
       read_2: check-input/read_2
       db_knead1: db_knead1
       trf: trf
+      threads: threads
     out: [knead_log, contaminant_1, contaminant_2, normalized_read_1, normalized_read_2]
