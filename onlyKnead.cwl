@@ -10,7 +10,7 @@ requirements:
 
 inputs:
   fastq_directory: Directory
-  knead_directory: Directory
+  db_knead1: Directory
   threads: int?
 
 outputs:
