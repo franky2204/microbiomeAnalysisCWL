@@ -38,6 +38,8 @@ steps:
     out: [read_1, read_2]
   knead-data:
     run: cwl/kneadData.cwl
+    scatter: [read_1, read_2]
+    scatterMethod: dotproduct
     in: 
       read_1: check-input/read_1
       read_2: check-input/read_2
