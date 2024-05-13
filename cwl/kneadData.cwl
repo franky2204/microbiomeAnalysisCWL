@@ -40,15 +40,19 @@ outputs:
       glob: "*_kneaddata.log"
   contaminant_1:
     outputBinding:
+    type: File
       glob: "*_kneaddata_demo_db_bowtie2_paired_contam_1.fastq"
   contaminant_2:
     outputBinding:
+    type: File
       glob: "*_kneaddata_demo_db_bowtie2_paired_contam_2.fastq"
   read_1:
     outputBinding:
+    type: File
       glob: "*_kneaddata_paired_1.fastq"
   read_2:
     outputBinding:
+    type: File
       glob: "*_kneaddata_paired_2.fastq"
        
 
