@@ -9,6 +9,7 @@ requirements:
   SubworkflowFeatureRequirement: {}
 
 inputs:
+  fastq_directory: Directory
   knead_directory: Directory
   threads: int?
 
