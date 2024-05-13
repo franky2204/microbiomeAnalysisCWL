@@ -25,19 +25,20 @@ inputs:
     type: Directory
     inputBinding:
       position: 3
-      prefix: -db
-  bypass_trf:
-    type: string
-    default: ""
-    inputBinding:
-      position: 4
-      prefix: --bypass-trf
+      prefix: -db  
   output_dir:
     type: string?
     default: "./"
     inputBinding:
       position: 4
       prefix: -o
+  bypass_trf:
+    type: string
+    default: ""
+    inputBinding:
+      position: 5
+      prefix: --bypass-trf
+
      
 outputs:
   knead_log:
