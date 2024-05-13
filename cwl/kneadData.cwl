@@ -40,7 +40,8 @@ inputs:
       position: 5
       prefix: --trf
   threads:
-    type: Directory
+    type: int?
+    default: 1
     inputBinding:
       position: 6
       prefix: --threads
