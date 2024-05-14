@@ -55,6 +55,9 @@ outputs:
   biom_output:
     type: File[]
     outputSource: metaphlan4/biom_output
+  sam_output:
+    type: File[]
+    outputSource: metaphlan4/sam_output
   final_table:
     type: File
     outputSource: merge_bioms/final_table
@@ -67,6 +70,7 @@ outputs:
   count_fatq_g2:
     type: File[]
     outputSource: count-genome2/count
+
 
 steps:
   check-input:
