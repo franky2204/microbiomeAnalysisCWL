@@ -22,9 +22,9 @@ outputs:
   alpha_div:
     type: File[]
     outputSource: Braken/alpha_div
-  report:
+  report_braken:
     type: File[]
-    outputSource: Braken/report
+    outputSource: Braken/report_braken
 
 
 steps:
@@ -43,5 +43,5 @@ steps:
       classification_level: classification_level
       threshold: threshold
       alpha: alpha
-    out: [alpha_div, report] 
+    out: [alpha_div, report_braken] 
  
