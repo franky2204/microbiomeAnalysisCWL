@@ -44,4 +44,4 @@ outputs:
       - .pac
       - .sa
     outputBinding:
-      glob: "*_GRCm39_*"
+      glob: ""

@@ -1,5 +1,5 @@
 raw_chm13:
   class: File
-  path: /backup/fpantini/GRCm39/GCF_000001635.27_GRCm39_genomic.fna
+  path: /media/francesco/Volume/Work/indexer/hg38.fna
 output_db: ""
 method: ""
