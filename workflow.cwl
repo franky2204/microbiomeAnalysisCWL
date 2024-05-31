@@ -35,6 +35,11 @@ inputs:
       - .bwt
       - .pac
       - .sa
+  est_abundance: File
+  threshold: int?
+  kmer_distrib: File
+  classification_level: string
+  alpha: string
 
 outputs:
   unmapped_R1:
@@ -61,8 +66,9 @@ outputs:
   get-otu_output:
     type: File[]
     outputSource: get-otu/otu_table
-  #braken_output:
-  #  type: File[]
+  braken_output:
+    type: File[]
+    outputSource: Bracken/report_braken
   count-total-otu_output:
     type: File
     outputSource: count-total-otu/total_otu
@@ -117,12 +123,18 @@ steps:
     in:
       kraken_report: kraken2/report
     out: [otu_table]
-  #braken:
-  #  run: cwl/braken.cwl
-  #  scatter: kraken_report
-  #  in:
-  #    kraken_report: kraken2/report
-      #aggingere inputs
+  Bracken:
+    run: cwl/bracken.cwl
+    scatter: kraken_report
+    scatter: [report]
+    in:
+      est_abundance: est_abundance
+      kraken_report: kraken2/report
+      kmer_distrib: kmer_distrib
+      classification_level: classification_level
+      threshold: threshold
+      alpha: alpha
+    out: [alpha_div, report_braken] 
   count-total-otu:
     run: cwl/countTotalOTU.cwl
     in:
