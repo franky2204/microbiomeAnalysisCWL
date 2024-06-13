@@ -54,4 +54,8 @@ outputs:
     type: File
     outputBinding:
       glob: "*.sam"
+  vcs_out:
+    type: File
+    outputBinding:
+      glob: "*_virus.vcs.txt"
 
