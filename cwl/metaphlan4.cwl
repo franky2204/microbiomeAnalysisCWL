@@ -50,10 +50,6 @@ outputs:
     type: File
     outputBinding:
       glob: "*_output.biom"
-  sam_output:
-    type: File
-    outputBinding:
-      glob: "*.sam"
   vcs_out:
     type: File
     outputBinding:

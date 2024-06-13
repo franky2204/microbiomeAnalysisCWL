@@ -5,7 +5,7 @@ time {
     metaphlan $1,$2 --input_type fastq --profile_vsc \
     --bowtie2db $4 --bowtie2out ${name}.bowtie2.bz2 \
     --nproc $3 --unclassified_estimation \
-    -s ${name}.sam -o ${name}_output.txt --biom ${name}_output.biom \
+    -o ${name}_output.txt --biom ${name}_output.biom \
     --vcs_out ${name}_virus.vcs.txt \
     --offline
 }
