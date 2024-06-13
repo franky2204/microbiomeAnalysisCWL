@@ -53,5 +53,5 @@ outputs:
   vcs_out:
     type: File
     outputBinding:
-      glob: "*_virus.vcs.txt"
+      glob: "*_virus.vsc.txt"
 
