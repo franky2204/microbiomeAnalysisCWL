@@ -52,9 +52,9 @@ outputs:
   count_fatq_g2:
     type: File[]
     outputSource: count-genome2/count
-  vcs_out:
+  vsc_out:
     type: File[]
-    outputSource: metaphlan4/vcs_out
+    outputSource: metaphlan4/vsc_out
 
 steps:
   check-input:
@@ -97,7 +97,7 @@ steps:
       read_2: humanMapper_chm13/unmapped_R2
       threads: threads
       meta_path: meta_path
-    out: [bowtie2, report, biom_output, vcs_out] 
+    out: [bowtie2, report, biom_output, vsc_out] 
   merge_bioms:
     run: cwl/merge_bioms.cwl
     in: 

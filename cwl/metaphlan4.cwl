@@ -50,8 +50,8 @@ outputs:
     type: File
     outputBinding:
       glob: "*_output.biom"
-  vcs_out:
+  vsc_out:
     type: File
     outputBinding:
-      glob: "*_virus.vsc.txt"
+      glob: "*.vsc.txt"
 
