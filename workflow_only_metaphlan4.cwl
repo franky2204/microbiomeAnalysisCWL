@@ -22,9 +22,9 @@ outputs:
   report:
     type: File[]
     outputSource: metaphlan4/report
-  vcs_out:
+  vsc_out:
     type: File[]
-    outputSource: metaphlan4/vcs_out
+    outputSource: metaphlan4/vsc_out
 
 
 steps:
@@ -42,6 +42,6 @@ steps:
       read_2: check-input/read_2
       threads: threads
       meta_path: meta_path
-    out: [bowtie2, report, vcs_out] 
+    out: [bowtie2, report, vsc_out] 
 
 
