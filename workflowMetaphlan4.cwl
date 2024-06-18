@@ -52,12 +52,6 @@ outputs:
   report:
     type: File[]
     outputSource: metaphlan4/report
-  biom_output:
-    type: File[]
-    outputSource: metaphlan4/biom_output
-  final_table:
-    type: File
-    outputSource: merge_bioms/final_table
   count_fatq:
     type: File[]
     outputSource: count-start/count
@@ -132,8 +126,4 @@ steps:
       threads: threads
       meta_path: meta_path
     out: [bowtie2, report, biom_output, vcs_out]
-  merge_bioms:
-    run: cwl/merge_bioms.cwl
-    in: 
-      biom_output: metaphlan4/biom_output
-    out: [final_table]
+
