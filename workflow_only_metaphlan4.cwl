@@ -16,15 +16,9 @@ inputs:
 
 
 outputs:
-  bowtie2:
-    type: File[]
-    outputSource: metaphlan4/bowtie2
-  report:
-    type: File[]
-    outputSource: metaphlan4/report
-  vsc_out:
-    type: File[]
-    outputSource: metaphlan4/vsc_out
+  meta_folder:
+    type: Directory
+    outputSource: metaphlan4/meta_folder
 
 
 steps:
@@ -34,7 +28,7 @@ steps:
       fastq_directory: fastq_directory
     out: [read_1, read_2]
   metaphlan4:
-    run: cwl/metaphlan4.cwl
+    run: cwl/metaFolder.cwl
     scatter: [read_1, read_2]
     scatterMethod: dotproduct
     in:
@@ -42,6 +36,6 @@ steps:
       read_2: check-input/read_2
       threads: threads
       meta_path: meta_path
-    out: [bowtie2, report, vsc_out] 
+    out: [meta_folder] 
 
 
