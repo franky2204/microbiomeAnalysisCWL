@@ -17,7 +17,7 @@ inputs:
 
 outputs:
   meta_folder:
-    type: Directory
+    type: Directory[]
     outputSource: metaphlan4/meta_folder
 
 
