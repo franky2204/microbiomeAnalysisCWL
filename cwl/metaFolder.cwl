@@ -13,7 +13,7 @@ hints:
   DockerRequirement:
     dockerPull: fpant/metaphlan411
 
-baseCommand: ["bash", "/scripts/meta_folder.sh"]
+baseCommand: ["bash", "/scripts/folder_meta.sh"]
 
 inputs: 
   read_1:
