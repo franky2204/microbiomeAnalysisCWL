@@ -11,7 +11,7 @@ hints:
   ResourceRequirement:
     coresMax: $(inputs.threads)
   DockerRequirement:
-    dockerPull: fpant/metaphlan 
+    dockerPull: fpant/metaphlan411
 
 baseCommand: ["bash", "/scripts/metaphlan4.sh"]
 
