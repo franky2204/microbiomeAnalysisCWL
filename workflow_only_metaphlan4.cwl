@@ -22,15 +22,9 @@ outputs:
   report:
     type: File[]
     outputSource: metaphlan4/report
-  biom_output:
+  vcs_out:
     type: File[]
-    outputSource: metaphlan4/biom_output
-  final_table:
-    type: File
-    outputSource: merge_bioms/final_table
-  sam_output:
-    type: File[]
-    outputSource: metaphlan4/sam_output
+    outputSource: metaphlan4/vcs_out
 
 
 steps:
@@ -48,10 +42,6 @@ steps:
       read_2: check-input/read_2
       threads: threads
       meta_path: meta_path
-    out: [bowtie2, report, biom_output, sam_output] 
-  merge_bioms:
-    run: cwl/merge_bioms.cwl
-    in: 
-      biom_output: metaphlan4/biom_output
-    out: [final_table]
+    out: [bowtie2, report, vcs_out] 
+
 
