@@ -45,7 +45,7 @@ outputs:
   report:
     type: File
     outputBinding:
-      glob: "*.txt"
+      glob: "*_output.txt"
   vsc_out:
     type: File
     outputBinding:
