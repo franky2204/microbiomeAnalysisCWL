@@ -125,5 +125,5 @@ steps:
       read_2: humanMapper_chm13/unmapped_R2
       threads: threads
       meta_path: meta_path
-    out: [bowtie2, report, biom_output, vsc_out]
+    out: [bowtie2, report, vsc_out]
 
