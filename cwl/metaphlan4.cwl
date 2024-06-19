@@ -46,8 +46,8 @@ outputs:
     type: File
     outputBinding:
       glob: "*_output.txt"
-  vcs_out:
+  vsc_out:
     type: File
     outputBinding:
-      glob: "*.vcs.txt"
+      glob: "*.vsc.txt"
 
