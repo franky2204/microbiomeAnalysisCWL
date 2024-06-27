@@ -30,6 +30,8 @@ inputs:
       - .bwt
       - .pac
       - .sa
+  chocophlan_DB: Directory
+  uniref_DB:  Directory
 
 
 outputs:
@@ -64,6 +66,18 @@ outputs:
   vsc_out: 
     type: File[]
     outputSource: metaphlan4/vsc_out
+  gene_families:  
+    type: File[]
+    outputSource: humann3/gene_families
+  path_coverage:  
+    type: File[]
+    outputSource: humann3/path_coverage
+  path_abundance:
+    type: File[]
+    outputSource: humann3/path_abundance
+  temp_dir:
+    type: Directory[]
+    outputSource: humann3/temp_dir
 
 
 steps:
@@ -126,4 +140,24 @@ steps:
       threads: threads
       meta_path: meta_path
     out: [bowtie2, report, vsc_out]
+  fuse_reads:
+    run: cwl/fuseReads.cwl
+    scatter: [read_1, read_2]
+    scatterMethod: dotproduct
+    in:
+      read_1: humanmapper/unmapped_R1
+      read_2: humanmapper/unmapped_R2
+      threads: threads
+    out: [read_fused]
+  humann3:
+    run: cwl/humann3.cwl
+    scatter: [read_fused, vsc_out]
+    scatterMethod: dotproduct
+    in:
+      read_fused: fuse_reads/read_fused
+      vsc_out: metaphlan4/vsc_out
+      chocophlan_DB: chocophlan_DB
+      uniref_DB: uniref_DB
+      threads: threads
+    out: [gene_families, path_coverage, path_abundance, temp_dir]
 

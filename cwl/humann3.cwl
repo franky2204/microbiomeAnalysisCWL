@@ -3,21 +3,17 @@ class: CommandLineTool
 
 requirements:
   InlineJavascriptRequirement: {}
-  InitialWorkDirRequirement: 
-    listing:
-      - entry: $(inputs.biom_input)
-        writable: True
 
 hints:
   ResourceRequirement:
     coresMax: $(inputs.threads)
   DockerRequirement:
-    dockerPull: fpant/metaphlan 
+    dockerPull: biobakery/humann 
 baseCommand: humann
 
 
 inputs:
-  biom_input:
+  read_fused:
     type: File
     inputBinding:
       position: 1
@@ -27,20 +23,30 @@ inputs:
     default: "./"
     inputBinding:
       position: 2
-      prefix: --output
+      prefix: --output 
+  vsc_out:
+    type: File
+    inputBinding:
+      position: 3
+      prefix: --taxonomic-profile
+  chocophlan_DB:
+    type: Directory
+    inputBinding:
+      position: 4
+      prefix: --nucleotide-database
+  uniref_DB:
+    type: Directory
+    inputBinding:
+      position: 5
+      prefix: --protein-database
   threads:
     doc: "Maximum number of compute threads"
     type: int?
     default: 1
     inputBinding:
-      position: 3
+      position: 6
       prefix: --threads
-  format:
-    type: string?
-    default: "genetable"
-    inputBinding:
-      position: 4
-      prefix: --input-format
+ 
      
 outputs:
   gene_families:
