@@ -151,11 +151,11 @@ steps:
     out: [read_fused]
   humann3:
     run: cwl/humann3.cwl
-    scatter: [read_fused, vsc_out]
+    scatter: [read_fused, report]
     scatterMethod: dotproduct
     in:
       read_fused: fuse_reads/read_fused
-      vsc_out: metaphlan4/vsc_out
+      report: metaphlan4/report
       chocophlan_DB: chocophlan_DB
       uniref_DB: uniref_DB
       threads: threads

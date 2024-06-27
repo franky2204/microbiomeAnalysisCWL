@@ -18,13 +18,7 @@ inputs:
     inputBinding:
       position: 1
       prefix: --input  
-  output_dir:
-    type: string?
-    default: "./"
-    inputBinding:
-      position: 2
-      prefix: --output 
-  vsc_out:
+  report:
     type: File
     inputBinding:
       position: 3
@@ -46,21 +40,22 @@ inputs:
     inputBinding:
       position: 6
       prefix: --threads
+arguments: ["--output","./"]
  
      
 outputs:
   gene_families:
     type: File
     outputBinding:
-      glob: "./*genefamilies.tsv"
+      glob: "*genefamilies.tsv"
   path_coverage:
     type: File
     outputBinding:
-      glob: "./*pathcoverage.tsv"
+      glob: "*pathcoverage.tsv"
   path_abundance:
     type: File
     outputBinding:
-      glob: "./*pathabundance.tsv"
+      glob: "*pathabundance.tsv"
   temp_dir:
     type: Directory
     outputBinding:

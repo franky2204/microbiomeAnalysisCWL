@@ -7,7 +7,7 @@ requirements:
     coresMax: $(inputs.threads)
 hints:
   DockerRequirement:
-    dockerPull: scontaldo/checkInput
+    dockerPull: scontaldo/humanmapper
 
 baseCommand: ["bash", "/scripts/fuseReads.sh"]
 
