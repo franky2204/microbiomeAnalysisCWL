@@ -40,7 +40,7 @@ inputs:
     inputBinding:
       position: 6
       prefix: --threads
-arguments: ["--input_format","fastq","--output","./"]
+arguments: ["--output","./"]
  
      
 outputs:
