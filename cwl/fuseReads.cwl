@@ -37,5 +37,5 @@ outputs:
   read_fused:
     type: File
     outputBinding:
-      glob: "_fused.fastq"
+      glob: "*_fused.fastq"
 
