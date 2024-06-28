@@ -5,4 +5,4 @@ name2=$(echo "$filename2" | cut -d '.' -f 1)
 unpigz $1
 unpigz $2
 cat $name1.fastq $name2.fastq > ${name1}_fused.fastq
-pigz ${name1}_fused.fastq
+
