@@ -1,7 +1,7 @@
-file1:
+read_1:
   class: File
   path: /backup/fpantini/humann_DB/input/HV02_R2.fq.gz
-file2:
+read_2:
   class: File
   path: /backup/fpantini/humann_DB/input/HV02_R2.fq.gz
 report:
