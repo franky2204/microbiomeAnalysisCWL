@@ -41,7 +41,7 @@ steps:
   humann3:
     run: cwl/humann3.cwl
     in:
-      read_fused: read_fused
+      read_fused: fuse_reads/read_fused
       report: report
       chocophlan_DB: chocophlan_DB
       uniref_DB: uniref_DB
