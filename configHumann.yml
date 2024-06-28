@@ -1,0 +1,16 @@
+file1:
+  class: File
+  path: /backup/fpantini/humann_DB/input/HV02_R2.fq.gz
+file2:
+  class: File
+  path: /backup/fpantini/humann_DB/input/HV02_R2.fq.gz
+report:
+  class: File
+  path: /backup/fpantini/humann_DB/input/HV02_output.txt
+chocophlan_DB:
+  class: Directory
+  path: /backup/fpantini/humann_DB/chocophlan
+uniref_DB:
+  class: Directory
+  path: /backup/fpantini/humann_DB/uniref
+threads: 30

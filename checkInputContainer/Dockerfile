@@ -11,4 +11,3 @@ COPY findBowtie.sh .
 COPY sendBowtie.sh .
 COPY findReport.sh .
 COPY sendReport.sh .
-COPY fuseReads.sh .
