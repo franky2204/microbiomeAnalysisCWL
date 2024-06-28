@@ -9,7 +9,7 @@ hints:
     coresMax: $(inputs.threads)
   DockerRequirement:
     dockerPull: biobakery/humann 
-baseCommand: ["time","humann"]
+baseCommand: ["humann"]
 
 
 inputs:
