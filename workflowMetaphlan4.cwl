@@ -78,6 +78,9 @@ outputs:
   temp_dir:
     type: Directory[]
     outputSource: humann3/temp_dir
+  normalized_families:
+    type: File[]
+    outputSource: normalization/normalized_families
 
 
 steps:
@@ -160,4 +163,11 @@ steps:
       uniref_DB: uniref_DB
       threads: threads
     out: [gene_families, path_coverage, path_abundance, temp_dir]
+  normalization:
+    run: cwl/humann3_normalization.cwl
+    scatter: [gene_families]
+    scatterMethod: dotproduct
+    in:
+      gene_families: humann3/gene_families
+    out: [normalized_families]
 
