@@ -26,11 +26,9 @@ RUN pip3 install biopython
 RUN pip3 install biom-format
 RUN pip3 install h5py
 #metaphlan installation
-RUN pip3 install metaphlan
-#humann installation
-RUN pip3 install humann
+RUN pip3 install metaphlan==4.1.1
 #kneaddata installation
-RUN pip3 install kneaddata
+#RUN pip3 install kneaddata
 
 #WORKDIR /metaphlanDB
 #RUN  metaphlan --install  --bowtie2db /metaphlanDB/
