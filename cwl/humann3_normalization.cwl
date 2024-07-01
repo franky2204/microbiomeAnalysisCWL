@@ -6,8 +6,8 @@ requirements:
 
 hints:
   DockerRequirement:
-    dockerPull: fpant/metaphlan 
-baseCommand: humann_renorm_table
+    dockerPull: biobakery/humann 
+baseCommand: ["humann_renorm_table"]
 
 
 inputs:
@@ -16,20 +16,14 @@ inputs:
     inputBinding:
       position: 1
       prefix: --input  
-  output_file_name:
-    type: string?
-    default: "output_normalized.tsv"
-    inputBinding:
-      position: 2
-      prefix: --output
   normalize_units:
     doc: "units to normalize the table to"
     type: string?
     default: "relab"
     inputBinding:
-      position: 3
+      position: 2
       prefix: --units
-     
+arguments: ["--output","output_normalized.tsv"]
 outputs:
   normalized_families:
     type: File
