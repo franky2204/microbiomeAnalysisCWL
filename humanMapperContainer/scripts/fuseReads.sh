@@ -10,5 +10,5 @@ filename2=$(basename "$2")
 name2=$(remove_after_last_dot $filename2)
 unpigz $1
 unpigz $2
-cat $name1.fastq $name2.fastq > ${name1}_fused.fastq
+cat $name1 $name2> ${name1}_fused.fastq
 
