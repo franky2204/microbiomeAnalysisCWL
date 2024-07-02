@@ -7,17 +7,27 @@ RUN apt-get update
 RUN apt-get install gcc make libbz2-dev zlib1g-dev libncurses5-dev libncursesw5-dev liblzma-dev bzip2 g++ rsync libsqlite3-dev bzip2 openjdk-11-jre samtools -y
 RUN apt install r-base -y
 
-#R package 
+# Use the base image for MetaPhlAn
+FROM fpant/metaphlan411
 
-# Installa i pacchetti R necessari
-RUN R -e 'install.packages(c("optparse", "ape", "rjson", "compositions", "vegan"), repos="http://cran.us.r-project.org")'
-RUN R -e 'install.packages(c("devtools", "usethis"), repos="http://cran.us.r-project.org")'
+# Install initial CRAN packages including devtools
+RUN R -e 'install.packages(c("optparse", "ape", "rjson", "compositions", "vegan", "devtools", "usethis"), repos="http://cran.us.r-project.org")'
+
+# Verify that devtools is installed and load it
+RUN R -e 'library(devtools)'
+
+# Install a specific version of rbiom using devtools
 RUN R -e 'devtools::install_version("rbiom", version = "1.0.3", repos = "http://cran.us.r-project.org")'
 
-# Installa BiocManager se non è già installato
+# Install BiocManager if not already installed
 RUN R -e 'if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager", repos="http://cran.us.r-project.org")'
-RUN R -e 'BiocManager::install("phyloseq")'
-RUN R -e 'BiocManager::install("microbiome")'
+
+# Install Bioconductor packages
+RUN R -e 'BiocManager::install(c("phyloseq", "microbiome"), update = TRUE, ask = FALSE)'
+
+
+
+WORKDIR /
 
 #python3 installation
 RUN apt-get install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev -y
