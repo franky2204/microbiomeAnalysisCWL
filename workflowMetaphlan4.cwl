@@ -50,10 +50,10 @@ outputs:
     outputSource: humanMapper_chm13/unmapped_R2
   bowtie2:
     type: File[]
-    outputSource: metaphlan4/bowtie2
+    outputSource: metaphlan4_flow/bowtie2
   report:
     type: File[]
-    outputSource: metaphlan4/report
+    outputSource: metaphlan4_flow/report
   count_fatq:
     type: File[]
     outputSource: count-start/count
@@ -65,22 +65,22 @@ outputs:
     outputSource: count-genome2/count
   vsc_out: 
     type: File[]
-    outputSource: metaphlan4/vsc_out
+    outputSource: metaphlan4_flow/vsc_out
   gene_families:  
     type: File[]
-    outputSource: humann3/gene_families
+    outputSource: metaphlan4_flow/gene_families
   path_coverage:  
     type: File[]
-    outputSource: humann3/path_coverage
+    outputSource: metaphlan4_flow/path_coverage
   path_abundance:
     type: File[]
-    outputSource: humann3/path_abundance
+    outputSource: metaphlan4_flow/path_abundance
   temp_dir:
     type: Directory[]
-    outputSource: humann3/temp_dir
+    outputSource: metaphlan4_flow/temp_dir
   normalized_families:
     type: File[]
-    outputSource: normalization/normalized_families
+    outputSource: metaphlan4_flow/normalized_families
 
 
 steps:
@@ -133,8 +133,8 @@ steps:
       read_1: humanMapper_chm13/unmapped_R1
       read_2: humanMapper_chm13/unmapped_R2
     out: [count]
-  metaphlan4:
-    run: cwl/metaphlan4.cwl
+  metaphlan4_flow:
+    run: cwl/metaphlan_flow.cwl
     scatter: [read_1, read_2]
     scatterMethod: dotproduct
     in:
@@ -142,32 +142,7 @@ steps:
       read_2: humanMapper_chm13/unmapped_R2
       threads: threads
       meta_path: meta_path
-    out: [bowtie2, report, vsc_out]
-  fuse_reads:
-    run: cwl/fuseReads.cwl
-    scatter: [read_1, read_2]
-    scatterMethod: dotproduct
-    in:
-      read_1: humanmapper/unmapped_R1
-      read_2: humanmapper/unmapped_R2
-      threads: threads
-    out: [read_fused]
-  humann3:
-    run: cwl/humann3.cwl
-    scatter: [read_fused, report]
-    scatterMethod: dotproduct
-    in:
-      read_fused: fuse_reads/read_fused
-      report: metaphlan4/report
       chocophlan_DB: chocophlan_DB
       uniref_DB: uniref_DB
-      threads: threads
-    out: [gene_families, path_coverage, path_abundance, temp_dir]
-  normalization:
-    run: cwl/humann3_normalization.cwl
-    scatter: [gene_families]
-    scatterMethod: dotproduct
-    in:
-      gene_families: humann3/gene_families
-    out: [normalized_families]
+    out: [bowtie2, report, vsc_out,gene_families, path_coverage, path_abundance, temp_dir, normalized_families]
 

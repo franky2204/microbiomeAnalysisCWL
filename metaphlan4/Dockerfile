@@ -5,6 +5,19 @@ RUN apt-get update
 RUN apt-get update
 RUN apt-get update
 RUN apt-get install gcc make libbz2-dev zlib1g-dev libncurses5-dev libncursesw5-dev liblzma-dev bzip2 g++ rsync libsqlite3-dev bzip2 openjdk-11-jre samtools -y
+RUN apt install r-base -y
+
+#R package 
+
+# Installa i pacchetti R necessari
+RUN R -e 'install.packages(c("optparse", "ape", "rjson", "compositions", "vegan"), repos="http://cran.us.r-project.org")'
+RUN R -e 'install.packages(c("devtools", "usethis"), repos="http://cran.us.r-project.org")'
+RUN R -e 'devtools::install_version("rbiom", version = "1.0.3", repos = "http://cran.us.r-project.org")'
+
+# Installa BiocManager se non è già installato
+RUN R -e 'if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager", repos="http://cran.us.r-project.org")'
+RUN R -e 'BiocManager::install("phyloseq")'
+RUN R -e 'BiocManager::install("microbiome")'
 
 #python3 installation
 RUN apt-get install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev -y
@@ -25,13 +38,8 @@ RUN pip3 install numpy
 RUN pip3 install biopython
 RUN pip3 install biom-format
 RUN pip3 install h5py
-#metaphlan installation
 RUN pip3 install metaphlan==4.1.1
-#kneaddata installation
-#RUN pip3 install kneaddata
 
-#WORKDIR /metaphlanDB
-#RUN  metaphlan --install  --bowtie2db /metaphlanDB/
 
 WORKDIR /
 
