@@ -1,13 +1,17 @@
 FROM r-base
 
-#"optparse", "ape", "rbiom", "compositions", "BiocManager"
-# Install R packages
-# Install required R packages from CRAN
-RUN R -e 'install.packages("optparse", repos = "https://cloud.r-project.org")'
-RUN R -e 'install.packages("ape", repos = "https://cloud.r-project.org")'
-RUN R -e 'install.packages("rbiom", repos = "https://cloud.r-project.org")'
-RUN R -e 'install.packages("compositions", repos = "https://cloud.r-project.org")'
-RUN R -e 'install.packages("BiocManager", repos = "https://cloud.r-project.org")'
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    libcurl4-openssl-dev \
+    libssl-dev \
+    libxml2-dev \
+    libbz2-dev \
+    liblzma-dev \
+    libhdf5-dev \
+    && rm -rf /var/lib/apt/lists/*
 
-# Install the Bioconductor package
+# Install required R packages from CRAN
+RUN R -e 'install.packages(c("optparse", "ape", "rbiom", "compositions", "BiocManager"), repos = "https://cloud.r-project.org")'
+
+# Install the Bioconductor package 'microbiome'
 RUN R -e 'BiocManager::install("microbiome")'
