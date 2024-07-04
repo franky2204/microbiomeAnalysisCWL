@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM rocker/r-ubuntu:22.04
 
 #machine initialization
 RUN apt-get update
@@ -27,6 +27,11 @@ RUN pip3 install biom-format
 RUN pip3 install h5py
 RUN pip3 install metaphlan==4.1.1
 
+# Copy and install R packages
+COPY compress /compress/
+RUN for pkg in /compress/*.tar.gz; do R -e "install.packages('$pkg', repos = NULL, type = 'source')"; done
+
+WORKDIR /
 
 WORKDIR /
 
