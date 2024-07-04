@@ -13,21 +13,21 @@ inputs:
   tsv_file:
     type: File
     inputBinding:
-      position: 2
+      position: 1
       prefix: "-f"
 
 arguments:
-  - position: 3
+  - position: 2
     valueFrom: -d
-  - position: 4
+  - position: 3
     valueFrom: alpha
-  - position: 5
+  - position: 4
     valueFrom: -m
-  - position: 6
+  - position: 5
     valueFrom: richness
-  - position: 7
+  - position: 6
     valueFrom: -o
-  - position: 8
+  - position: 7
     valueFrom: ./
 
 outputs:

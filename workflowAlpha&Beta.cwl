@@ -8,13 +8,11 @@ requirements:
 
 inputs:
     output_meta_dir: Directory
+    three_tables: File
 outputs:
     tsv_file:
         type: File
         outputSource: fusion_to_tsv/tsv_file
-    meta_out:
-        type: File[]
-        outputSource: find_meta_output/meta_out
     simpson:
         type: File
         outputSource: calculate_alpha/simpson
@@ -24,6 +22,12 @@ outputs:
     shannon:   
         type: File
         outputSource: calculate_alpha/shannon
+    beta_weighted_unifrac:
+        type: File
+        outputSource: calculate_beta/beta_weighted_unifrac
+    beta_unweighted_unifrac:
+        type: File
+        outputSource: calculate_beta/beta_unweighted_unifrac
 steps:
     find_meta_output:
         run: cwl/find_meta_output.cwl
@@ -40,3 +44,9 @@ steps:
         in:
             tsv_file: fusion_to_tsv/tsv_file
         out: [simpson, richness, shannon]
+    calculate_beta:
+        run: cwl/calculateBeta.cwl
+        in:
+            tsv_file: fusion_to_tsv/tsv_file
+            three_tables: three_tables
+        out: [beta_weighted_unifrac, beta_unweighted_unifrac]

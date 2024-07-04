@@ -1,5 +1,8 @@
 output_meta_dir:
   class: Directory
-  path: /home/francesco/Desktop/table_fusion/little
+  path: /home/francesco/Desktop/outputtxt
 
 
+three_tables:
+  class: File
+  path: /home/francesco/Desktop/git/mine/microbiomeAnalysisCWL/tools/mpa_vJan21_CHOCOPhlAnSGB_202103.nwk

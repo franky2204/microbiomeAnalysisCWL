@@ -15,23 +15,28 @@ inputs:
     inputBinding:
       position: 1
       prefix: "-f"
+  three_tables:
+    type: File
+    inputBinding:
+      position: 2
+      prefix: "-t"
 
 arguments:
-  - position: 2
-    valueFrom: -d
   - position: 3
-    valueFrom: alpha
+    valueFrom: -d
   - position: 4
-    valueFrom: -m
+    valueFrom: beta
   - position: 5
-    valueFrom: shannon
+    valueFrom: -m
   - position: 6
-    valueFrom: -o
+    valueFrom: unweighted-unifrac
   - position: 7
+    valueFrom: -o
+  - position: 8
     valueFrom: ./
 
 outputs:
-  shannon:
+  beta_unweighted_unifrac:
     type: File
     outputBinding:
-      glob: "*shannon.tsv"
+      glob: "*unweighted-unifrac.tsv"
