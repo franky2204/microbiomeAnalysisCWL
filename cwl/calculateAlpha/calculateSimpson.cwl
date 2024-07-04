@@ -6,7 +6,7 @@ requirements:
   DockerRequirement:
     dockerPull: fpant/metaphlan411
 
-baseCommand: ["Rscript","/scripts/calculateDiversity.R"]
+baseCommand: ["Rscript","/scripts/calculate_diversity.R"]
 
 inputs:
 
