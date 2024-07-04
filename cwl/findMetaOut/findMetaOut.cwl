@@ -8,11 +8,11 @@ hints:
   DockerRequirement:
     dockerPull: scontaldo/checkinput
 
-baseCommand: ["bash", "/findMetaReport.sh"]
+baseCommand: ["bash", "/findMetaOut.sh"]
 stdout: cwl.output.json
 
 inputs: 
-  bowtie_directory:
+  output_meta_dir:
     type: Directory
     inputBinding:
       position: 1

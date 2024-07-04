@@ -2,7 +2,7 @@
 class: CommandLineTool
 cwlVersion: "v1.2"
 
-baseCommand: ["bash", "/sendMetaReport.sh"]
+baseCommand: ["bash", "/sendMetaOut.sh"]
 
 requirements:
   InlineJavascriptRequirement: {}
@@ -11,17 +11,17 @@ hints:
     dockerPull: scontaldo/checkinput
 
 inputs: 
-  bowtie_name:
+  meta_out_name:
     type: string
     inputBinding:
       position: 1
-  bowtie_directory:
+  output_meta_dir:
     type: Directory
     inputBinding:
       position: 2
 
 outputs:
-  read:
+  meta_out:
     type: File
     outputBinding:
       glob: "*.txt"

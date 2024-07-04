@@ -10,11 +10,10 @@ baseCommand: ["python3","/scripts/merge_metaphlan_tables.py"]
 
 inputs:
 
-  report:
+  meta_out:
     type: File[]
     inputBinding:
       position: 1
-      itemSeparator: " " 
 
 
 outputs:

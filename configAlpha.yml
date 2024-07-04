@@ -1,5 +1,5 @@
-report_dir:
+output_meta_dir:
   class: Directory
-  path: /home/francesco/Desktop/table_fusion/outputtxt
+  path: /home/francesco/Desktop/table_fusion/little
 
 

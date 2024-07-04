@@ -11,5 +11,5 @@ COPY findBowtie.sh .
 COPY sendBowtie.sh .
 COPY findReport.sh .
 COPY sendReport.sh .
-COPY findMetaReport.sh .
-COPY sendMetaReport.sh .
+COPY findMetaOut.sh .
+COPY sendMetaOut.sh .
