@@ -7,7 +7,7 @@ requirements:
     SubworkflowFeatureRequirement: {}
 
 inputs:
-    tsv_file: File
+    report_dir: Directory
 outputs:
     simpson:
         type: File
@@ -19,8 +19,13 @@ outputs:
         type: File
         outputSource: calculate_alpha/shannon
 steps:
+    find_report:
+        run: cwl/findReport.cwl
+        in:
+            report_dir: report_dir
+        out: [report]
     calculate_alpha:
         run: cwl/calculateAlpha.cwl
         in:
-            tsv_file: tsv_file
+            report: find_report/report
         out: [simpson, richness, shannon]
