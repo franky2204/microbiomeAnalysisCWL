@@ -1,3 +1,5 @@
-tsv_file: 
-  class: File
-  path: /home/francesco/Desktop/Alpha&Beta/theOne.tsv
+report_dir:
+  class: Directory
+  path: /home/francesco/Desktop/table_fusion/outputtxt
+
+
