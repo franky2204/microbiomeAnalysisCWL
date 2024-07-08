@@ -23,10 +23,13 @@ inputs:
       - File
     inputBinding:
       position: 1
+      prefix: "--db"
+      valueFrom: |
+        ${ return (self.class == "File") ? self.dirname : self.path }
     secondaryFiles:
       - $("opts.k2d")
       - $("taxo.k2d")
-      prefix: "--db"
+      
   read_1:
     type: File
     inputBinding:
