@@ -23,6 +23,9 @@ inputs:
       - File
     inputBinding:
       position: 1
+    secondaryFiles:
+      - $("opts.k2d")
+      - $("taxo.k2d")
       prefix: "--db"
   read_1:
     type: File
