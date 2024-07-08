@@ -24,16 +24,14 @@ outputs:
  
   file_1_output:
     type: File
-    outputSource: kraken2/file_1_output
+    outputSource: kraken2/read_1_output
   file_2_output:
     type: File
-    outputSource: kraken2/file_1_output
+    outputSource: kraken2/read_2_output
 
 steps:
   kraken2:
     run: cwl/remove_mapped_reads.cwl
-    scatter: [read_1, read_2]
-    scatterMethod: dotproduct
     in:
       read_1: read_1
       read_2: read_2
