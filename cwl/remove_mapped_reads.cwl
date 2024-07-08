@@ -5,9 +5,9 @@ requirements:
   InlineJavascriptRequirement: {}
   InitialWorkDirRequirement: 
     listing:
-      - entry: $(inputs.read_1.path)
+      - entry: $(inputs.read_1)
         writable: True
-      - entry: $(inputs.read_2.path)
+      - entry: $(inputs.read_2)
         writable: True
 
 hints:
