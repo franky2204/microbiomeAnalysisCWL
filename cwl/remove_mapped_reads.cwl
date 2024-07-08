@@ -18,7 +18,9 @@ baseCommand: ["kraken2", "--paired", "--unclassified-out", "fasta_out#.fastq"]
 
 inputs:
   db_path:
-    type: Directory
+    type: 
+      - Directory
+      - File
     inputBinding:
       position: 1
       prefix: "--db"
