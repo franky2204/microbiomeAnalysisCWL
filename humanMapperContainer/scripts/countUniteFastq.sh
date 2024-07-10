@@ -20,6 +20,6 @@ time {
         output_file="${cut_down}_count.txt"
         cat "${file1_name}_partial1.txt" "${file2_name}_partial2.txt" > "$output_file"
     else
-        cat "$3" "${file1_name}_partial1.txt" "${file2_name}_partial2.txt" > "$3"
+        cat "${file1_name}_partial1.txt" "${file2_name}_partial2.txt" >> "$3"
     fi
 }
