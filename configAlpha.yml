@@ -1,6 +1,6 @@
 output_meta_dir:
   class: Directory
-  path: /home/francesco/Desktop/outputtxt
+  path: /media/francesco/Volume/newMetaphlanResults/allMeta/output
 
 
 three_tables:
