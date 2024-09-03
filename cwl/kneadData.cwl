@@ -7,9 +7,11 @@ requirements:
     coresMax: $(inputs.threads)
 
 hints:
+  ResourceRequirement:
+    coresMax: $(inputs.threads)
   DockerRequirement:
-    dockerPull: fpant/metaphlan 
-baseCommand: kneaddata
+    dockerPull: fpant/kneaddata
+baseCommand: ["bash", "/scripts/kneaddata.sh"]
 
 
 inputs:
