@@ -1,4 +1,4 @@
-!usr/bin/env cwl-runner
+#!usr/bin/env cwl-runner
 cwlVersion: v1.2
 class: Workflow
 
@@ -17,10 +17,10 @@ outputs:
  
   file_1:
     type: File
-    outputSource: kneadData/read_1
+    outputSource: kneadData/out_read_1
   file_2:
     type: File
-    outputSource: kneadData/read_2
+    outputSource: kneadData/out_read_2
   read_output:
     type: File
     outputSource: kneadData/count
@@ -33,4 +33,4 @@ steps:
       read_2: read_2
       db_path: db_path
       threads: threads
-    out: [read_1, read_2] 
+    out: [out_read_1, out_read_2, count] 
