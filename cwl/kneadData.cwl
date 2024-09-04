@@ -43,11 +43,11 @@ outputs:
   out_read_1:
     type: File
     outputBinding:
-      glob: "*R1_output.f*q"
+      glob: "*R1_output.f*q.gz"
   out_read_2:
     type: File
     outputBinding:
-      glob: "*R2_output.f*q"
+      glob: "*R2_output.f*q.gz"
   log:
     type: File
     outputBinding:
