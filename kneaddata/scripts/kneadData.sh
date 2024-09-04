@@ -15,7 +15,7 @@ echo "remEX1 = $remEx1"
 echo "remEX2 = $remEx2"
 echo "remEX2 = $unzip1"
 
-time{
+time {
     unpigz $read1
     unpigz $read2
     kneaddata --input $unRead1 --input $unRead2 --reference-db $db_path --threads $threads --output ./ 
