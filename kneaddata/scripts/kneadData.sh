@@ -18,7 +18,7 @@ time {
     kneaddata --input $unzip1 --input $unzip2 --reference-db $db_path --threads $threads --output ./ 
     mv ${remEx1}_kneaddata_paired_1.${extension} ${remEx1}_out.fastq
     mv ${remEx1}_kneaddata_paired_2.${extension} ${remEx2}_out.fastq
-    pigz -t $threads ${remEx1}_out.fastq
-    pigz -t $threads ${remEx2}_out.fastq
+    pigz -p $threads ${remEx1}_out.fastq
+    pigz -p $threads ${remEx2}_out.fastq
 }
 #comment
