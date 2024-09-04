@@ -21,9 +21,9 @@ outputs:
   file_2:
     type: File
     outputSource: kneadData/out_read_2
-  read_output:
+  logFile:
     type: File
-    outputSource: kneadData/count
+    outputSource: kneadData/log
 
 steps:
   kneadData:
@@ -33,4 +33,4 @@ steps:
       read_2: read_2
       db_path: db_path
       threads: threads
-    out: [out_read_1, out_read_2, count] 
+    out: [out_read_1, out_read_2, log] 

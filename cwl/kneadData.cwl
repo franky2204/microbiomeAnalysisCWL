@@ -44,10 +44,10 @@ outputs:
     type: File
     outputBinding:
       glob: "*R2_output.f*q"
-  count:
+  log:
     type: File
     outputBinding:
-      glob: "countKneaddata.txt"
+      glob: "*_kneaddata.log"
 
   
   
