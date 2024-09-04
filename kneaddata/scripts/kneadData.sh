@@ -24,3 +24,4 @@ time{
     pigz -t $threads ${remEX1}_out.fastq
     pigz -t $threads ${remEX2}_out.fastq
 }
+#comment
