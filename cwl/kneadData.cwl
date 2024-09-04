@@ -11,7 +11,7 @@ hints:
     coresMax: $(inputs.threads)
   DockerRequirement:
     dockerPull: fpant/kneaddata
-baseCommand: ["bash", "/scripts/kneaddata.sh"]
+baseCommand: ["bash", "/scripts/kneadData.sh"]
 
 
 inputs:
