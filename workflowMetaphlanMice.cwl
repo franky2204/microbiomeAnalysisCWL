@@ -13,7 +13,7 @@ inputs:
   threads: int?
   meta_path:
     type: Directory
-  gcr_index:
+  mice_index:
     type: File
     secondaryFiles:
       - .amb
@@ -84,7 +84,7 @@ steps:
     in:
       read_1: check-input/read_1
       read_2: check-input/read_2
-      index: gcr_index
+      index: mice_index
       threads: threads
     out: [unmapped_R1, unmapped_R2]
   count-genome:
