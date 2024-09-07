@@ -77,13 +77,23 @@ steps:
       read_1: check-input/read_1
       read_2: check-input/read_2
     out: [count]
-  micemapper:
-    run: cwl/humanMapper.cwl
+  kneadData:
+    run: cwl/kneadData.cwl
     scatter: [read_1, read_2]
     scatterMethod: dotproduct
     in:
       read_1: check-input/read_1
       read_2: check-input/read_2
+      db_path: mice_db
+      threads: threads
+    out: [out_read_1, out_read_2, log]
+  micemapper:
+    run: cwl/humanMapper.cwl
+    scatter: [read_1, read_2]
+    scatterMethod: dotproduct
+    in:
+      read_1: kneadData/out_read_1
+      read_2: kneadData/out_read_2
       index: mice_index
       threads: threads
     out: [unmapped_R1, unmapped_R2]
@@ -95,16 +105,6 @@ steps:
       read_1: micemapper/unmapped_R1
       read_2: micemapper/unmapped_R2
     out: [count]
-  kneadData:
-    run: cwl/kneadData.cwl
-    scatter: [read_1, read_2]
-    scatterMethod: dotproduct
-    in:
-      read_1: micemapper/unmapped_R1
-      read_2: micemapper/unmapped_R2
-      db_path: mice_db
-      threads: threads
-    out: [out_read_1, out_read_2, log]
   metaphlan4_flow:
     run: cwl/metaphlan_flow.cwl
     scatter: [read_1, read_2]
