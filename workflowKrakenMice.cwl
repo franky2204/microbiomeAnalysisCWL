@@ -125,7 +125,6 @@ steps:
     out: [otu_table]
   Bracken:
     run: cwl/bracken.cwl
-    scatter: kraken_report
     scatter: [report]
     in:
       est_abundance: est_abundance
