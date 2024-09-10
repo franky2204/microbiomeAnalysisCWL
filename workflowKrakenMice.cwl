@@ -18,16 +18,7 @@ inputs:
       - $("opts.k2d")
       - $("taxo.k2d")
   threads: int?
-  index:
-    type: File
-    secondaryFiles:
-      - .amb
-      - .ann
-      - .bwt
-      - .fai
-      - .pac
-      - .sa
-  index_chm13:
+  mice_index:
     type: File
     secondaryFiles:
       - .amb
@@ -42,18 +33,12 @@ inputs:
   alpha: string
 
 outputs:
-  unmapped_R1:
+  count_fatq:
     type: File[]
-    outputSource: humanmapper/unmapped_R1
-  unmapped_R2:
+    outputSource: count-start/count
+  count_fatq1:
     type: File[]
-    outputSource: humanmapper/unmapped_R2
-  unmapped_chm_R1:
-    type: File[]
-    outputSource: humanMapper_chm13/unmapped_chm_R1
-  unmapped_chm_R2:
-    type: File[]
-    outputSource: humanMapper_chm13/unmapped_chm_R2
+    outputSource: count-genome/count
   kraken2_output:
     type: File[]
     outputSource: kraken2/kraken2
@@ -82,33 +67,48 @@ steps:
     in:
       fastq_directory: fastq_directory
     out: [read_1, read_2]
-  humanmapper:
-    run: cwl/humanMapper.cwl
+  count-start:
+    run: cwl/countFastq.cwl
     scatter: [read_1, read_2]
     scatterMethod: dotproduct
     in:
       read_1: check-input/read_1
       read_2: check-input/read_2
-      index: index
-      threads: threads
-    out: [unmapped_R1, unmapped_R2]
-  humanMapper_chm13:
-    run: cwl/humanMapperChm13.cwl
+    out: [count]
+  kneadData:
+    run: cwl/kneadData.cwl
     scatter: [read_1, read_2]
     scatterMethod: dotproduct
     in:
-      read_1: humanmapper/unmapped_R1
-      read_2: humanmapper/unmapped_R2
-      index_chm13: index_chm13
+      read_1: check-input/read_1
+      read_2: check-input/read_2
       threads: threads
-    out: [unmapped_chm_R1, unmapped_chm_R2]
+    out: [out_read_1, out_read_2, log]
+  micemapper:
+    run: cwl/humanMapper.cwl
+    scatter: [read_1, read_2]
+    scatterMethod: dotproduct
+    in:
+      read_1: kneadData/out_read_1
+      read_2: kneadData/out_read_2
+      index: mice_index
+      threads: threads
+    out: [unmapped_R1, unmapped_R2]
+  count-genome:
+    run: cwl/countFastq.cwl
+    scatter: [read_1, read_2]
+    scatterMethod: dotproduct
+    in:
+      read_1: micemapper/unmapped_R1
+      read_2: micemapper/unmapped_R2
+    out: [count]
   kraken2:
     run: cwl/kraken2.cwl
     scatter: [read_1, read_2]
     scatterMethod: dotproduct
     in:
-      read_1: humanMapper_chm13/unmapped_chm_R1
-      read_2: humanMapper_chm13/unmapped_chm_R2
+      read_1: micemapper/unmapped_R1
+      read_2: micemapper/unmapped_R2    
       db_path: db_path
       threads: threads
     out: [kraken2, report] 
@@ -145,4 +145,3 @@ steps:
     in:
       total_otu: count-total-otu/total_otu
     out: [alpha_div]
- 
