@@ -41,7 +41,7 @@ arguments:
   - "outputUNpaired2.fastq.gz"
   - "-trimlog"
   - "log.txt"
-  - "ILLUMINACLIP:/Trimmomatic-0.39/adapters/TruSeq3-PE-2.fa:2:30:10:2:True"
+  - "ILLUMINACLIP:/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10:2:True"
   - "LEADING:3"
   - "TRAILING:3"
   - "MINLEN:36"
