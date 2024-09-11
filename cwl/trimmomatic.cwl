@@ -38,9 +38,7 @@ inputs:
     default: "MINLEN:36"
     inputBinding: 
       position: 4
-      prefix: ["outputpaired1.fastq.gz","outputpaired2.fastq.gz","outputUNpaired1.fastq.gz"
-              ,"outputUNpaired2.fastq.gz","-trimlog","log.txt","ILLUMINACLIP:/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10:2:True"
-              ,"LEADING:3","TRAILING:3"]
+      prefix: ["outputpaired1.fastq.gz","outputpaired2.fastq.gz","outputUNpaired1.fastq.gz","outputUNpaired2.fastq.gz","-trimlog","log.txt","ILLUMINACLIP:/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10:2:True","LEADING:3","TRAILING:3"]
 
 outputs:
   out_read_1:
