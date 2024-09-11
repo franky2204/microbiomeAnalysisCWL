@@ -15,7 +15,7 @@ hints:
   DockerRequirement:
     dockerPull: staphb/trimmomatic:0.39
 
-baseCommand: ["java", "-jar", "/Trimmomatic-0.39/trimmomatic-0.39.jar", "PE", "-phred33"]
+baseCommand: ["java", "-jar", "/Trimmomatic-0.39/trimmomatic-0.39.jar", "PE"]
 
 inputs:
   read_1:
@@ -41,10 +41,9 @@ arguments:
   - "outputUNpaired2.fastq.gz"
   - "-trimlog"
   - "log.txt"
-  - "ILLUMINACLIP:/Trimmomatic-0.39/adapters/TruSeq3-PE-2.fa:2:30:10"
+  - "ILLUMINACLIP:/Trimmomatic-0.39/adapters/TruSeq3-PE-2.fa:2:30:10:2:True"
   - "LEADING:3"
   - "TRAILING:3"
-  - "SLIDINGWINDOW:4:20"
   - "MINLEN:36"
 
 
