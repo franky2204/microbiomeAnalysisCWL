@@ -31,6 +31,7 @@ inputs:
   kmer_distrib: File
   classification_level: string
   alpha: string
+  mice_db : Directory
 
 outputs:
   count_fatq:
@@ -82,7 +83,7 @@ steps:
     in:
       read_1: check-input/read_1
       read_2: check-input/read_2
-      db_path: db_path
+      db_path: mice_db
       threads: threads
     out: [out_read_1, out_read_2, log]
   micemapper:
