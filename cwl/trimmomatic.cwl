@@ -40,7 +40,7 @@ inputs:
       position: 4
   output2: 
     type: string?
-    default: "outputpaired1.fastq.gz"
+    default: "outputpaired2.fastq.gz"
     inputBinding:
       position: 5
   unpaired1: 
@@ -85,12 +85,21 @@ outputs:
   out_read_1:
     type: File
     outputBinding:
-      glob: "*1.fastq.gz"
+      glob: "outputpaired1.fastq.gz"
+      outputEval: ${
+        self[0].basename = inputs.read_1.basename;
+        return self; }
   out_read_2:
     type: File
     outputBinding:
-      glob: "*2.fastq.gz"
+      glob: "outputpaired2.fastq.gz"
+      outputEval: ${
+        self[0].basename = inputs.read_2.basename;
+        return self; }
   log:
     type: File
     outputBinding:
       glob: "log.txt"
+      outputEval: ${
+        self[0].basename = inputs.read_1.nameroot + ".txt";
+        return self; }
