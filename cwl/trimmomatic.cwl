@@ -3,6 +3,13 @@ class: CommandLineTool
 
 requirements:
   InlineJavascriptRequirement: {}
+  
+  InitialWorkDirRequirement: 
+    listing:
+      - entry: $(inputs.read_1)
+        writable: True
+      - entry: $(inputs.read_2)
+        writable: True
 
 hints:
   DockerRequirement:
@@ -39,22 +46,18 @@ arguments:
   - "TRAILING:3"
   - "SLIDINGWINDOW:4:20"
   - "MINLEN:36"
-  - $(inputs.read_1.path)
-  - $(inputs.read_2.path)
+
 
 outputs:
   out_read_1:
     type: File
     outputBinding:
       glob: "outputpaired1.fastq.gz"
-      outputEval: $(self[0].path)
   out_read_2:
     type: File
     outputBinding:
       glob: "outputpaired2.fastq.gz"
-      outputEval: $(self[0].path)
   log:
     type: File
     outputBinding:
       glob: "log.txt"
-      outputEval: $(self[0].path)
