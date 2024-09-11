@@ -33,12 +33,43 @@ inputs:
     inputBinding:
       position: 3
       prefix: -threads
+  output1: 
+    type: string?
+    default: "outputpaired1.fastq.gz"
+    inputBinding:
+      position: 4
+  output2: 
+    type: string?
+    default: "outputpaired1.fastq.gz"
+    inputBinding:
+      position: 5
+  unpaired1: 
+    type: string?
+    default: "outputUNpaired1.fastq.gz"
+    inputBinding:
+      position: 6
+  unpaired2: 
+    type: string?
+    default: "outputUNpaired2.fastq.gz"
+    inputBinding:
+      position: 7
+  logName:
+    type: string?
+    default: "log.txt"
+    inputBinding:
+      position: 8
+      prefix: -trimlog
+  illuminaclip:
+    type: string?
+    default: "ILLUMINACLIP:/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10:2:True"
+    inputBinding:
+      position: 9
   remaningCommand:
     type: string?
-    default: "MINLEN:36"
+    default: "LEADING:3 TRAILING:3 MINLEN:36"
     inputBinding: 
-      position: 4
-      prefix: ["outputpaired1.fastq.gz","outputpaired2.fastq.gz","outputUNpaired1.fastq.gz","outputUNpaired2.fastq.gz","-trimlog","log.txt","ILLUMINACLIP:/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10:2:True","LEADING:3","TRAILING:3"]
+      position: 10
+  
 
 outputs:
   out_read_1:
