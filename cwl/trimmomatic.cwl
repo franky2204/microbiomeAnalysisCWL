@@ -85,11 +85,11 @@ outputs:
   out_read_1:
     type: File
     outputBinding:
-      glob: "outputpaired1.fastq.gz"
+      glob: "*1.fastq.gz"
   out_read_2:
     type: File
     outputBinding:
-      glob: "outputpaired2.fastq.gz"
+      glob: "*2.fastq.gz"
   log:
     type: File
     outputBinding:
