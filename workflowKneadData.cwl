@@ -27,7 +27,7 @@ outputs:
 
 steps:
   kneadData:
-    run: cwl/kneadData.cwl
+    run: cwl/kneadDataComplete.cwl
     in:
       read_1: read_1
       read_2: read_2

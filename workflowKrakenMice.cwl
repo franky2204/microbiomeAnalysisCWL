@@ -76,12 +76,13 @@ steps:
       read_2: check-input/read_2
     out: [count]
   kneadData:
-    run: cwl/kneadData.cwl
+    run: cwl/kneadDataComplete.cwl
     scatter: [read_1, read_2]
     scatterMethod: dotproduct
     in:
       read_1: check-input/read_1
       read_2: check-input/read_2
+      db_path: db_path
       threads: threads
     out: [out_read_1, out_read_2, log]
   micemapper:

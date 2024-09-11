@@ -15,7 +15,7 @@ hints:
     coresMax: $(inputs.threads)
   DockerRequirement:
     dockerPull: fpant/kneaddata
-baseCommand: ["bash", "/scripts/kneadData.sh"]
+baseCommand: ["bash", "/scripts/kneadDataComplete.sh"]
 
 
 inputs:
@@ -27,6 +27,10 @@ inputs:
     type: File
     inputBinding:
       position: 2
+  db_path:
+    type: Directory
+    inputBinding:
+      position: 3
   threads:
     type: int?
     default: 1
