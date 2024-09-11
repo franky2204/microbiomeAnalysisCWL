@@ -64,11 +64,21 @@ inputs:
     default: "ILLUMINACLIP:/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10:2:True"
     inputBinding:
       position: 9
-  remaningCommand:
+  leading:
     type: string?
-    default: "LEADING:3 TRAILING:3 MINLEN:36"
+    default: "LEADING:3"
     inputBinding: 
       position: 10
+  trailing:
+    type: string?
+    default: "TRAILING:3"
+    inputBinding: 
+      position: 11
+  minlen:
+    type: string?
+    default: "MINLEN:36"
+    inputBinding: 
+      position: 12
   
 
 outputs:
