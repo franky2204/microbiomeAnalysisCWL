@@ -3,10 +3,6 @@ class: CommandLineTool
 
 requirements:
   InlineJavascriptRequirement: {}
-  InitialWorkDirRequirement: 
-    listing:
-      - entry: $(inputs.report)
-        writable: True
 
 hints:
   DockerRequirement:
@@ -57,5 +53,5 @@ outputs:
     outputBinding:
       glob: "log.txt"
       outputEval: ${
-          self[0].basename = inputs.read_2.nameroot + ".txt";
+          self[0].basename = inputs.read_1.nameroot + ".txt";
           return self; }
