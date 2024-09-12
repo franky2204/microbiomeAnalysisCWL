@@ -80,6 +80,8 @@ steps:
     out: [out_read_1, out_read_2, log]
   rePairReads:
     run: cwl/rePairReads.cwl
+    scatter: [read_1, read_2]
+    scatterMethod: dotproduct
     in:
       read_1: kneadData/out_read_1
       read_2: kneadData/out_read_2
