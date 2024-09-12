@@ -27,10 +27,16 @@ outputs:
     type: File
     outputBinding:
       glob: $("repair1.fastq.gz")
+      outputEval: ${
+          self[0].basename = inputs.read_1.basename;
+          return self; }
   re_paired_R2:
     type: File
     outputBinding:
       glob: $("repair2.fastq.gz")
+      outputEval: ${
+          self[0].basename = inputs.read_2.basename;
+          return self; }
 
 baseCommand: ["repair.sh"]
 
