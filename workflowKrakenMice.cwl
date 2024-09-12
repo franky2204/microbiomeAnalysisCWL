@@ -68,24 +68,30 @@ steps:
     in:
       fastq_directory: fastq_directory
     out: [read_1, read_2]
+  kneadData:
+    run: cwl/kneadDataOnlyTrim.cwl
+    scatter: [read_1, read_2]
+    scatterMethod: dotproduct
+    in:
+      read_1: check-input/read_1
+      read_2: check-input/read_2
+      #db_path: mice_db
+      threads: threads
+    out: [out_read_1, out_read_2, log]
+  rePairReads:
+    run: cwl/rePairReads.cwl
+    in:
+      read_1: kneadData/out_read_1
+      read_2: kneadData/out_read_2
+    out: [re_paired_R1, re_paired_R2]
   count-start:
     run: cwl/countFastq.cwl
     scatter: [read_1, read_2]
     scatterMethod: dotproduct
     in:
-      read_1: check-input/read_1
-      read_2: check-input/read_2
+      read_1: rePairReads/re_paired_R1
+      read_2: rePairReads/re_paired_R2
     out: [count]
-  kneadData:
-    run: cwl/kneadDataComplete.cwl
-    scatter: [read_1, read_2]
-    scatterMethod: dotproduct
-    in:
-      read_1: check-input/read_1
-      read_2: check-input/read_2
-      db_path: mice_db
-      threads: threads
-    out: [out_read_1, out_read_2, log]
   micemapper:
     run: cwl/humanMapper.cwl
     scatter: [read_1, read_2]
