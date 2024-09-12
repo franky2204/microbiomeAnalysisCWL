@@ -37,7 +37,7 @@ baseCommand: ["repair.sh"]
 arguments:
   - valueFrom: in=$(inputs.read_1)
   - valueFrom: in2=$(inputs.read_2)
-  - valueFrom: out1=$(inputs.repair1)
+  - valueFrom: out=$(inputs.repair1)
   - valueFrom: out2=$(inputs.repair2)
   - valueFrom: outs=$(inputs.singletons)
   - valueFrom: $(inputs.action)
