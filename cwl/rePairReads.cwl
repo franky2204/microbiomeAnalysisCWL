@@ -35,8 +35,8 @@ outputs:
 baseCommand: ["repair.sh"]
 
 arguments:
-  - valueFrom: in=$(inputs.read_1)
-  - valueFrom: in2=$(inputs.read_2)
+  - valueFrom: in=$(inputs.read_1.path)
+  - valueFrom: in2=$(inputs.read_2.path)
   - valueFrom: out=$(inputs.repair1)
   - valueFrom: out2=$(inputs.repair2)
   - valueFrom: outs=$(inputs.singletons)
