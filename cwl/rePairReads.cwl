@@ -1,42 +1,23 @@
 cwlVersion: v1.2
 class: CommandLineTool
-baseCommand: ["repair.sh"]
-
 
 inputs:
   read_1:
     type: File
-    inputBinding:
-      position: 1
-      prefix: "in="
   read_2:
-    type: string
-    inputBinding:
-      position: 2
-      prefix: "in2="
+    type: File
   repair1:
     type: string?
     default: "repair1.fastq.gz"
-    inputBinding:
-      position: 3
-      prefix: "out1="
   repair2:
     type: string?
     default: "repair2.fastq.gz"
-    inputBinding:
-      position: 4
-      prefix: "out2="
   singletons:
     type: string?
     default: "singletons.fastq.gz"
-    inputBinding:
-      position: 5
-      prefix: "outs="
   action:
     type: string?
     default: "repair"
-    inputBinding:
-      position: 6
 
 outputs:
   re_paired_R1:
@@ -48,3 +29,12 @@ outputs:
     outputBinding:
       glob: $("repair2.fastq.gz")
 
+baseCommand: ["repair.sh"]
+
+arguments:
+  - valueFrom: in=$(inputs.read_1)
+  - valueFrom: in2=$(inputs.read_2)
+  - valueFrom: out1=$(inputs.repair1)
+  - valueFrom: out2=$(inputs.repair2)
+  - valueFrom: outs=$(inputs.singletons)
+  - valueFrom: $(inputs.action)
