@@ -99,8 +99,8 @@ steps:
     scatter: [read_1, read_2]
     scatterMethod: dotproduct
     in:
-      read_1: kneadData/out_read_1
-      read_2: kneadData/out_read_2
+      read_1: rePairReads/re_paired_R1
+      read_2: rePairReads/re_paired_R2
       index: mice_index
       threads: threads
     out: [unmapped_R1, unmapped_R2]
