@@ -1,6 +1,9 @@
 cwlVersion: v1.2
 class: CommandLineTool
 
+hints:
+  DockerRequirement:
+    dockerPull: bryce911/bbtools:39.08
 inputs:
   read_1:
     type: File
