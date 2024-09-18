@@ -11,7 +11,7 @@ requirements:
 inputs:
   fastq_directory: Directory
   threads: int?
-  humanContaminant : Directory
+  human_contaminant : Directory
 
 outputs:
   out_read_1:
