@@ -1,7 +1,9 @@
+#!/bin/bash
 read1=$1
 read2=$2
 db_path=$3
 threads=$4 
+
 onlyname1="${read1##*/}"
 onlyname2="${read2##*/}"
 remEx1="${onlyname1%%.*}"
