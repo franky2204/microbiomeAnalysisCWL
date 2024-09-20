@@ -13,14 +13,16 @@ meta_path:
   path: /media/francesco/Volume/Work/metaphlan
 fastq_directory:
   class: Directory
-  location: /media/francesco/Volume/Work/unitor_001_0324/raw_sequences/UNITOR-001-CA_03
+  location: /media/francesco/Seagate_Basic/Università/kneadData/Try/input
 biom_input: 
   class: File
   path: /media/francesco/Volume/Work/bioms/AMCTRL15_output.biom
 knead_directory:
   class: Directory
   path: /home/fpantini/metaphlan/kneaddata
-
+human_contaminant:
+  class: Directory
+  path: /media/francesco/Seagate_Basic/Università/kneadData/hummanContaminant
 
 
   
