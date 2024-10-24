@@ -33,6 +33,10 @@ RUN for pkg in /compress/*.tar.gz; do R -e "install.packages('$pkg', repos = NUL
 
 WORKDIR /
 
-WORKDIR /
-
 COPY ./scripts /scripts
+RUN rm /input_files/lastMicro/microbiomeAnalysisCWL/venv/lib/python3.10/site-packages/humann/search/prescreen.py
+RUN rm /input_files/lastMicro/microbiomeAnalysisCWL/venv/lib/python3.10/site-packages/humann/config.py
+COPY ./humann_mod/prescreen.py /input_files/lastMicro/microbiomeAnalysisCWL/venv/lib/python3.10/site-packages/humann/search/prescreen.py
+COPY ./humann_mod/config.py /input_files/lastMicro/microbiomeAnalysisCWL/venv/lib/python3.10/site-packages/humann/config.py
+
+WORKDIR /
