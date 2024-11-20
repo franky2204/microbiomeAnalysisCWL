@@ -1,0 +1,13 @@
+  read: 
+    class: File
+    path:
+  chocophlan_DB: 
+    class: Directory
+    path:
+  uniref_DB: 
+    class: Directory
+    path:
+  report: 
+    class: File
+    path:
+  threads: int?
