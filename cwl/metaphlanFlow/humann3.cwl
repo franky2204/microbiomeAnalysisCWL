@@ -8,7 +8,7 @@ hints:
   ResourceRequirement:
     coresMax: $(inputs.threads)
   DockerRequirement:
-    dockerPull: franky2204/humann3:latest 
+    dockerPull: franky2204/humann:3.9.1 
 baseCommand: ["humann"]
 
 
