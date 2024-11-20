@@ -8,7 +8,7 @@ hints:
   ResourceRequirement:
     coresMax: $(inputs.threads)
   DockerRequirement:
-    dockerPull: biobakery/humann 
+    dockerPull: franky2204/humann3:latest 
 baseCommand: ["humann"]
 
 
