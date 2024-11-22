@@ -4,12 +4,10 @@ class: Workflow
 
 requirements:
   InlineJavascriptRequirement: {}
-  ScatterFeatureRequirement: {}
   MultipleInputFeatureRequirement: {}
-  SubworkflowFeatureRequirement: {}
 
 inputs:
-  fastq_directory: Directory 
+  read: File
   chocophlan_DB: Directory
   uniref_DB: Directory
   report: File
@@ -31,21 +29,12 @@ outputs:
 
 
 steps:
-  check-input:
-    run: cwl/checkInput.cwl
+  humann3:
+    run: cwl/metaphlanFlow/humann3.cwl
     in:
-      fastq_directory: fastq_directory
-    out: [read_1, read_2]
-  Khumann:
-    run: cwl/Khumann3.cwl
-    scatter: [read_1, read_2]
-    scatterMethod: dotproduct
-    in:
-      read_1: check-input/read_1
-      read_2: check-input/read_2
-      kraken_folder: kraken_folder
+      read_fused: read
+      report: report
       chocophlan_DB: chocophlan_DB
       uniref_DB: uniref_DB
       threads: threads
     out: [gene_families, path_coverage, path_abundance, temp_dir]
-

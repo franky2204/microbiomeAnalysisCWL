@@ -43,3 +43,5 @@ COPY getOTU.py .
 COPY countTotalOTU.py .
 COPY kraken2.sh .
 COPY computeAlpha.py .
+COPY  kraken2mpa.py . 
+COPY  trasformInMeta.py .

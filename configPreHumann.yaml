@@ -1,0 +1,6 @@
+read_1:
+  class: File
+  path: /home/franky/Desktop/prove/TEC14T0_ZKDN230026689-1A_HMC2MDSX7_L1_R2.fq.gz
+kraken_folder:
+  class: Directory
+  path: /home/franky/Desktop/prove/da_cerare
