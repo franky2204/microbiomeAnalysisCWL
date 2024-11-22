@@ -21,7 +21,7 @@ outputs:
           var truncated_name = partial_name.split('_')[0];
           truncated_name.path;
           // Construct a glob pattern to match any file in the folder that contains the partial name
-          return '/' + inputs.kraken_folder.path + '/*' + truncated_name + '*'+'.report';
+          return  inputs.kraken_folder.path + '/*' + truncated_name +'.report';
         }
 
 baseCommand: ["echo"]
