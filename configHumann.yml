@@ -1,12 +1,12 @@
 read_1:
   class: File
-  path: /backup/fpantini/humann_DB/input/HV02_R1.fastq.gz
+  path: /backup/fpantini/humann_DB/input/MAV19T0_R1.fastq.gz
 read_2:
   class: File
-  path: /backup/fpantini/humann_DB/input/HV02_R2.fastq.gz
+  path: /backup/fpantini/humann_DB/input/MAV19T0_R2.fastq.gz
 report:
   class: File
-  path: /backup/fpantini/humann_DB/input/HV02_output.txt
+  path: /backup/fpantini/humann_DB/input/MAV19T0_output.txt
 chocophlan_DB:
   class: Directory
   path: /backup/fpantini/humann_DB/chocophlan

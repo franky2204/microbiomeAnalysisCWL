@@ -1,0 +1,11 @@
+read_1:
+  class: File
+  path: /backup/fpantini/kneaddata/UNITOR-001-CA_06_R1.fastq.gz
+read_2:
+  class: File 
+  path: /backup/fpantini/kneaddata/UNITOR-001-CA_06_R2.fastq.gz
+db_path:
+  class: Directory 
+  path: /backup/fpantini/kneaddata/miceDB
+threads: 30
+

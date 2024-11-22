@@ -1,0 +1,10 @@
+read_1:
+  class: File
+  path: /backup/fpantini/kraken_oBact_DB/sample100_R1.fastq.gz
+read_2:
+  class: File
+  path: /backup/fpantini/kraken_oBact_DB/sample100_R2.fastq.gz
+db_path:
+  class: File
+  path: /backup/fpantini/kraken_oBact_DB/bacteriaOnly/hash.k2d
+threads: 30

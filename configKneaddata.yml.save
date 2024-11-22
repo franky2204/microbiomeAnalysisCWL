@@ -1,0 +1,9 @@
+
+db_path:
+  class: Directory 
+  path: /backup/fpantini/kneaddata/miceDB
+threads: 30
+db_path:
+  class: File
+  path: /backup/fpantini/braken_DB/hash.k2d
+

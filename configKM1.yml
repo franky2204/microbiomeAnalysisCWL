@@ -1,0 +1,7 @@
+  read_1: 
+    class: File
+    path: /backup/fpantini/Khumann/prove_input/HV04_fake_R1.fastq.gz
+  kraken_folder: 
+    class: Directory
+    path: /backup/fpantini/Khumann/prove_input/cartella_report
+  threads: 30

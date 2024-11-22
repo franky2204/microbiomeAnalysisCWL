@@ -1,0 +1,670 @@
+[1;30mINFO[0m /home/fpantini/lastMicro/microbiomeAnalysisCWL/venv/bin/cwltool 3.1.20240404144621
+[1;30mINFO[0m Resolved 'onlyHumann3.cwl' to 'file:///home/fpantini/lastMicro/microbiomeAnalysisCWL/onlyHumann3.cwl'
+[1;30mINFO[0m [workflow ] start
+[1;30mINFO[0m [workflow ] starting step fuse_reads
+[1;30mINFO[0m [step fuse_reads] start
+[1;30mWARNING[0m [33m[job fuse_reads] Skipping Docker software container '--cpus' limit despite presence of ResourceRequirement with coresMin and/or coresMax setting. Consider running with --strict-cpu-limit for increased portability assurance.[0m
+[1;30mINFO[0m [job fuse_reads] /backup/fpantini/tmp/wre6adpv$ docker \
+    run \
+    -i \
+    --mount=type=bind,source=/backup/fpantini/tmp/wre6adpv,target=/vXGfFu \
+    --mount=type=bind,source=/backup/fpantini/tmp/c_skrg0t,target=/tmp \
+    --workdir=/vXGfFu \
+    --read-only=true \
+    --net=none \
+    --user=1048:1049 \
+    --rm \
+    --cidfile=/backup/fpantini/tmp/v1v6w_cg/20240629093609-204337.cid \
+    --env=TMPDIR=/tmp \
+    --env=HOME=/vXGfFu \
+    scontaldo/humanmapper \
+    bash \
+    /scripts/fuseReads.sh \
+    /vXGfFu/MS22_R1.fastq.gz \
+    /vXGfFu/MS22_R2.fastq.gz \
+    30
+[1;30mINFO[0m [job fuse_reads] Max memory used: 14605MiB
+[1;30mINFO[0m [job fuse_reads] completed success
+[1;30mINFO[0m [step fuse_reads] completed success
+[1;30mINFO[0m [workflow ] starting step humann3
+[1;30mINFO[0m [step humann3] start
+[1;30mWARNING[0m [33m[job humann3] Skipping Docker software container '--cpus' limit despite presence of ResourceRequirement with coresMin and/or coresMax setting. Consider running with --strict-cpu-limit for increased portability assurance.[0m
+[1;30mINFO[0m [job humann3] /backup/fpantini/tmp/ruxdf40m$ docker \
+    run \
+    -i \
+    --mount=type=bind,source=/backup/fpantini/tmp/ruxdf40m,target=/vXGfFu \
+    --mount=type=bind,source=/backup/fpantini/tmp/7c24pf85,target=/tmp \
+    --mount=type=bind,source=/backup/fpantini/humann_DB/chocophlan,target=/var/lib/cwl/stgdf8b144c-31cc-44dd-b2dd-27e6680e137c/chocophlan,readonly \
+    --mount=type=bind,source=/backup/fpantini/tmp/wre6adpv/MS22_R1_fused.fastq,target=/var/lib/cwl/stg0bf30dc9-9bdb-4054-be53-24a7bbc4c063/MS22_R1_fused.fastq,readonly \
+    --mount=type=bind,source=/backup/fpantini/humann_DB/input/MS22_output.txt,target=/var/lib/cwl/stgb6a34d89-f4f3-48dc-90e8-9e959dbf7e5f/MS22_output.txt,readonly \
+    --mount=type=bind,source=/backup/fpantini/humann_DB/uniref,target=/var/lib/cwl/stge664ef5e-0663-48f2-9488-60f04962a918/uniref,readonly \
+    --workdir=/vXGfFu \
+    --read-only=true \
+    --net=none \
+    --user=1048:1049 \
+    --rm \
+    --cidfile=/backup/fpantini/tmp/571hpsc6/20240629095910-174320.cid \
+    --env=TMPDIR=/tmp \
+    --env=HOME=/vXGfFu \
+    biobakery/humann \
+    humann \
+    --output \
+    ./ \
+    --input \
+    /var/lib/cwl/stg0bf30dc9-9bdb-4054-be53-24a7bbc4c063/MS22_R1_fused.fastq \
+    --taxonomic-profile \
+    /var/lib/cwl/stgb6a34d89-f4f3-48dc-90e8-9e959dbf7e5f/MS22_output.txt \
+    --nucleotide-database \
+    /var/lib/cwl/stgdf8b144c-31cc-44dd-b2dd-27e6680e137c/chocophlan \
+    --protein-database \
+    /var/lib/cwl/stge664ef5e-0663-48f2-9488-60f04962a918/uniref \
+    --threads \
+    30
+Output files will be written to: /vXGfFu
+Removing spaces from identifiers in input file ...
+
+Found t__SGB4925 : 11.92% of mapped reads ( s__Roseburia_faecis,g__Roseburia.s__Roseburia_hominis,g__Roseburia.s__Roseburia_sp_TF10_5 )
+Found t__SGB15318 : 7.49% of mapped reads ( s__Faecalibacterium_prausnitzii,g__Faecalibacterium.s__Faecalibacterium_sp_Marseille_Q4137,g__Faecalibacterium.s__Faecalibacterium_sp_4P15,g__Faecalibacterium.s__Faecalibacterium_sp_Marseille_Q0746,g__Faecalibacterium.s__Faecalibacterium_sp_CLA_AA_H283,g__Faecalibacterium.s__Faecalibacterium_sp_CLA_AA_H254,g__Faecalibacterium.s__Faecalibacterium_sp_CLA_AA_H223,g__Faecalibacterium.s__Faecalibacterium_sp_IP329,g__Faecalibacterium.s__Faecalibacterium_duncaniae,g__Faecalibacterium.s__Faecalibacterium_sp_BCRC_81149,g__Faecalibacterium.s__Faecalibacterium_sp_I2392 )
+Found t__SGB17248 : 4.04% of mapped reads ( s__Bifidobacterium_longum,g__Bifidobacteriaceae_unclassified.s__Bifidobacteriaceae_bacterium_MCC01989,g__Bifidobacteriaceae_unclassified.s__Bifidobacteriaceae_bacterium_MCC01979,g__Bifidobacteriaceae_unclassified.s__Bifidobacteriaceae_bacterium_MCC01972,g__Bifidobacteriaceae_unclassified.s__Bifidobacteriaceae_bacterium_MCC01986,g__Bifidobacteriaceae_unclassified.s__Bifidobacteriaceae_bacterium_MCC01978,g__Bifidobacteriaceae_unclassified.s__Bifidobacteriaceae_bacterium_MCC01976,g__Bifidobacteriaceae_unclassified.s__Bifidobacteriaceae_bacterium_MCC01975 )
+Found t__SGB4933 : 3.62% of mapped reads ( s__Eubacterium_rectale )
+Found t__SGB15342 : 3.20% of mapped reads ( s__Faecalibacterium_prausnitzii,g__Faecalibacterium.s__Faecalibacterium_sp_AM43_5AT,g__Faecalibacterium.s__Faecalibacterium_sp_BIOML_A3,g__Faecalibacterium.s__Faecalibacterium_sp_Marseille_Q4896,g__Faecalibacterium.s__Faecalibacterium_sp_OF03_6AC,g__Faecalibacterium.s__Faecalibacterium_sp_AF27_11BH,g__Faecalibacterium.s__Faecalibacterium_sp_AF10_46,g__Faecalibacterium.s__Faecalibacterium_sp_BIOML_A2,g__Faecalibacterium.s__Faecalibacterium_sp_I4384 )
+Found t__SGB4951 : 2.80% of mapped reads ( s__Roseburia_intestinalis )
+Found t__SGB5803_group : 2.64% of mapped reads ( s__Dialister_sp_CAG_357,g__Dialister.s__Dialister_massiliensis )
+Found t__SGB1836 : 2.60% of mapped reads ( s__Bacteroides_uniformis,g__Bacteroides.s__Bacteroides_sp_D20,g__Bacteroides.s__Bacteroides_sp_4_1_36,g__Bacteroides.s__Bacteroides_humanifaecis,g__Bacteroides.s__Bacteroides_sp_AF25_38AC,g__Bacteroides.s__Bacteroides_sp_CACC_737,g__Bacteroides.s__Bacteroides_sp_AF36_11BH,g__Bacteroides.s__Bacteroides_sp_AF39_16AC,g__Bacteroides.s__Bacteroides_sp_AM32_11AC,g__Bacteroides.s__Bacteroides_sp_AF35_22,g__Bacteroides.s__Bacteroides_sp_AF26_10BH,g__Bacteroides.s__Bacteroides_sp_AF37_16AC,g__Bacteroides.s__Bacteroides_sp_Marseille_P8574,g__Bacteroides.s__Bacteroides_sp_HF_5613,g__Bacteroides.s__Bacteroides_sp_AF33_23,g__Bacteroides.s__Bacteroides_sp_AF20_13LB,g__Bacteroides.s__Bacteroides_sp_AF34_31BH,g__Bacteroides.s__Bacteroides_sp_A1C1,g__Bacteroides.s__Bacteroides_sp_HF_162,g__Bacteroides.s__Bacteroides_sp_AF29_11,g__Bacteroides.s__Bacteroides_sp_AF04_22,g__Bacteroides.s__Bacteroides_sp_AM41_16,g__Bacteroides.s__Bacteroides_sp_AR29,g__Bacteroides.s__Bacteroides_sp_NSJ_21,g__Bacteroides.s__Bacteroides_sp_AF18_33,g__Bacteroides.s__Bacteroides_sp_AM44_19,g__Bacteroides.s__Bacteroides_sp_AF27_10BH,g__Bacteroides.s__Bacteroides_sp_AM07_18,g__Bacteroides.s__Bacteroides_sp_AF15_14LB,g__Bacteroides.s__Bacteroides_sp_AF25_5LB,g__Bacteroides.s__Bacteroides_sp_AM30_16 )
+Found t__SGB17244 : 2.46% of mapped reads ( s__Bifidobacterium_adolescentis,g__Bifidobacteriaceae_unclassified.s__Bifidobacteriaceae_bacterium_MCC01943,g__Bifidobacterium.s__Bifidobacterium_faecale,g__Bifidobacteriaceae_unclassified.s__Bifidobacteriaceae_bacterium_MCC01941,g__Bifidobacterium.s__Bifidobacterium_sp_CLA_AA_H280,g__Bifidobacterium.s__Bifidobacterium_sp_MSK_17_10 )
+Found t__SGB1814 : 2.10% of mapped reads ( s__Bacteroides_vulgatus,g__Phocaeicola.s__Phocaeicola_dorei )
+Found t__SGB15332 : 1.73% of mapped reads ( s__Faecalibacterium_prausnitzii,g__Faecalibacterium.s__Faecalibacterium_sp_IP118 )
+Found t__SGB15286 : 1.69% of mapped reads ( s__Subdoligranulum_sp_APC924_74 )
+Found t__SGB14535 : 1.54% of mapped reads ( s__Collinsella_aerofaciens,g__Collinsella.s__Collinsella_sp_AF28_5AC,g__Coriobacteriaceae_unclassified.s__Coriobacteriaceae_bacterium,g__Collinsella.s__Collinsella_sp_4_8_47FAA,g__Collinsella.s__Collinsella_sp_AM38_1BH,g__Collinsella.s__Collinsella_sp_AF25_2LB,g__Collinsella.s__Collinsella_sp_TF05_9AC,g__Collinsella.s__Collinsella_sp_BG_O_102,g__Collinsella.s__Collinsella_sp_MSK_8_10 )
+Found t__SGB4285 : 1.52% of mapped reads ( s__Ruminococcus_bromii,g__Ruminococcus.s__Ruminococcus_sp_AM28_29LB,g__Ruminococcus.s__Ruminococcus_sp_TF12_19AC,g__Ruminococcus.s__Ruminococcus_sp_AF37_3AC,g__Ruminococcus.s__Ruminococcus_sp_AF43_11,g__Ruminococcus.s__Ruminococcus_sp_AM34_10LB,g__Ruminococcus.s__Ruminococcus_sp_AF16_40,g__Ruminococcus.s__Ruminococcus_sp_AF17_11,g__Ruminococcus.s__Ruminococcus_sp_AM31_32,g__Ruminococcus.s__Ruminococcus_sp_AF42_10,g__Ruminococcus.s__Ruminococcus_sp_AM36_18 )
+Found t__SGB4940 : 1.40% of mapped reads ( s__Roseburia_inulinivorans )
+Found t__SGB1815 : 1.34% of mapped reads ( s__Bacteroides_dorei )
+Found t__SGB4563 : 1.30% of mapped reads ( s__Ruminococcus_torques,g__Mediterraneibacter.s__Ruminococcus_torques,g__Ruminococcus.s__Ruminococcus_sp_AF31_14BH,g__Ruminococcus.s__Ruminococcus_sp_TF08_4,g__Ruminococcus.s__Ruminococcus_sp_AF32_2AC,g__Ruminococcus.s__Ruminococcus_sp_AM33_14,g__Ruminococcus.s__Ruminococcus_sp_AM09_18_1,g__Ruminococcus.s__Ruminococcus_sp_OM08_13AT,g__Ruminococcus.s__Ruminococcus_sp_AM41_2AC,g__Ruminococcus.s__Ruminococcus_sp_OM07_7,g__Ruminococcus.s__Ruminococcus_sp_AF25_13,g__Ruminococcus.s__Ruminococcus_sp_AF12_5,g__Ruminococcus.s__Ruminococcus_sp_TF10_6,g__Ruminococcus.s__Ruminococcus_sp_AF27_11AA,g__Mediterraneibacter.s__Mediterraneibacter_sp_210702_DFI_3_120,g__Bacteria_unclassified.s__bacterium_TM473,g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium_210521_DFI_1_105,g__Mediterraneibacter.s__Mediterraneibacter_sp_210702_DFI_5_30,g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium_210521_DFI_3_107 )
+Found t__SGB4874 : 1.29% of mapped reads ( s__Fusicatenibacter_saccharivorans,g__Blautia.s__Blautia_sp_AM42_2,g__Blautia.s__Blautia_sp_OF03_13,g__Blautia.s__Blautia_sp_OF09_25XD,g__Blautia.s__Blautia_sp_AM47_4,g__Blautia.s__Blautia_sp_AM29_29,g__Blautia.s__Blautia_sp_AF17_9LB,g__Blautia.s__Blautia_sp_OM06_15AC,g__Blautia.s__Blautia_sp_AF19_13LB,g__Blautia.s__Blautia_sp_AF34_10,g__Blautia.s__Blautia_sp_AM23_13AC,g__Blautia.s__Blautia_sp_OM05_6,g__Blautia.s__Blautia_sp_AF26_2,g__Blautia.s__Blautia_sp_OF11_22,g__Blautia.s__Blautia_sp_AF14_40,g__Blautia.s__Blautia_sp_AM28_10,g__Blautia.s__Blautia_sp_AF32_4BH,g__Blautia.s__Blautia_sp_AF19_1,g__Blautia.s__Blautia_sp_TM10_2,g__Blautia.s__Blautia_sp_TF10_30,g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium_210521_DFI_5_20 )
+Found t__SGB17256 : 1.19% of mapped reads ( s__Bifidobacterium_bifidum,g__Bifidobacteriaceae_unclassified.s__Bifidobacteriaceae_bacterium_MCC02030,g__Bifidobacteriaceae_unclassified.s__Bifidobacteriaceae_bacterium_MCC01958,g__Bifidobacteriaceae_unclassified.s__Bifidobacteriaceae_bacterium_MCC01946 )
+Found t__SGB2318 : 1.18% of mapped reads ( s__Alistipes_putredinis )
+Found t__SGB4811 : 1.06% of mapped reads ( s__Blautia_obeum,g__Blautia.s__Blautia_sp_210820_DFI_6_14 )
+Found t__SGB4581 : 1.03% of mapped reads ( s__Dorea_longicatena,g__Dorea.s__Dorea_sp_MB18_49,g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium_210521_DFI_5_19,g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium_210521_DFI_3_101 )
+Found t__SGB4303 : 0.99% of mapped reads ( s__Clostridium_sp_CAG_217 )
+Found t__SGB15316 : 0.90% of mapped reads ( s__Faecalibacterium_prausnitzii,g__Faecalibacterium.s__Faecalibacterium_longum,g__Faecalibacterium.s__Faecalibacterium_sp_Marseille_P9312,g__Faecalibacterium.s__Faecalibacterium_sp_Marseille_P9590 )
+Found t__SGB14993 : 0.88% of mapped reads ( s__Agathobaculum_butyriciproducens,g__Butyricicoccus.s__Butyricicoccus_faecihominis,g__Butyricicoccus.s__Butyricicoccus_sp_AF10_3,g__Butyricicoccus.s__Butyricicoccus_sp_OF13_6,g__Butyricicoccus.s__Butyricicoccus_sp_AM27_36,g__Butyricicoccus.s__Butyricicoccus_sp_AF22_28AC,g__Butyricicoccus.s__Butyricicoccus_sp_AF24_19AC,g__Butyricicoccus.s__Butyricicoccus_sp_TM10_16AC,g__Butyricicoccus.s__Butyricicoccus_sp_BIOML_A1,g__Butyricicoccus.s__Butyricicoccus_sp_AM28_25,g__Butyricicoccus.s__Butyricicoccus_sp_OM06_6AC,g__Butyricicoccus.s__Butyricicoccus_sp_AM18_35,g__Butyricicoccus.s__Butyricicoccus_sp_OF10_2,g__Butyricicoccus.s__Butyricicoccus_sp_AM05_1,g__Butyricicoccus.s__Butyricicoccus_sp_AF35_5AC,g__Butyricicoccus.s__Butyricicoccus_sp_AF15_40,g__Butyricicoccus.s__Butyricicoccus_sp_AM32_19 )
+Found t__SGB4837 : 0.84% of mapped reads ( s__Blautia_obeum,g__Blautia.s__Blautia_obeum,g__Ruminococcus.s__Ruminococcus_sp_OM02_16LB,g__Blautia.s__Blautia_sp_Marseille_P2398,g__Ruminococcus.s__Ruminococcus_sp_AM18_44,g__Ruminococcus.s__Ruminococcus_sp_AF33_11BH,g__Ruminococcus.s__Ruminococcus_sp_AM40_10AC,g__Ruminococcus.s__Ruminococcus_sp_AM36_17,g__Ruminococcus.s__Ruminococcus_sp_TM09_4,g__Ruminococcus.s__Ruminococcus_sp_AM32_17LB,g__Ruminococcus.s__Ruminococcus_sp_AM29_12LB,g__Blautia.s__Blautia_sp_1001283B150304_161114_C9,g__Ruminococcus.s__Ruminococcus_sp_AM18_15,g__Ruminococcus.s__Ruminococcus_sp_5_1_39BFAA,g__Ruminococcus.s__Ruminococcus_sp_TF11_2AC,g__Ruminococcus.s__Ruminococcus_sp_AF19_29,g__Ruminococcus.s__Ruminococcus_sp_AM27_16,g__Ruminococcus.s__Ruminococcus_sp_AF25_28AC,g__Ruminococcus.s__Ruminococcus_sp_AM34_9LB,g__Ruminococcus.s__Ruminococcus_sp_AM23_1LB,g__Ruminococcus.s__Ruminococcus_sp_AM42_10AC,g__Ruminococcus.s__Ruminococcus_sp_AF14_5,g__Blautia.s__Blautia_sp_DFI_3_45,g__Blautia.s__Blautia_sp_MSK18_10,g__Blautia.s__Blautia_sp_DFI_6_71,g__Blautia.s__Blautia_sp_DFI_1_216 )
+Found t__SGB14749 : 0.78% of mapped reads ( s__Enorma_massiliensis,g__Enorma.s__Enorma_shizhengliae )
+Found g__Megasphaera.s__Megasphaera_sp_NM10 : 0.73% of mapped reads (  )
+Found g__Blautia.s__Blautia_faecis : 0.71% of mapped reads ( g__Blautia.s__Blautia_glucerasea,g__Ruminococcus.s__Ruminococcus_sp_1001713B170214_170313_A12,g__Ruminococcus.s__Ruminococcus_sp_D54t1_190329_F1,g__Ruminococcus.s__Ruminococcus_sp_J1101004_170508_H5,g__Ruminococcus.s__Ruminococcus_sp_1001275B_160808_F8,g__Ruminococcus.s__Ruminococcus_sp_1001713B170207_170306_F1,g__Ruminococcus.s__Ruminococcus_sp_AM42_11,g__Ruminococcus.s__Ruminococcus_sp_D55t1_190419_H1,g__Oscillospiraceae_unclassified.s__Oscillospiraceae_bacterium,g__Ruminococcus.s__Ruminococcus_sp_D40t1_170626_H2,g__Ruminococcus.s__Ruminococcus_sp_1001136B_160425_D2,g__Bacteria_unclassified.s__bacterium_210702_DFI_5_13,g__Blautia.s__Blautia_sp_210702_DFI_1_159 )
+Found t__SGB4577 : 0.64% of mapped reads ( s__Coprococcus_comes,g__Coprococcus.s__Coprococcus_sp_DFI_6_81 )
+Found t__SGB1830 : 0.61% of mapped reads ( s__Bacteroides_stercoris,g__Bacteroides.s__Bacteroides_sp_NSJ_48 )
+Found t__SGB4871 : 0.55% of mapped reads ( s__Firmicutes_bacterium_CAG_56,g__Oscillospiraceae_unclassified.s__Oscillospiraceae_bacterium,g__Mediterraneibacter.s__Ruminococcus_lactaris,g__Hominisplanchenecus.s__Hominisplanchenecus_faecis,g__Ruminococcus.s__Ruminococcus_sp_MCC718 )
+Found g__Bacteria_unclassified.s__bacterium_OL_1 : 0.51% of mapped reads (  )
+Found t__SGB4537 : 0.50% of mapped reads ( s__Eubacterium_hallii,g__Anaerobutyricum.s__Anaerobutyricum_hallii,g__Eubacteriaceae_unclassified.s__Eubacteriaceae_bacterium )
+Found g__GGB1266.s__GGB1266_SGB1699 : 0.48% of mapped reads (  )
+Found t__SGB5075 : 0.44% of mapped reads ( s__Lachnospira_pectinoschiza )
+Found t__SGB1871 : 0.43% of mapped reads ( s__Bacteroides_ovatus,g__Bacteroides.s__Bacteroides_sp_2_2_4,g__Bacteroides.s__Bacteroides_sp_AM56_10ce,g__Bacteroides.s__Bacteroides_sp_AF32_8BH,g__Bacteroides.s__Bacteroides_sp_KFT8,g__Bacteroides.s__Bacteroides_sp_HMSC073E02,g__Bacteroides.s__Bacteroides_sp_3_1_23,g__Bacteroides.s__Bacteroides_kribbi,g__Bacteroides.s__Bacteroides_sp_OF03_11BH,g__Bacteroides.s__Bacteroides_sp_MSK_17_76,g__Bacteroides.s__Bacteroides_sp_MSK_18_37 )
+Found g__Coprococcus.s__Coprococcus_eutactus : 0.36% of mapped reads ( g__Clostridium.s__Clostridium_sp_AF15_41,g__Clostridium.s__Clostridium_sp_OM05_9,g__Clostridium.s__Clostridium_sp_OF10_22XD,g__Clostridium.s__Clostridium_sp_AM54_14XD,g__Clostridium.s__Clostridium_sp_BIOML_A1,g__Clostridium.s__Clostridium_sp_AM46_21,g__Clostridium.s__Clostridium_sp_L2_50,g__Clostridium.s__Clostridium_sp_AF15_31,g__Coprococcus.s__Coprococcus_sp_NSJ_10,g__Clostridium.s__Clostridium_sp_AF17_2,g__Clostridium.s__Clostridium_sp_AF23_6LB )
+Found t__SGB4828 : 0.33% of mapped reads ( s__Blautia_sp,g__Ruminococcus.s__Ruminococcus_sp_OF03_6AA,g__Blautia.s__Blautia_sp_MSK_20_85,g__Ruminococcus.s__Ruminococcus_sp_OM08_9BH,g__Ruminococcus.s__Ruminococcus_sp_AM41_10BH,g__Ruminococcus.s__Ruminococcus_sp_AM36_5,g__Blautia.s__Blautia_sp_NSJ_166 )
+Found t__SGB4547 : 0.33% of mapped reads ( s__Anaerostipes_hadrus,g__Anaerostipes.s__Anaerostipes_sp_Marseille_Q3525,g__Firmicutes_unclassified.s__Firmicutes_bacterium_AF12_30 )
+Found t__SGB5089 : 0.32% of mapped reads ( s__Eubacterium_sp_CAG_38 )
+Found t__SGB4422 : 0.31% of mapped reads ( s__Ruminococcus_callidus,g__Ruminococcus.s__Ruminococcus_sp_OM06_36AC )
+Found t__SGB10068 : 0.31% of mapped reads ( s__Escherichia_coli,g__Shigella.s__Shigella_sonnei,g__Shigella.s__Shigella_flexneri,g__Shigella.s__Shigella_boydii,g__Shigella.s__Shigella_dysenteriae,g__Escherichia.s__Escherichia_sp_HH26CH,g__Escherichia.s__Escherichia_sp_R15,g__Escherichia.s__Escherichia_sp_HH41S,g__Escherichia.s__Escherichia_sp_KCJ4928,g__Escherichia.s__Escherichia_sp_MOD1_EC5287,g__Escherichia.s__Escherichia_sp_R16,g__Escherichia.s__Escherichia_sp_MOD1_EC5189,g__Escherichia.s__Escherichia_sp_94_0001,g__Escherichia.s__Escherichia_sp_R11,g__Shigella.s__Shigella_sp_FC1567,g__Shigella.s__Shigella_sp_FC1661,g__Escherichia.s__Escherichia_sp_1_1_43,g__Escherichia.s__Escherichia_sp_R14,g__Escherichia.s__Escherichia_sp_SCLE84,g__Escherichia.s__Escherichia_sp_MOD1_EC1915,g__Escherichia.s__Escherichia_sp_DSM_109009,g__Escherichia.s__Escherichia_sp_MOD1_EC6021,g__Escherichia.s__Escherichia_sp_79_0191,g__Escherichia.s__Escherichia_sp_MOD1_EC5990,g__Escherichia.s__Escherichia_sp_KCJ4943,g__Escherichia.s__Escherichia_sp_MOD1_EC6300,g__Shigella.s__Shigella_sp_SHS_8,g__Escherichia.s__Escherichia_sp_R3,g__Escherichia.s__Escherichia_sp_MOD1_EC4550,g__Escherichia.s__Escherichia_sp_7785,g__Escherichia.s__Escherichia_sp_JL983,g__Escherichia.s__Escherichia_sp_R12,g__Shigella.s__Shigella_sp_FC2383,g__Escherichia.s__Escherichia_sp_R7,g__Escherichia.s__Escherichia_sp_MOD1_EC2449,g__Shigella.s__Shigella_sp_FC1544,g__Escherichia.s__Escherichia_sp_MOD1_EC4516,g__Shigella.s__Shigella_sp_FC2175,g__Escherichia.s__Escherichia_sp_R8,g__Escherichia.s__Escherichia_sp_TW15838,g__Escherichia.s__Escherichia_sp_0_2392,g__Escherichia.s__Escherichia_sp_R18,g__Escherichia.s__Escherichia_sp_4_1_40B,g__Enterobacteriaceae_unclassified.s__Enterobacteriaceae_bacterium,g__Escherichia.s__Escherichia_fergusonii,g__Shigella.s__Shigella_sp_SHS_2,g__Escherichia.s__Escherichia_sp_R6,g__Shigella.s__Shigella_sp_FC1056,g__Escherichia.s__Escherichia_sp_MOD1_EC4560,g__Shigella.s__Shigella_sp_FC2541,g__Escherichia.s__Escherichia_sp_XD100,g__Escherichia.s__Escherichia_sp_S2_ASV_4,g__Escherichia.s__Escherichia_sp_TM_G17TGC,g__Enterobacteriaceae_unclassified.s__Enterobacteriaceae_bacterium_MCC505,g__Escherichia.s__Escherichia_sp_XD33,g__Escherichia.s__Escherichia_sp_S85_ASV_4,g__Escherichia.s__Escherichia_sp_XD11,g__Escherichia.s__Escherichia_sp_M623,g__Shigella.s__Shigella_sp_FC6543,g__Shigella.s__Shigella_sp_PIB,g__Escherichia.s__Escherichia_sp_NT45,g__Escherichia.s__Escherichia_sp_M612,g__Escherichia.s__Escherichia_sp_XD115,g__Escherichia.s__Escherichia_sp_M609,g__Escherichia.s__Escherichia_sp_M626,g__Escherichia.s__Escherichia_sp_M593,g__Escherichia.s__Escherichia_sp_M608,g__Escherichia.s__Escherichia_sp_NIC18_1,g__Escherichia.s__Escherichia_sp_TF21_Red,g__Enterobacteriaceae_unclassified.s__Enterobacteriaceae_bacterium_CLA_AA_H239,g__Shigella.s__Shigella_sp_FC6485,g__Escherichia.s__Escherichia_sp_NIC33,g__Escherichia.s__Escherichia_sp_XD12 )
+Found t__SGB5736 : 0.30% of mapped reads ( s__Acidaminococcus_intestini,g__Acidaminococcus.s__Acidaminococcus_sp_AM33_14BH,g__Acidaminococcus.s__Acidaminococcus_sp_HPA0509,g__Acidaminococcus.s__Acidaminococcus_sp_BV3L6 )
+Found t__SGB9260 : 0.30% of mapped reads ( s__Proteobacteria_bacterium_CAG_139 )
+Found t__SGB4575 : 0.28% of mapped reads ( s__Dorea_formicigenerans,g__Dorea.s__Dorea_sp_Marseille_P4042,g__Dorea.s__Dorea_sp_AGR2135,g__Dorea.s__Dorea_sp_210702_DFI_3_125,g__Dorea.s__Dorea_sp_210702_DFI_3_17 )
+Found t__SGB1965 : 0.27% of mapped reads ( s__Barnesiella_intestinihominis,g__Bacteroidaceae_unclassified.s__Bacteroidaceae_bacterium,g__Barnesiella.s__Barnesiella_sp_B2_R_119 )
+Found t__SGB1855 : 0.25% of mapped reads ( s__Bacteroides_fragilis,g__Bacteroides.s__Bacteroides_sp_3_2_5 )
+Found g__GGB9509.s__GGB9509_SGB14906 : 0.20% of mapped reads (  )
+Found t__SGB14797 : 0.19% of mapped reads ( s__Asaccharobacter_celatus,g__Adlercreutzia.s__Adlercreutzia_hattorii )
+Found g__Faecalibacterium.s__Faecalibacterium_SGB15346 : 0.18% of mapped reads (  )
+Found t__SGB2303 : 0.17% of mapped reads ( s__Alistipes_finegoldii,g__Alistipes.s__Alistipes_finegoldii,g__Alistipes.s__Alistipes_sp_AM16_43 )
+Found t__SGB15300 : 0.16% of mapped reads ( s__Gemmiger_formicilis )
+Found t__SGB2301 : 0.16% of mapped reads ( s__Alistipes_finegoldii,g__Alistipes.s__Alistipes_sp_HGB5 )
+Found t__SGB9272 : 0.16% of mapped reads ( s__Mesosutterella_multiformis )
+Found t__SGB4868 : 0.16% of mapped reads ( s__Blautia_sp_CAG_52 )
+Found g__GGB36331.s__GGB36331_SGB15121 : 0.15% of mapped reads (  )
+Found g__Oscillibacter.s__Oscillibacter_sp_ER4 : 0.15% of mapped reads ( g__Oscillospiraceae_unclassified.s__Ruminococcaceae_bacterium_AF10_16,g__Oscillospiraceae_unclassified.s__Ruminococcaceae_bacterium_TF06_43,g__Oscillospiraceae_unclassified.s__Oscillospiraceae_bacterium_CLA_AA_H269 )
+Found t__SGB15317 : 0.14% of mapped reads ( s__Faecalibacterium_prausnitzii,g__Faecalibacterium.s__Faecalibacterium_sp_OF04_11AC )
+Found t__SGB4540 : 0.14% of mapped reads ( s__Anaerostipes_hadrus,g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium_AM25_27,g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium_TF10_8AT,g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium_AM21_21,g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium_AM26_1LB,g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium_AM10_38,g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium_OM02_26,g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium_AM23_7LB,g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium_5_1_63FAA )
+Found t__SGB8059_group : 0.14% of mapped reads ( s__Streptococcus_sp_A12,g__Streptococcus.s__Streptococcus_sp_A12,g__Streptococcus.s__Streptococcus_sp_1171_SSPC,g__Streptococcus.s__Streptococcus_sp_1001283B150225_161107_H12,g__Streptococcus.s__Streptococcus_sp_400_SSPC,g__Streptococcus.s__Streptococcus_sp_bf_0095,g__Streptococcus.s__Streptococcus_xiaochunlingii,g__Streptococcus.s__Streptococcus_sp_343_SSPC,g__Streptococcaceae_unclassified.s__Streptococcaceae_bacterium,g__Streptococcus.s__Streptococcus_sp_GS001,g__Streptococcus.s__Streptococcus_sp_DFI_7_26,g__Streptococcus.s__Streptococcus_sp_XMC,g__Streptococcus.s__Streptococcus_ilei,g__Streptococcus.s__Streptococcus_sp_AM28_20,g__Streptococcus.s__Streptococcus_sp_AM43_2AT,g__Streptococcus.s__Streptococcus_koreensis,g__Streptococcus.s__Streptococcus_rubneri )
+Found g__Clostridium.s__Clostridium_fessum : 0.13% of mapped reads ( g__Clostridium.s__Clostridium_sp_AF21_20LB,g__Clostridium.s__Clostridium_sp_OM05_5BH,g__Clostridium.s__Clostridium_sp_AF37_7,g__Clostridium.s__Clostridium_sp_AM18_55,g__Clostridium.s__Clostridium_sp_AF02_29,g__Clostridium.s__Clostridium_sp_AM28_20LB,g__Clostridium.s__Clostridium_sp_AF12_41,g__Clostridium.s__Clostridium_sp_OM04_7,g__Clostridium.s__Clostridium_sp_AF50_3,g__Clostridium.s__Clostridium_sp_OF13_4,g__Clostridium.s__Clostridium_sp_AF24_2LB,g__Clostridium.s__Clostridium_sp_TF11_13AC,g__Clostridium.s__Clostridium_sp_TF06_15AC,g__Clostridium.s__Clostridium_sp_AF35_15,g__Clostridium.s__Clostridium_sp_AM48_13,g__Clostridium.s__Clostridium_sp_AF32_7AC,g__Clostridium.s__Clostridium_sp_AM43_3BH,g__Clostridium.s__Clostridium_sp_AF27_5AA,g__Clostridium.s__Clostridium_sp_AF29_8BH,g__Clostridium.s__Clostridium_sp_BX14,g__Clostridium.s__Clostridium_sp_AF20_7,g__Clostridium.s__Clostridium_sp_AF22_10,g__Clostridium.s__Clostridium_sp_AM27_28 )
+Found g__Massilistercora.s__Massilistercora_timonensis : 0.13% of mapped reads (  )
+Found t__SGB1877 : 0.13% of mapped reads ( s__Bacteroides_caccae )
+Found g__GGB9760.s__GGB9760_SGB15373 : 0.13% of mapped reads (  )
+Found t__SGB4608 : 0.13% of mapped reads ( s__Ruminococcus_torques,g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium_3_1_46FAA,g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium_8_1_57FAA )
+Found t__SGB15452 : 0.12% of mapped reads ( s__Bilophila_wadsworthia,g__Bilophila.s__Bilophila_sp_4_1_30 )
+Found t__SGB9712 : 0.12% of mapped reads ( s__Haemophilus_parainfluenzae,g__Haemophilus.s__Haemophilus_sp_HMSC61B11 )
+Found t__SGB4262 : 0.12% of mapped reads ( s__Ruminococcus_bicirculans,g__Ruminococcus.s__Ruminococcus_sp_AM47_2BH,g__Ruminococcus.s__Ruminococcus_sp_AM28_13,g__Ruminococcus.s__Ruminococcus_sp_AF19_15,g__Ruminococcus.s__Ruminococcus_sp_AF25_19,g__Ruminococcus.s__Ruminococcus_sp_OM07_17,g__Ruminococcus.s__Ruminococcus_sp_AM54_1NS,g__Ruminococcus.s__Ruminococcus_sp_AM31_15AC,g__Ruminococcus.s__Ruminococcus_sp_KGMB03662,g__Ruminococcus.s__Ruminococcus_sp_AF34_12,g__Ruminococcus.s__Ruminococcus_sp_AF17_24,g__Ruminococcus.s__Ruminococcus_sp_AF26_25AA,g__Ruminococcus.s__Ruminococcus_sp_AF16_50,g__Ruminococcus.s__Ruminococcus_sp_AF21_11,g__Ruminococcus.s__Ruminococcus_sp_TF12_2,g__Ruminococcus.s__Ruminococcus_sp_AM43_6,g__Ruminococcus.s__Ruminococcus_sp_AF37_20,g__Ruminococcus.s__Ruminococcus_sp_AF18_29,g__Oscillospiraceae_unclassified.s__Oscillospiraceae_bacterium_CLA_AA_H220,g__Ruminococcus.s__Ruminococcus_sp_MSJ_25,g__Ruminococcus.s__Ruminococcus_sp_TM463 )
+Found g__Lacrimispora.s__Lacrimispora_amygdalina : 0.11% of mapped reads ( g__Eubacteriales_unclassified.s__butyrate_producing_bacterium_SS3_4,g__Clostridium.s__Clostridium_sp_AM25_23AC,g__Clostridium.s__Clostridium_sp_AM34_11AC,g__Clostridiaceae_unclassified.s__Clostridiaceae_bacterium_AF02_42,g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium_OF11_28,g__Eubacteriales_unclassified.s__Clostridiales_bacterium_AF36_10,g__Desulfotomaculum.s__Desulfotomaculum_sp_OF05_3,g__Clostridium.s__Clostridium_sp_AF28_12,g__Clostridiaceae_unclassified.s__Clostridiaceae_bacterium_TF01_6,g__Bacteria_unclassified.s__bacterium_210820_DFI_6_38,g__Clostridium.s__Clostridium_sp_MCC328 )
+Found t__SGB1844 : 0.11% of mapped reads ( s__Bacteroides_cellulosilyticus,g__Bacteroides.s__Bacteroides_sp_14_A,g__Bacteroides.s__Bacteroides_intestinalis )
+Found t__SGB15031 : 0.11% of mapped reads ( s__Firmicutes_bacterium_CAG_110 )
+Found g__Blautia.s__Blautia_SGB4815 : 0.11% of mapped reads (  )
+Found t__SGB4826 : 0.11% of mapped reads ( s__Blautia_obeum,g__Blautia.s__Blautia_luti,g__Blautia.s__Blautia_sp_aa_0143,g__Blautia.s__Blautia_sp_KLE_1732,g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium,g__Blautia.s__Blautia_sp_SF_50,g__Blautia.s__Blautia_sp_BCRC_81119,g__Ruminococcus.s__Ruminococcus_sp_OF02_6,g__Blautia.s__Blautia_obeum,g__Blautia.s__Blautia_sp_SC05B48,g__Blautia.s__Blautia_sp_CLA_AA_H217,g__Blautia.s__Blautia_sp_CLA_AA_H275,g__Blautia.s__Blautia_sp_NSJ_140,g__Blautia.s__Blautia_sp_NSJ_157,g__Blautia.s__Blautia_sp_DFI_9_10,g__Blautia.s__Blautia_sp_MB18_30,g__Blautia.s__Blautia_sp_MSK20_18,g__Blautia.s__Blautia_sp_MCC270 )
+Found t__SGB4269 : 0.10% of mapped reads ( s__Firmicutes_bacterium_CAG_41,g__Firmicutes_unclassified.s__Firmicutes_bacterium_AF36_3BH,g__Firmicutes_unclassified.s__Firmicutes_bacterium_AM55_24TS,g__Oscillospiraceae_unclassified.s__Oscillospiraceae_bacterium_CLA_AA_H232 )
+Found g__Blautia.s__Blautia_glucerasea : 0.05% of mapped reads ( g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium )
+Found g__Fusicatenibacter.s__Fusicatenibacter_sp_CLA_AA_H277 : 0.10% of mapped reads ( g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium_Marseille_Q4251 )
+Found g__GGB9425.s__GGB9425_SGB14795 : 0.10% of mapped reads (  )
+Found g__Blautia.s__Blautia_wexlerae : 0.09% of mapped reads ( g__Blautia.s__Blautia_sp_M29,g__Oscillospiraceae_unclassified.s__Oscillospiraceae_bacterium )
+Found g__Faecalibacillus.s__Faecalibacillus_faecis : 0.08% of mapped reads (  )
+Found g__GGB47687.s__GGB47687_SGB2286 : 0.08% of mapped reads (  )
+Found t__SGB1934 : 0.08% of mapped reads ( s__Parabacteroides_distasonis,g__Parabacteroides.s__Parabacteroides_sp_20_3,g__Parabacteroides.s__Parabacteroides_sp_AF39_10AC,g__Parabacteroides.s__Parabacteroides_sp_D26,g__Parabacteroides.s__Parabacteroides_sp_AT13,g__Parabacteroides.s__Parabacteroides_sp_OF04_13BH,g__Parabacteroides.s__Parabacteroides_sp_AF21_43,g__Parabacteroides.s__Parabacteroides_sp_AM25_14,g__Parabacteroides.s__Parabacteroides_sp_AF19_14,g__Parabacteroides.s__Parabacteroides_sp_OF01_14,g__Parabacteroides.s__Parabacteroides_sp_2_1_7,g__Parabacteroides.s__Parabacteroides_sp_D13,g__Parabacteroides.s__Parabacteroides_sp_CT06,g__Parabacteroides.s__Parabacteroides_sp_CH2_D42_20,g__Parabacteroides.s__Parabacteroides_sp_AF27_14,g__Parabacteroides.s__Parabacteroides_sp_AM17_47,g__Parabacteroides.s__Parabacteroides_sp_Y3_G_102,g__Parabacteroides.s__Parabacteroides_sp_B2_Q_110,g__Parabacteroides.s__Parabacteroides_sp_B2_S_102 )
+Found g__Alistipes.s__Alistipes_communis : 0.08% of mapped reads (  )
+Found t__SGB4670 : 0.07% of mapped reads ( s__Coprococcus_catus,g__Coprococcus.s__Coprococcus_sp_B2_R_112 )
+Found t__SGB8007_group : 0.07% of mapped reads ( s__Streptococcus_pneumoniae,g__Streptococcus.s__Streptococcus_sp_21_1,g__Streptococcus.s__Streptococcus_sp_CCH5_D3,g__Streptococcus.s__Streptococcus_sp_16_1,g__Streptococcus.s__Streptococcus_sp_ACS2,g__Streptococcus.s__Streptococcus_sp_22_1,g__Streptococcus.s__Streptococcus_sp_HMSC064H09,g__Streptococcus.s__Streptococcus_sp_10_1,g__Streptococcus.s__Streptococcus_sp_CCH8_H5,g__Streptococcus.s__Streptococcus_sp_HMSC065H07,g__Streptococcus.s__Streptococcus_sp_23_2,g__Streptococcus.s__Streptococcus_sp_2_1,g__Streptococcus.s__Streptococcus_sp_Marseille_Q3604,g__Streptococcus.s__Streptococcus_sp_HMSC078H12,g__Streptococcus.s__Streptococcus_sp_SR4,g__Streptococcus.s__Streptococcus_sp_449_SSPC,g__Streptococcus.s__Streptococcus_sp_HMSC10E12,g__Streptococcus.s__Streptococcus_sp_HMSC064D12,g__Streptococcus.s__Streptococcus_sp_FDAARGOS_192,g__Streptococcus.s__Streptococcus_sp_HMSC072D03,g__Streptococcus.s__Streptococcus_sp_HMSC078H03,g__Streptococcus.s__Streptococcus_pneumoniae,g__Streptococcus.s__Streptococcus_sp_HMSC068F04,g__Streptococcus.s__Streptococcus_sp_HSISS1,g__Streptococcus.s__Streptococcus_sp_MSK15_114 )
+Found t__SGB14844 : 0.07% of mapped reads ( s__Firmicutes_bacterium_CAG_94 )
+Found t__SGB14322 : 0.07% of mapped reads ( s__Eggerthella_sp_CAG_209 )
+Found g__Faecalibacillus.s__Faecalibacillus_intestinalis : 0.07% of mapped reads ( g__Faecalibacillus.s__Faecalibacillus_sp_H12,g__Bacteria_unclassified.s__bacterium_LF_3,g__Eubacteriales_unclassified.s__Clostridiales_bacterium,g__Erysipelotrichaceae_unclassified.s__Erysipelotrichaceae_bacterium_GAM147,g__Faecalibacillus.s__Faecalibacillus_sp_MSK20_93,g__Bacteria_unclassified.s__bacterium_TM462,g__Faecalibacillus.s__Faecalibacillus_sp_TM111 )
+Found t__SGB6939 : 0.07% of mapped reads ( s__Veillonella_parvula,g__Veillonella.s__Veillonella_sp_AF36_20BH,g__Veillonella.s__Veillonella_sp_6_1_27,g__Veillonella.s__Veillonella_hominis,g__Veillonella.s__Veillonella_sp_S13054_11,g__Veillonella.s__Veillonella_sp_3_1_44,g__Veillonella.s__Veillonella_sp_AF13_2 )
+Found g__Faecalibacterium.s__Faecalibacterium_sp_HTFF : 0.06% of mapped reads (  )
+Found t__SGB5045 : 0.06% of mapped reads ( s__Eubacterium_ventriosum )
+Found g__GGB9424.s__GGB9424_SGB14794 : 0.06% of mapped reads (  )
+Found g__GGB9765.s__GGB9765_SGB15382 : 0.06% of mapped reads (  )
+Found g__GGB9770.s__GGB9770_SGB15390 : 0.06% of mapped reads (  )
+Found g__Brotolimicola.s__Brotolimicola_acetigignens : 0.06% of mapped reads ( g__Clostridium.s__Clostridium_sp_AF34_10BH,g__Clostridium.s__Clostridium_sp_AM34_9AC,g__Clostridium.s__Clostridium_sp_AF36_18BH,g__Clostridium.s__Clostridium_sp_TF08_15,g__Clostridium.s__Clostridium_sp_AF46_12NS,g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium_GAM79,g__Acetatifactor.s__Acetatifactor_sp_DFI_5_50,g__Waltera.s__Waltera_sp_CLA_AA_H273 )
+Found g__Oscillospiraceae_unclassified.s__Oscillospiraceae_bacterium_CLA_AA_H250 : 0.06% of mapped reads ( g__Oscillospiraceae_unclassified.s__Oscillospiraceae_bacterium_MH27_1,g__Oscillospiraceae_unclassified.s__Oscillospiraceae_bacterium_MH27_2 )
+Found t__SGB5090 : 0.06% of mapped reads ( s__Clostridiales_bacterium_KLE1615,g__Firmicutes_unclassified.s__Firmicutes_bacterium_AF25_13AC,g__Lachnoclostridium.s__Lachnoclostridium_sp_210928_DFI_6_3,g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium_CLA_AA_H224 )
+Found g__Mordavella.s__Mordavella_massiliensis : 0.05% of mapped reads (  )
+Found t__SGB746 : 0.05% of mapped reads ( s__Peptostreptococcus_anaerobius )
+Found g__Granulicatella.s__Granulicatella_SGB8255 : 0.05% of mapped reads (  )
+Found t__SGB5792 : 0.05% of mapped reads ( s__Phascolarctobacterium_faecium )
+Found g__GGB9730.s__GGB9730_SGB15291 : 0.05% of mapped reads (  )
+Found g__Clostridium.s__Clostridium_SGB4750 : 0.05% of mapped reads (  )
+Found t__SGB15132 : 0.05% of mapped reads ( s__Flavonifractor_plautii,g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium_7_1_58FAA,g__Eubacteriales_unclassified.s__Clostridiales_bacterium_VE202_03,g__Clostridia_unclassified.s__Clostridia_bacterium_UC5_1_2H11,g__Eubacteriales_unclassified.s__Clostridiales_bacterium )
+Found g__Schaalia.s__Schaalia_SGB17168 : 0.05% of mapped reads (  )
+Found g__Alistipes.s__Alistipes_ihumii : 0.05% of mapped reads (  )
+Found g__Clostridiaceae_unclassified.s__Clostridiaceae_bacterium_Marseille_Q4149 : 0.04% of mapped reads ( g__Oscillospiraceae_unclassified.s__Oscillospiraceae_bacterium_CLA_AA_H272 )
+Found t__SGB8168 : 0.04% of mapped reads ( s__Streptococcus_mitis,g__Streptococcus.s__Streptococcus_sp_HMSC073F11,g__Bacteria_unclassified.s__bacterium )
+Found t__SGB4367 : 0.04% of mapped reads ( s__Ruminococcus_sp_CAG_177 )
+Found g__Blautia.s__Blautia_luti : 0.04% of mapped reads (  )
+Found t__SGB5843 : 0.04% of mapped reads ( s__Allisonella_histaminiformans )
+Found t__SGB15265 : 0.04% of mapped reads ( s__Firmicutes_bacterium_CAG_103 )
+Found g__Dysosmobacter.s__Dysosmobacter_welbionis : 0.04% of mapped reads ( g__Oscillospiraceae_unclassified.s__Oscillospiraceae_bacterium_VE202_24 )
+Found t__SGB15470 : 0.04% of mapped reads ( s__Desulfovibrio_fairfieldensis,g__Desulfovibrio.s__Desulfovibrio_sp_3_1_syn3,g__Desulfovibrio.s__Desulfovibrio_sp_6_1_46AFAA,g__Desulfovibrionaceae_unclassified.s__Desulfovibrionaceae_bacterium )
+Found g__GGB33469.s__GGB33469_SGB15236 : 0.04% of mapped reads (  )
+Found t__SGB2325 : 0.04% of mapped reads ( s__Alistipes_indistinctus )
+Found g__GGB2980.s__GGB2980_SGB3962 : 0.04% of mapped reads (  )
+Found t__SGB1867 : 0.03% of mapped reads ( s__Bacteroides_xylanisolvens,g__Bacteroides.s__Bacteroides_sp_1_1_30,g__Bacteroides.s__Bacteroides_sp_AM16_13,g__Bacteroides.s__Bacteroides_sp_3_1_13,g__Bacteroides.s__Bacteroides_sp_1001302B_160321_D4,g__Bacteroides.s__Bacteroides_sp_D22,g__Bacteroides.s__Bacteroides_sp_2_1_22,g__Bacteroides.s__Bacteroides_sp_AM37_9,g__Bacteroides.s__Bacteroides_sp_MSK_20_12,g__Bacteroides.s__Bacteroides_ovatus,g__Bacteroides.s__Bacteroides_sp_SL_2_06 )
+Found t__SGB4644 : 0.03% of mapped reads ( s__Clostridium_sp_AF36_4,g__Clostridium.s__Clostridium_sp_AF37_5 )
+Found t__SGB1790 : 0.03% of mapped reads ( s__Odoribacter_splanchnicus )
+Found t__SGB7985 : 0.03% of mapped reads ( s__Lactococcus_lactis,g__Lactococcus.s__Lactococcus_cremoris,g__Lactococcus.s__Lactococcus_sp_S64,g__Lactococcus.s__Lactococcus_sp_S47,g__Lactococcus.s__Lactococcus_sp_EKM102L,g__Lactococcus.s__Lactococcus_sp_SK2_659,g__Lactococcus.s__Lactococcus_sp_NH2_7C )
+Found t__SGB15271 : 0.03% of mapped reads ( s__Ruthenibacterium_lactatiformans,g__Oscillospiraceae_unclassified.s__Ruminococcaceae_bacterium_cv2 )
+Found t__SGB8002 : 0.03% of mapped reads ( s__Streptococcus_thermophilus )
+Found g__Schaalia.s__Schaalia_odontolytica : 0.03% of mapped reads ( g__Actinomyces.s__Actinomyces_sp_oral_taxon_172,g__Actinomyces.s__Actinomyces_sp_ICM58 )
+Found t__SGB7020 : 0.03% of mapped reads ( s__Lactobacillus_delbrueckii,g__Lactobacillus.s__Lactobacillus_sp_HMSC08B12 )
+Found t__SGB6140 : 0.03% of mapped reads ( s__Intestinibacter_bartlettii )
+Found g__Faecalibacterium.s__Faecalibacterium_sp_CLA_AA_H233 : 0.03% of mapped reads ( g__Faecalibacterium.s__Faecalibacterium_sp_I3389 )
+Found g__GGB9608.s__GGB9608_SGB15041 : 0.03% of mapped reads (  )
+Found g__GGB3109.s__GGB3109_SGB4121 : 0.03% of mapped reads (  )
+Found t__SGB8028_group : 0.03% of mapped reads ( s__Streptococcus_anginosus_group,g__Streptococcus.s__Streptococcus_periodonticum,g__Streptococcus.s__Streptococcus_sp_HMSC034F02,g__Streptococcus.s__Streptococcus_sp_HMSC073A12,g__Streptococcus.s__Streptococcus_sp_HMSC034B03,g__Streptococcus.s__Streptococcus_sp_HMSC056D07,g__Streptococcus.s__Streptococcus_sp_HF_100,g__Streptococcus.s__Streptococcus_sp_HMSC066F10,g__Streptococcus.s__Streptococcus_sp_HMSC034F03,g__Streptococcus.s__Streptococcus_vaginalis,g__Streptococcus.s__Streptococcus_sp_HMSC071H03,g__Streptococcus.s__Streptococcus_sp_HF_2466,g__Streptococcus.s__Streptococcus_sp_HMSC034E12,g__Streptococcus.s__Streptococcus_sp_HMSC034A12,g__Streptococcus.s__Streptococcus_sp_HMSC034B04,g__Streptococcus.s__Streptococcus_sp_HMSC066E07,g__Streptococcus.s__Streptococcus_sp_CM7,g__Streptococcus.s__Streptococcus_sp_HMSC061D01,g__Streptococcus.s__Streptococcus_sp_HMSC36C04,g__Streptococcus.s__Streptococcus_sp_HMSC057E02,g__Streptococcus.s__Streptococcus_sp_OBRC6,g__Streptococcus.s__Streptococcus_sp_NSJ_17,g__Streptococcus.s__Streptococcus_milleri,g__Streptococcus.s__Streptococcus_viridans,g__Streptococcus.s__Streptococcus_sp_AC15 )
+Found g__GGB8965.s__GGB8965_SGB13825 : 0.03% of mapped reads (  )
+Found g__GGB45491.s__GGB45491_SGB63163 : 0.03% of mapped reads (  )
+Found t__SGB1861 : 0.03% of mapped reads ( s__Bacteroides_thetaiotaomicron,g__Bacteroides.s__Bacteroides_sp_AR20,g__Bacteroides.s__Bacteroides_sp_AM23_12,g__Bacteroides.s__Bacteroides_sp_B1_V_101,g__Bacteroides.s__Bacteroides_sp_MSK_20_82 )
+Found g__GGB3033.s__GGB3033_SGB4029 : 0.03% of mapped reads (  )
+Found t__SGB4993 : 0.03% of mapped reads ( s__Firmicutes_bacterium_AF16_15,g__Firmicutes_unclassified.s__Firmicutes_bacterium_TM09_10,g__Firmicutes_unclassified.s__Firmicutes_bacterium_AF16_15,g__Firmicutes_unclassified.s__Firmicutes_bacterium_AF36_19BH )
+Found g__Streptococcus.s__Streptococcus_rubneri : 0.03% of mapped reads (  )
+Found g__Actinomyces.s__Actinomyces_bouchesdurhonensis : 0.03% of mapped reads (  )
+Found g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium : 0.02% of mapped reads (  )
+Found g__Blautia.s__Blautia_sp_OF03_15BH : 0.02% of mapped reads (  )
+Found t__SGB4659 : 0.02% of mapped reads ( s__Clostridium_sp_CAG_122,g__Clostridium.s__Clostridium_sp_AF34_13,g__Clostridium.s__Clostridium_sp_AM27_31LB )
+Found t__SGB14924 : 0.02% of mapped reads ( s__Firmicutes_bacterium_CAG_137 )
+Found t__SGB4774 : 0.02% of mapped reads ( s__Lachnoclostridium_sp_An138 )
+Found g__Clostridiaceae_unclassified.s__Clostridiaceae_bacterium_Marseille_Q4143 : 0.02% of mapped reads ( g__Clostridiaceae_unclassified.s__Clostridiaceae_bacterium_OM08_6BH,g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium_CLA_AA_H276 )
+Found t__SGB15053 : 0.02% of mapped reads ( s__Oscillibacter_sp_57_20,g__Dysosmobacter.s__Dysosmobacter_sp_BX15,g__Oscillibacter.s__Oscillibacter_sp_MCC667 )
+Found g__Hydrogenoanaerobacterium.s__Hydrogenoanaerobacterium_saccharovorans : 0.02% of mapped reads (  )
+Found g__GGB9453.s__GGB9453_SGB14845 : 0.02% of mapped reads (  )
+Found t__SGB6952 : 0.02% of mapped reads ( s__Veillonella_dispar,g__Veillonella.s__Veillonella_nakazawae,g__Veillonella.s__Veillonella_sp_AF42_16,g__Veillonella.s__Veillonella_sp_S12025_13,g__Veillonella.s__Veillonella_sp_T14073_2,g__Veillonella.s__Veillonella_infantium,g__Veillonella.s__Veillonella_parvula,g__Veillonella.s__Veillonella_sp_Ds1651 )
+Found g__Romboutsia.s__Romboutsia_timonensis : 0.02% of mapped reads (  )
+Found t__SGB4936 : 0.02% of mapped reads ( s__Roseburia_hominis )
+Found g__Clostridium.s__Clostridium_sp_AF20_17LB : 0.02% of mapped reads ( g__Clostridium.s__Clostridium_sp_Marseille_P7770,g__Clostridium.s__Clostridium_sp_AF37_5AT,g__Clostridium.s__Clostridium_sp_OF09_10,g__Clostridium.s__Clostridium_sp_AM22_16AC,g__Clostridium.s__Clostridium_sp_OF03_18AA,g__Clostridium.s__Clostridium_sp_AM16_23,g__Clostridium.s__Clostridium_sp_AM45_5,g__Clostridium.s__Clostridium_sp_MCC344 )
+Found t__SGB17167_group : 0.02% of mapped reads ( s__Actinomyces_sp_ICM47 )
+Found g__GGB9502.s__GGB9502_SGB14899 : 0.02% of mapped reads (  )
+Found t__SGB14853 : 0.02% of mapped reads ( s__Clostridium_leptum )
+Found t__SGB17161_group : 0.02% of mapped reads ( s__Actinomyces_odontolyticus,g__Schaalia.s__Schaalia_sp_ORNL0103 )
+Found g__GGB3034.s__GGB3034_SGB4030 : 0.02% of mapped reads (  )
+Found t__SGB5051 : 0.02% of mapped reads ( s__Eubacterium_sp_CAG_192,g__Eubacterium.s__Eubacterium_sp_AF36_5BH )
+Found g__Clostridiaceae_unclassified.s__Clostridiaceae_bacterium_Marseille_Q4145 : 0.02% of mapped reads (  )
+Found t__SGB7989 : 0.02% of mapped reads ( s__Lactococcus_raffinolactis )
+Found t__SGB9262 : 0.02% of mapped reads ( s__Parasutterella_excrementihominis,g__Burkholderiales_unclassified.s__Burkholderiales_bacterium,g__Burkholderiales_unclassified.s__Burkholderiales_bacterium_1_1_47 )
+Found t__SGB4816 : 0.02% of mapped reads ( s__Blautia_sp,g__Ruminococcus.s__Ruminococcus_sp_1001095IJ_161003_G2,g__Blautia.s__Blautia_sp_BX17,g__Ruminococcus.s__Ruminococcus_sp_AF31_8BH )
+Found g__Bianquea.s__Bianquea_renquensis : 0.02% of mapped reads (  )
+Found g__GGB3033.s__GGB3033_SGB4028 : 0.02% of mapped reads (  )
+Found t__SGB17241 : 0.02% of mapped reads ( s__Bifidobacterium_catenulatum )
+Found g__Clostridium.s__Clostridium_sp_AM33_3 : 0.02% of mapped reads (  )
+Found g__GGB9563.s__GGB9563_SGB14975 : 0.02% of mapped reads (  )
+Found t__SGB4080 : 0.02% of mapped reads ( s__Eubacterium_callanderi,g__Eubacterium.s__Eubacterium_sp_BL_380_WT_2B )
+Found g__Lentihominibacter.s__Lentihominibacter_faecis : 0.01% of mapped reads (  )
+Found t__SGB6847 : 0.01% of mapped reads ( s__Turicibacter_sanguinis,g__Turicibacter.s__Turicibacter_sanguinis,g__Turicibacter.s__Turicibacter_sp_H121,g__Turicibacter.s__Turicibacter_sp_GALT_G1,g__Turicibacter.s__Turicibacter_sp_T129 )
+Found g__Zhenpiania.s__Zhenpiania_hominis : 0.01% of mapped reads (  )
+Found t__SGB4198 : 0.01% of mapped reads ( s__Eubacterium_siraeum )
+Found t__SGB4677 : 0.01% of mapped reads ( s__Blautia_hydrogenotrophica )
+Found g__GGB9296.s__GGB9296_SGB14253 : 0.01% of mapped reads (  )
+Found t__SGB3934_group : 0.01% of mapped reads ( s__Eubacterium_sulci )
+Found g__GGB45432.s__GGB45432_SGB63101 : 0.01% of mapped reads (  )
+Found g__Candidatus_Saccharibacteria_unclassified.s__TM7_phylum_sp_oral_taxon_352 : 0.01% of mapped reads ( g__Candidatus_Nanosynbacter.s__Candidatus_Nanosynbacter_sp_TM7_087,g__Candidatus_Nanosynbacter.s__Candidatus_Nanosynbacter_sp_TM7_075,g__Candidatus_Nanosynbacter.s__Candidatus_Nanosynbacter_sp_TM7_033 )
+Found t__SGB7984 : 0.01% of mapped reads ( s__Lactococcus_lactis,g__Lactococcus.s__Lactococcus_lactis )
+Found g__Merdimonas.s__Merdimonas_faecis : 0.01% of mapped reads (  )
+Found t__SGB8071 : 0.01% of mapped reads ( s__Streptococcus_parasanguinis,g__Streptococcus.s__Streptococcus_sp_HMSC065E03,g__Streptococcus.s__Streptococcus_sp_HMSC076C09,g__Streptococcus.s__Streptococcus_sp_HMSC057G03,g__Streptococcus.s__Streptococcus_sp_HSISM1,g__Streptococcus.s__Streptococcus_sp_HMSC061E03,g__Streptococcus.s__Streptococcus_sp_HMSC072G04,g__Streptococcus.s__Streptococcus_sp_HMSC078D09,g__Streptococcus.s__Streptococcus_sp_LPB0220,g__Streptococcus.s__Streptococcus_sp_HMSC073D05,g__Streptococcus.s__Streptococcus_sp_HMSC074F05,g__Streptococcus.s__Streptococcus_sp_HMSC065C01,g__Streptococcus.s__Streptococcus_sp_HMSC072C09,g__Streptococcus.s__Streptococcus_sp_DSM_110150,g__Streptococcus.s__Streptococcus_sp_CF8_St5_12,g__Streptococcus.s__Streptococcus_sp_CF8_Ac1_9,g__Streptococcus.s__Streptococcus_sp_210928_DFI_4_42 )
+Found t__SGB7295 : 0.01% of mapped reads ( s__Gemella_morbillorum )
+Found t__SGB4584 : 0.01% of mapped reads ( s__Ruminococcus_gnavus,g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium_2_1_58FAA,g__Lachnospiraceae_unclassified.s__Lachnospiraceae_bacterium_TM07_2AC )
+Found t__SGB15089 : 0.01% of mapped reads ( s__Firmicutes_bacterium_CAG_83 )
+Found g__Oscillospiraceae_unclassified.s__Oscillospiraceae_bacterium_Marseille_Q3528 : 0.01% of mapped reads (  )
+
+Total species selected from prescreen: 907
+
+Selected species explain 80.03% of predicted community composition
+
+
+Creating custom ChocoPhlAn database ........
+
+
+Running bowtie2-build ........
+
+
+Running bowtie2 ........
+
+Total bugs from nucleotide alignment: 118
+g__Lachnospira.s__Lachnospira_pectinoschiza: 678536 hits
+g__Bacteroides.s__Bacteroides_vulgatus: 3637565 hits
+g__Dorea.s__Dorea_formicigenerans: 579426 hits
+g__Roseburia.s__Roseburia_faecis: 11859284 hits
+g__Fusicatenibacter.s__Fusicatenibacter_saccharivorans: 1492559 hits
+g__Faecalibacterium.s__Faecalibacterium_prausnitzii: 11570379 hits
+g__Bacteroides.s__Bacteroides_dorei: 2419179 hits
+g__Lachnospiraceae_unclassified.s__Eubacterium_rectale: 3136140 hits
+g__Blautia.s__Blautia_obeum: 2069837 hits
+g__Blautia.s__Ruminococcus_torques: 3563121 hits
+g__Bacteroides.s__Bacteroides_cellulosilyticus: 378171 hits
+g__Collinsella.s__Collinsella_aerofaciens: 2024405 hits
+g__Roseburia.s__Roseburia_inulinivorans: 2084028 hits
+g__Bacteroides.s__Bacteroides_stercoris: 797458 hits
+g__Roseburia.s__Roseburia_intestinalis: 4163121 hits
+g__Streptococcus.s__Streptococcus_sp_A12: 54891 hits
+g__Subdoligranulum.s__Subdoligranulum_sp_APC924_74: 1429949 hits
+g__Bacteroides.s__Bacteroides_uniformis: 4488596 hits
+g__Lactobacillus.s__Lactobacillus_delbrueckii: 16932 hits
+g__Bifidobacterium.s__Bifidobacterium_longum: 2563783 hits
+g__Proteobacteria_unclassified.s__Proteobacteria_bacterium_CAG_139: 181114 hits
+g__Bacteroides.s__Bacteroides_thetaiotaomicron: 205794 hits
+g__Ruminococcus.s__Ruminococcus_bromii: 2212444 hits
+g__Eubacterium.s__Eubacterium_hallii: 508348 hits
+g__Agathobaculum.s__Agathobaculum_butyriciproducens: 590147 hits
+g__Dialister.s__Dialister_sp_CAG_357: 1596322 hits
+g__Mesosutterella.s__Mesosutterella_multiformis: 128017 hits
+g__Firmicutes_unclassified.s__Firmicutes_bacterium_CAG_83: 13757 hits
+g__Blautia.s__Blautia_wexlerae: 724495 hits
+g__Bacteroides.s__Bacteroides_ovatus: 877403 hits
+g__Escherichia.s__Escherichia_coli: 632474 hits
+g__Coprococcus.s__Coprococcus_comes: 866090 hits
+g__Blautia.s__Ruminococcus_gnavus: 322403 hits
+g__Anaerostipes.s__Anaerostipes_hadrus: 436340 hits
+g__Bifidobacterium.s__Bifidobacterium_adolescentis: 1600983 hits
+g__Blautia.s__Blautia_sp: 339504 hits
+g__Dorea.s__Dorea_longicatena: 1221628 hits
+g__Alistipes.s__Alistipes_putredinis: 693425 hits
+g__Bifidobacterium.s__Bifidobacterium_bifidum: 812649 hits
+g__Bacteroides.s__Bacteroides_xylanisolvens: 281392 hits
+g__Roseburia.s__Roseburia_hominis: 476255 hits
+g__Clostridium.s__Clostridium_sp_CAG_217: 480402 hits
+g__Coprococcus.s__Coprococcus_catus: 216781 hits
+g__Blautia.s__Blautia_hydrogenotrophica: 40941 hits
+g__Eubacterium.s__Eubacterium_sp_CAG_38: 277428 hits
+g__Parabacteroides.s__Parabacteroides_distasonis: 238149 hits
+g__Ruminococcus.s__Ruminococcus_callidus: 239951 hits
+g__Streptococcus.s__Streptococcus_pneumoniae: 63794 hits
+g__Haemophilus.s__Haemophilus_parainfluenzae: 145129 hits
+g__Veillonella.s__Veillonella_parvula: 40099 hits
+g__Alistipes.s__Alistipes_indistinctus: 23748 hits
+g__Bilophila.s__Bilophila_wadsworthia: 147026 hits
+g__Bacteroides.s__Bacteroides_fragilis: 722991 hits
+g__Enorma.s__Enorma_massiliensis: 406386 hits
+g__Coprococcus.s__Coprococcus_eutactus: 160375 hits
+g__Gemmiger.s__Gemmiger_formicilis: 296244 hits
+g__Flavonifractor.s__Flavonifractor_plautii: 266731 hits
+g__Barnesiella.s__Barnesiella_intestinihominis: 263940 hits
+g__Firmicutes_unclassified.s__Firmicutes_bacterium_CAG_56: 453732 hits
+g__Escherichia.s__Escherichia_fergusonii: 13807 hits
+g__Bacteroides.s__Bacteroides_caccae: 280352 hits
+g__Acidaminococcus.s__Acidaminococcus_intestini: 237464 hits
+g__Streptococcus.s__Streptococcus_anginosus_group: 23834 hits
+g__Firmicutes_unclassified.s__Firmicutes_bacterium_AF16_15: 86690 hits
+g__Streptococcus.s__Streptococcus_salivarius: 48535 hits
+g__Eubacterium.s__Eubacterium_ventriosum: 122212 hits
+g__Blautia.s__Blautia_sp_CAG_52: 135851 hits
+g__Ruminococcus.s__Ruminococcus_sp_AF31_8BH: 136342 hits
+g__Clostridium.s__Clostridium_sp_AF36_4: 62880 hits
+g__Bifidobacterium.s__Bifidobacterium_catenulatum: 68577 hits
+g__Adlercreutzia.s__Adlercreutzia_equolifaciens: 82970 hits
+g__Streptococcus.s__Streptococcus_milleri: 2390 hits
+g__Desulfovibrio.s__Desulfovibrio_fairfieldensis: 34801 hits
+g__Turicibacter.s__Turicibacter_sanguinis: 13179 hits
+g__Allisonella.s__Allisonella_histaminiformans: 16990 hits
+g__Ruminococcaceae_unclassified.s__Clostridium_leptum: 36984 hits
+g__Odoribacter.s__Odoribacter_splanchnicus: 101768 hits
+g__Alistipes.s__Alistipes_onderdonkii: 91488 hits
+g__Streptococcus.s__Streptococcus_thermophilus: 28623 hits
+g__Asaccharobacter.s__Asaccharobacter_celatus: 159904 hits
+g__Clostridiales_unclassified.s__Clostridiales_bacterium_KLE1615: 105374 hits
+g__Ruminococcus.s__Ruminococcus_bicirculans: 109483 hits
+g__Alistipes.s__Alistipes_finegoldii: 135873 hits
+g__Bacteroides.s__Bacteroides_intestinalis: 146727 hits
+g__Lactococcus.s__Lactococcus_lactis: 34144 hits
+g__Lachnoclostridium.s__Lachnoclostridium_sp_An138: 43921 hits
+g__Firmicutes_unclassified.s__Firmicutes_bacterium_CAG_41: 62914 hits
+g__Actinomyces.s__Actinomyces_odontolyticus: 59412 hits
+g__Streptococcus.s__Streptococcus_mitis: 50969 hits
+g__Parasutterella.s__Parasutterella_excrementihominis: 46501 hits
+g__Oscillibacter.s__Oscillibacter_sp_57_20: 12372 hits
+g__Ruthenibacterium.s__Ruthenibacterium_lactatiformans: 100877 hits
+g__Firmicutes_unclassified.s__Firmicutes_bacterium_CAG_94: 53691 hits
+g__Actinomyces.s__Actinomyces_sp_ICM47: 34932 hits
+g__Firmicutes_unclassified.s__Firmicutes_bacterium_CAG_110: 78608 hits
+g__Ruminococcaceae_unclassified.s__Eubacterium_siraeum: 58745 hits
+g__Ruminococcus.s__Ruminococcus_sp_CAG_177: 28049 hits
+g__Streptococcus.s__Streptococcus_australis: 43712 hits
+g__Clostridium.s__Clostridium_sp_CAG_122: 24937 hits
+g__Streptococcus.s__Streptococcus_parasanguinis: 29640 hits
+g__Clostridiales_Family_XIII_Incertae_Sedis_unclassified.s__Eubacterium_sulci: 8231 hits
+g__Peptostreptococcus.s__Peptostreptococcus_anaerobius: 35402 hits
+g__Intestinibacter.s__Intestinibacter_bartlettii: 62608 hits
+g__Veillonella.s__Veillonella_dispar: 18079 hits
+g__Eubacterium.s__Eubacterium_callanderi: 25421 hits
+g__Eggerthella.s__Eggerthella_sp_CAG_209: 28464 hits
+g__Phascolarctobacterium.s__Phascolarctobacterium_faecium: 36721 hits
+g__Firmicutes_unclassified.s__Firmicutes_bacterium_CAG_137: 14712 hits
+g__Lactococcus.s__Lactococcus_raffinolactis: 12608 hits
+g__Eubacterium.s__Eubacterium_sp_CAG_192: 9973 hits
+g__Firmicutes_unclassified.s__Firmicutes_bacterium_CAG_103: 31217 hits
+g__Eubacteriaceae_unclassified.s__Eubacteriaceae_bacterium: 6986 hits
+g__Desulfovibrionaceae_unclassified.s__Desulfovibrionaceae_bacterium: 6009 hits
+g__Streptococcus.s__Streptococcus_viridans: 9892 hits
+g__Gemella.s__Gemella_morbillorum: 4576 hits
+g__Veillonella.s__Veillonella_infantium: 6530 hits
+g__Oscillibacter.s__Oscillibacter_valericigenes: 119 hits
+g__Hydrogenoanaerobacterium.s__Hydrogenoanaerobacterium_saccharovorans: 1 hits
+
+Total gene families from nucleotide alignment: 305243
+
+Unaligned reads after nucleotide alignment: 35.6771722900 %
+
+
+Running diamond ........
+
+
+Aligning to reference database: uniref90_201901b_full.dmnd
+
+Total bugs after translated alignment: 119
+g__Lachnospira.s__Lachnospira_pectinoschiza: 678536 hits
+g__Bacteroides.s__Bacteroides_vulgatus: 3637565 hits
+g__Dorea.s__Dorea_formicigenerans: 579426 hits
+g__Roseburia.s__Roseburia_faecis: 11859284 hits
+g__Fusicatenibacter.s__Fusicatenibacter_saccharivorans: 1492559 hits
+g__Faecalibacterium.s__Faecalibacterium_prausnitzii: 11570379 hits
+g__Bacteroides.s__Bacteroides_dorei: 2419179 hits
+g__Lachnospiraceae_unclassified.s__Eubacterium_rectale: 3136140 hits
+g__Blautia.s__Blautia_obeum: 2069837 hits
+g__Blautia.s__Ruminococcus_torques: 3563121 hits
+g__Bacteroides.s__Bacteroides_cellulosilyticus: 378171 hits
+g__Collinsella.s__Collinsella_aerofaciens: 2024405 hits
+g__Roseburia.s__Roseburia_inulinivorans: 2084028 hits
+g__Bacteroides.s__Bacteroides_stercoris: 797458 hits
+g__Roseburia.s__Roseburia_intestinalis: 4163121 hits
+g__Streptococcus.s__Streptococcus_sp_A12: 54891 hits
+g__Subdoligranulum.s__Subdoligranulum_sp_APC924_74: 1429949 hits
+g__Bacteroides.s__Bacteroides_uniformis: 4488596 hits
+g__Lactobacillus.s__Lactobacillus_delbrueckii: 16932 hits
+g__Bifidobacterium.s__Bifidobacterium_longum: 2563783 hits
+g__Proteobacteria_unclassified.s__Proteobacteria_bacterium_CAG_139: 181114 hits
+g__Bacteroides.s__Bacteroides_thetaiotaomicron: 205794 hits
+g__Ruminococcus.s__Ruminococcus_bromii: 2212444 hits
+g__Eubacterium.s__Eubacterium_hallii: 508348 hits
+g__Agathobaculum.s__Agathobaculum_butyriciproducens: 590147 hits
+g__Dialister.s__Dialister_sp_CAG_357: 1596322 hits
+g__Mesosutterella.s__Mesosutterella_multiformis: 128017 hits
+g__Firmicutes_unclassified.s__Firmicutes_bacterium_CAG_83: 13757 hits
+g__Blautia.s__Blautia_wexlerae: 724495 hits
+g__Bacteroides.s__Bacteroides_ovatus: 877403 hits
+g__Escherichia.s__Escherichia_coli: 632474 hits
+g__Coprococcus.s__Coprococcus_comes: 866090 hits
+g__Blautia.s__Ruminococcus_gnavus: 322403 hits
+g__Anaerostipes.s__Anaerostipes_hadrus: 436340 hits
+g__Bifidobacterium.s__Bifidobacterium_adolescentis: 1600983 hits
+g__Blautia.s__Blautia_sp: 339504 hits
+g__Dorea.s__Dorea_longicatena: 1221628 hits
+g__Alistipes.s__Alistipes_putredinis: 693425 hits
+g__Bifidobacterium.s__Bifidobacterium_bifidum: 812649 hits
+g__Bacteroides.s__Bacteroides_xylanisolvens: 281392 hits
+g__Roseburia.s__Roseburia_hominis: 476255 hits
+g__Clostridium.s__Clostridium_sp_CAG_217: 480402 hits
+g__Coprococcus.s__Coprococcus_catus: 216781 hits
+g__Blautia.s__Blautia_hydrogenotrophica: 40941 hits
+g__Eubacterium.s__Eubacterium_sp_CAG_38: 277428 hits
+g__Parabacteroides.s__Parabacteroides_distasonis: 238149 hits
+g__Ruminococcus.s__Ruminococcus_callidus: 239951 hits
+g__Streptococcus.s__Streptococcus_pneumoniae: 63794 hits
+g__Haemophilus.s__Haemophilus_parainfluenzae: 145129 hits
+g__Veillonella.s__Veillonella_parvula: 40099 hits
+g__Alistipes.s__Alistipes_indistinctus: 23748 hits
+g__Bilophila.s__Bilophila_wadsworthia: 147026 hits
+g__Bacteroides.s__Bacteroides_fragilis: 722991 hits
+g__Enorma.s__Enorma_massiliensis: 406386 hits
+g__Coprococcus.s__Coprococcus_eutactus: 160375 hits
+g__Gemmiger.s__Gemmiger_formicilis: 296244 hits
+g__Flavonifractor.s__Flavonifractor_plautii: 266731 hits
+g__Barnesiella.s__Barnesiella_intestinihominis: 263940 hits
+g__Firmicutes_unclassified.s__Firmicutes_bacterium_CAG_56: 453732 hits
+g__Escherichia.s__Escherichia_fergusonii: 13807 hits
+g__Bacteroides.s__Bacteroides_caccae: 280352 hits
+g__Acidaminococcus.s__Acidaminococcus_intestini: 237464 hits
+g__Streptococcus.s__Streptococcus_anginosus_group: 23834 hits
+g__Firmicutes_unclassified.s__Firmicutes_bacterium_AF16_15: 86690 hits
+g__Streptococcus.s__Streptococcus_salivarius: 48535 hits
+g__Eubacterium.s__Eubacterium_ventriosum: 122212 hits
+g__Blautia.s__Blautia_sp_CAG_52: 135851 hits
+g__Ruminococcus.s__Ruminococcus_sp_AF31_8BH: 136342 hits
+g__Clostridium.s__Clostridium_sp_AF36_4: 62880 hits
+g__Bifidobacterium.s__Bifidobacterium_catenulatum: 68577 hits
+g__Adlercreutzia.s__Adlercreutzia_equolifaciens: 82970 hits
+g__Streptococcus.s__Streptococcus_milleri: 2390 hits
+g__Desulfovibrio.s__Desulfovibrio_fairfieldensis: 34801 hits
+g__Turicibacter.s__Turicibacter_sanguinis: 13179 hits
+g__Allisonella.s__Allisonella_histaminiformans: 16990 hits
+g__Ruminococcaceae_unclassified.s__Clostridium_leptum: 36984 hits
+g__Odoribacter.s__Odoribacter_splanchnicus: 101768 hits
+g__Alistipes.s__Alistipes_onderdonkii: 91488 hits
+g__Streptococcus.s__Streptococcus_thermophilus: 28623 hits
+g__Asaccharobacter.s__Asaccharobacter_celatus: 159904 hits
+g__Clostridiales_unclassified.s__Clostridiales_bacterium_KLE1615: 105374 hits
+g__Ruminococcus.s__Ruminococcus_bicirculans: 109483 hits
+g__Alistipes.s__Alistipes_finegoldii: 135873 hits
+g__Bacteroides.s__Bacteroides_intestinalis: 146727 hits
+g__Lactococcus.s__Lactococcus_lactis: 34144 hits
+g__Lachnoclostridium.s__Lachnoclostridium_sp_An138: 43921 hits
+g__Firmicutes_unclassified.s__Firmicutes_bacterium_CAG_41: 62914 hits
+g__Actinomyces.s__Actinomyces_odontolyticus: 59412 hits
+g__Streptococcus.s__Streptococcus_mitis: 50969 hits
+g__Parasutterella.s__Parasutterella_excrementihominis: 46501 hits
+g__Oscillibacter.s__Oscillibacter_sp_57_20: 12372 hits
+g__Ruthenibacterium.s__Ruthenibacterium_lactatiformans: 100877 hits
+g__Firmicutes_unclassified.s__Firmicutes_bacterium_CAG_94: 53691 hits
+g__Actinomyces.s__Actinomyces_sp_ICM47: 34932 hits
+g__Firmicutes_unclassified.s__Firmicutes_bacterium_CAG_110: 78608 hits
+g__Ruminococcaceae_unclassified.s__Eubacterium_siraeum: 58745 hits
+g__Ruminococcus.s__Ruminococcus_sp_CAG_177: 28049 hits
+g__Streptococcus.s__Streptococcus_australis: 43712 hits
+g__Clostridium.s__Clostridium_sp_CAG_122: 24937 hits
+g__Streptococcus.s__Streptococcus_parasanguinis: 29640 hits
+g__Clostridiales_Family_XIII_Incertae_Sedis_unclassified.s__Eubacterium_sulci: 8231 hits
+g__Peptostreptococcus.s__Peptostreptococcus_anaerobius: 35402 hits
+g__Intestinibacter.s__Intestinibacter_bartlettii: 62608 hits
+g__Veillonella.s__Veillonella_dispar: 18079 hits
+g__Eubacterium.s__Eubacterium_callanderi: 25421 hits
+g__Eggerthella.s__Eggerthella_sp_CAG_209: 28464 hits
+g__Phascolarctobacterium.s__Phascolarctobacterium_faecium: 36721 hits
+g__Firmicutes_unclassified.s__Firmicutes_bacterium_CAG_137: 14712 hits
+g__Lactococcus.s__Lactococcus_raffinolactis: 12608 hits
+g__Eubacterium.s__Eubacterium_sp_CAG_192: 9973 hits
+g__Firmicutes_unclassified.s__Firmicutes_bacterium_CAG_103: 31217 hits
+g__Eubacteriaceae_unclassified.s__Eubacteriaceae_bacterium: 6986 hits
+g__Desulfovibrionaceae_unclassified.s__Desulfovibrionaceae_bacterium: 6009 hits
+g__Streptococcus.s__Streptococcus_viridans: 9892 hits
+g__Gemella.s__Gemella_morbillorum: 4576 hits
+g__Veillonella.s__Veillonella_infantium: 6530 hits
+g__Oscillibacter.s__Oscillibacter_valericigenes: 119 hits
+g__Hydrogenoanaerobacterium.s__Hydrogenoanaerobacterium_saccharovorans: 1 hits
+unclassified: 12975067 hits
+
+Total gene families after translated alignment: 495570
+
+Unaligned reads after translated alignment: 26.9527442103 %
+
+
+Computing gene families ...
+
+Computing pathways abundance and coverage ...
+
+Output files created: 
+/vXGfFu/MS22_R1_fused_genefamilies.tsv
+/vXGfFu/MS22_R1_fused_pathabundance.tsv
+/vXGfFu/MS22_R1_fused_pathcoverage.tsv
+
+[1;30mINFO[0m [job humann3] Max memory used: 43070MiB
+[1;30mINFO[0m [job humann3] completed success
+[1;30mINFO[0m [step humann3] completed success
+[1;30mINFO[0m [workflow ] completed success
+{
+    "gene_families": {
+        "location": "file:///backup/fpantini/HumannResults/MS22/MS22_R1_fused_genefamilies.tsv",
+        "basename": "MS22_R1_fused_genefamilies.tsv",
+        "class": "File",
+        "checksum": "sha1$21dece56535cfc9c9dc452cfcf4b0e88d8998a2e",
+        "size": 56190976,
+        "path": "/backup/fpantini/HumannResults/MS22/MS22_R1_fused_genefamilies.tsv"
+    },
+    "path_abundance": {
+        "location": "file:///backup/fpantini/HumannResults/MS22/MS22_R1_fused_pathabundance.tsv",
+        "basename": "MS22_R1_fused_pathabundance.tsv",
+        "class": "File",
+        "checksum": "sha1$c07d0edef4e47d779b8df2d26631c7c3d33c994e",
+        "size": 629747,
+        "path": "/backup/fpantini/HumannResults/MS22/MS22_R1_fused_pathabundance.tsv"
+    },
+    "path_coverage": {
+        "location": "file:///backup/fpantini/HumannResults/MS22/MS22_R1_fused_pathcoverage.tsv",
+        "basename": "MS22_R1_fused_pathcoverage.tsv",
+        "class": "File",
+        "checksum": "sha1$cc3aaad6f722eb0f1247ce8ec634aaf82a784127",
+        "size": 619935,
+        "path": "/backup/fpantini/HumannResults/MS22/MS22_R1_fused_pathcoverage.tsv"
+    },
+    "temp_dir": {
+        "location": "file:///backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp",
+        "basename": "MS22_R1_fused_humann_temp",
+        "class": "Directory",
+        "listing": [
+            {
+                "class": "File",
+                "location": "file:///backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused.log",
+                "basename": "MS22_R1_fused.log",
+                "size": 562829,
+                "checksum": "sha1$47972b16c5af1446d2c6d780c7c49047eec9fd8b",
+                "path": "/backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused.log"
+            },
+            {
+                "class": "File",
+                "location": "file:///backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused_custom_chocophlan_database.ffn",
+                "basename": "MS22_R1_fused_custom_chocophlan_database.ffn",
+                "size": 1003941531,
+                "checksum": "sha1$2a7e9909bc65b710224f03286ebfe50a1dd5e356",
+                "path": "/backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused_custom_chocophlan_database.ffn"
+            },
+            {
+                "class": "File",
+                "location": "file:///backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused_bowtie2_index.3.bt2",
+                "basename": "MS22_R1_fused_bowtie2_index.3.bt2",
+                "size": 8981369,
+                "checksum": "sha1$ec0f59ab66eece89a5e40e7305ec399ff3136b0c",
+                "path": "/backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused_bowtie2_index.3.bt2"
+            },
+            {
+                "class": "File",
+                "location": "file:///backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused_bowtie2_index.4.bt2",
+                "basename": "MS22_R1_fused_bowtie2_index.4.bt2",
+                "size": 202412955,
+                "checksum": "sha1$0ed883d38c0dc09b66e0d8739afc4a03d7c19595",
+                "path": "/backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused_bowtie2_index.4.bt2"
+            },
+            {
+                "class": "File",
+                "location": "file:///backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused_bowtie2_index.1.bt2",
+                "basename": "MS22_R1_fused_bowtie2_index.1.bt2",
+                "size": 482272659,
+                "checksum": "sha1$7a67f045e57eca7af1a48d0c92ce869bb23c3959",
+                "path": "/backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused_bowtie2_index.1.bt2"
+            },
+            {
+                "class": "File",
+                "location": "file:///backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused_bowtie2_index.2.bt2",
+                "basename": "MS22_R1_fused_bowtie2_index.2.bt2",
+                "size": 202412960,
+                "checksum": "sha1$8703e904c0f2768ee7b3c0ecfa1427322e7a370b",
+                "path": "/backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused_bowtie2_index.2.bt2"
+            },
+            {
+                "class": "File",
+                "location": "file:///backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused_bowtie2_index.rev.1.bt2",
+                "basename": "MS22_R1_fused_bowtie2_index.rev.1.bt2",
+                "size": 482272659,
+                "checksum": "sha1$85e353441c880ae926b57205977b49551e65901e",
+                "path": "/backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused_bowtie2_index.rev.1.bt2"
+            },
+            {
+                "class": "File",
+                "location": "file:///backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused_bowtie2_index.rev.2.bt2",
+                "basename": "MS22_R1_fused_bowtie2_index.rev.2.bt2",
+                "size": 202412960,
+                "checksum": "sha1$3849657ab5ac72e7b4b84cbcb40ea7e320da5793",
+                "path": "/backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused_bowtie2_index.rev.2.bt2"
+            },
+            {
+                "class": "File",
+                "location": "file:///backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused_bowtie2_aligned.sam",
+                "basename": "MS22_R1_fused_bowtie2_aligned.sam",
+                "size": 69492959652,
+                "checksum": "sha1$6b04035a31eb86401471d6ff4d516ef4a3ab6c28",
+                "path": "/backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused_bowtie2_aligned.sam"
+            },
+            {
+                "class": "File",
+                "location": "file:///backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused_bowtie2_aligned.tsv",
+                "basename": "MS22_R1_fused_bowtie2_aligned.tsv",
+                "size": 23245260657,
+                "checksum": "sha1$e2b54583b7742a1a84bbc86069c6c1d8c2776668",
+                "path": "/backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused_bowtie2_aligned.tsv"
+            },
+            {
+                "class": "File",
+                "location": "file:///backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused_bowtie2_unaligned.fa",
+                "basename": "MS22_R1_fused_bowtie2_unaligned.fa",
+                "size": 9522977006,
+                "checksum": "sha1$5ddb5c5b4a1f6583a00ca50fdf3d5d3f699901f5",
+                "path": "/backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused_bowtie2_unaligned.fa"
+            },
+            {
+                "class": "File",
+                "location": "file:///backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused_diamond_aligned.tsv",
+                "basename": "MS22_R1_fused_diamond_aligned.tsv",
+                "size": 6431855777,
+                "checksum": "sha1$d224f03b60ff4ad44f016656185d6c6301dc04b9",
+                "path": "/backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused_diamond_aligned.tsv"
+            },
+            {
+                "class": "File",
+                "location": "file:///backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused_diamond_unaligned.fa",
+                "basename": "MS22_R1_fused_diamond_unaligned.fa",
+                "size": 7194246606,
+                "checksum": "sha1$3475962b14fd11e3bd7d47b31ec996b9e06be6f8",
+                "path": "/backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp/MS22_R1_fused_diamond_unaligned.fa"
+            }
+        ],
+        "path": "/backup/fpantini/HumannResults/MS22/MS22_R1_fused_humann_temp"
+    }
+}[1;30mINFO[0m Final process status is success
+175.05user 94.50system 10:27:11elapsed 0%CPU (0avgtext+0avgdata 53596maxresident)k
+105486512inputs+18916144outputs (216major+56135minor)pagefaults 0swaps

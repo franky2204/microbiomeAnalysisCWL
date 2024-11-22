@@ -1,0 +1,13 @@
+  read: 
+    class: File
+    path: /backup/fpantini/humann_DB/prove/HV02.fq
+  chocophlan_DB: 
+    class: Directory
+    path: /backup/fpantini/humann_DB/
+  uniref_DB: 
+    class: Directory
+    path: /backup/fpantini/humann_DB/
+  report: 
+    class: File
+    path: /backup/fpantini/humann_DB/
+  threads: int?
