@@ -7,5 +7,5 @@ COPY getOTU.py .
 COPY countTotalOTU.py .
 COPY kraken2.sh .
 COPY computeAlpha.py .
-COPY  kraken2mpa.py . 
-COPY  trasformInMeta.py .
+COPY  kreport2mpa.py . 
+COPY  transformInMeta.py .
