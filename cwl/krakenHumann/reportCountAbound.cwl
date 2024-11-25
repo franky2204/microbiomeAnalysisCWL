@@ -4,11 +4,16 @@ class: CommandLineTool
 
 requirements:
   InlineJavascriptRequirement: {}
+  InitialWorkDirRequirement: 
+    listing:
+      - entry: $(inputs.report)
+        writable: True
+
 hints:
   DockerRequirement:
-    dockerPull: scontaldo/Kraken2:latest
+    dockerPull: scontaldo/kraken2:latest
 
-baseCommand: ["python3", "/trasformInMeta.py"]
+baseCommand: ["python3", "/transformInMeta.py"]
 
 inputs: 
   report:

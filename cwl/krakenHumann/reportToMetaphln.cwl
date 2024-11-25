@@ -6,7 +6,7 @@ requirements:
   InlineJavascriptRequirement: {}
 hints:
   DockerRequirement:
-    dockerPull: scontaldo/Kraken2:latest
+    dockerPull: scontaldo/kraken2:latest
 
 baseCommand: ["python3", "/kreport2mpa.py"]
 
