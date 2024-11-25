@@ -12,10 +12,12 @@ baseCommand: ["bash", "/findReportUni.sh"]
 inputs:
   read_1:
     type: File
+    inputBinding:
+      position: 1
   kraken_folder:
     type: Directory
     inputBinding:
-      position: 1
+      position: 2
 
 outputs:
   report:
