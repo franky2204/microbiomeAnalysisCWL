@@ -4,7 +4,8 @@ class: Workflow
 
 requirements:
   InlineJavascriptRequirement: {}
-
+  MultipleInputFeatureRequirement: {}
+  SubworkflowFeatureRequirement: {}
 inputs:
   threads: int?
   read_1: File  

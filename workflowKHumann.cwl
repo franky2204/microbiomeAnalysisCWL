@@ -3,8 +3,11 @@ class: Workflow
 
 requirements:
   InlineJavascriptRequirement: {}
+  ScatterFeatureRequirement: {}
+  MultipleInputFeatureRequirement: {}
+  SubworkflowFeatureRequirement: {}
 inputs:
-  fastq_directory: Directory
+  fastq_directory: Directory 
   threads: int?
   kraken_folder:
     type: Directory
@@ -12,21 +15,21 @@ inputs:
     type: Directory
   uniref_DB:
     type: Directory
-    
+
   
 
 outputs:
     gene_families: 
-        type: File
+        type: File[]
         outputSource: KHumann/gene_families
     path_coverage: 
-        type: File
+        type: File[]
         outputSource: KHumann/path_coverage
     path_abundance: 
-        type: File
+        type: File[]
         outputSource: KHumann/path_abundance
     temp_dir: 
-        type: Directory
+        type: Directory[]
         outputSource: KHumann/temp_dir
 
 steps:
