@@ -1,13 +1,9 @@
+
 cwlVersion: v1.2
 class: CommandLineTool
 
 requirements:
   InlineJavascriptRequirement: {}
-hints:
-  DockerRequirement:
-    dockerPull: scontaldo/checkinput
-
-baseCommand: ["bash", "/findReportUni.sh"]
 
 inputs:
   read_1:
@@ -16,9 +12,14 @@ inputs:
     type: Directory
     inputBinding:
       position: 1
-
 outputs:
   report:
     type: File
     outputBinding:
-      glob: "*.report"
+      glob: |
+        ${
+          var partial_name = inputs.read_1.nameroot;
+          return inputs.kraken_folder.basename + '/' + partial_name.split('_')[0] + '.report';
+        }
+
+baseCommand: ["echo"]

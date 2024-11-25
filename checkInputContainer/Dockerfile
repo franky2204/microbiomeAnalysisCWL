@@ -13,3 +13,4 @@ COPY findReport.sh .
 COPY sendReport.sh .
 COPY findMetaOut.sh .
 COPY sendMetaOut.sh .
+COPY findMetaOut2.sh .
