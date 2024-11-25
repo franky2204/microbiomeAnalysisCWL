@@ -1,3 +1,4 @@
+
 cwlVersion: v1.2
 class: CommandLineTool
 
@@ -17,9 +18,8 @@ outputs:
     outputBinding:
       glob: |
         ${
-          var partial_name = inputs.read_1.basename;
-          var truncated_name = partial_name.split('_')[0];
-          return  inputs.kraken_folder.path + '/*' + truncated_name +'*.report';
+          var partial_name = inputs.read_1.nameroot;
+          return inputs.kraken_folder.basename + '/' + partial_name.split('_')[0] + '.report';
         }
 
 baseCommand: ["echo"]
