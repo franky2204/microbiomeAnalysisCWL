@@ -1,0 +1,13 @@
+kraken_folder:
+  class: Directory
+  path: /home/franky/Desktop/prove/da_cerare
+chocophlan_DB:
+  class: Directory
+  path: /backup/fpantini/humann_DB/chocophlan
+uniref_DB:
+  class: Directory
+  path: /backup/fpantini/humann_DB/uniref
+threads: 30
+fastq_directory: 
+  class: Directory
+  location: /home/franky/Desktop/prove
